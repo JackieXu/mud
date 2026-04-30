@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node:1-18-bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:1-24-bookworm
 
 ENV HOME /home/node
 
