@@ -17,8 +17,6 @@ import { getChainId } from "viem/actions";
 import { getAction } from "viem/utils";
 import { GetRpcClientOptions, getRpcClient } from "@latticexyz/block-logs-stream";
 
-// TODO: upgrade drizzle and use async sqlite interface for consistency
-
 export async function sqliteStorage({
   database,
   ...opts
@@ -35,7 +33,7 @@ export async function sqliteStorage({
   return async function sqliteStorageAdapter({ blockNumber, logs }) {
     // Find table registration logs and create new tables
     const newTables = logs.filter(isTableRegistrationLog).map(logToTable);
-    await database.transaction(async (tx) => {
+    database.transaction((tx) => {
       for (const table of newTables) {
         debug(`creating table ${resourceToLabel(table)} for world ${chainId}:${table.address}`);
 
@@ -74,7 +72,7 @@ export async function sqliteStorage({
       ).map((json) => JSON.parse(json)),
     );
 
-    await database.transaction(async (tx) => {
+    database.transaction((tx) => {
       for (const { address, namespace, name } of tables) {
         tx.update(mudStoreTables)
           .set({ lastUpdatedBlockNumber: blockNumber })
@@ -147,7 +145,7 @@ export async function sqliteStorage({
             .run();
         } else if (log.eventName === "Store_SpliceStaticData") {
           // TODO: verify that this returns what we expect (doesn't error/undefined on no record)
-          const previousValue = (await tx.select().from(sqlTable).where(eq(sqlTable.__key, uniqueKey)).execute())[0];
+          const previousValue = tx.select().from(sqlTable).where(eq(sqlTable.__key, uniqueKey)).get();
           const previousStaticData = (previousValue?.__staticData as Hex) ?? "0x";
           const newStaticData = spliceHex(previousStaticData, log.args.start, size(log.args.data), log.args.data);
           const newValue = decodeValueArgs(table.valueSchema, {
@@ -184,7 +182,7 @@ export async function sqliteStorage({
             })
             .run();
         } else if (log.eventName === "Store_SpliceDynamicData") {
-          const previousValue = (await tx.select().from(sqlTable).where(eq(sqlTable.__key, uniqueKey)).execute())[0];
+          const previousValue = tx.select().from(sqlTable).where(eq(sqlTable.__key, uniqueKey)).get();
           const previousDynamicData = (previousValue?.__dynamicData as Hex) ?? "0x";
           const newDynamicData = spliceHex(previousDynamicData, log.args.start, log.args.deleteCount, log.args.data);
           const newValue = decodeValueArgs(table.valueSchema, {
