@@ -43,6 +43,18 @@ We'd love your support in improving MUD, [see here for instructions](https://mud
 This monorepo includes all of MUD's source code, and pull requests are always welcome.
 To discuss new features or changes [join our Discord](https://lattice.xyz/discord).
 
+### Running tests locally
+
+Some test suites (`store-sync`, KMS account tests) need a Postgres instance and `local-kms`. Bring them up with Docker:
+
+```
+pnpm test:setup
+AWS_ENDPOINT_URL='http://localhost:8080' pnpm test:ci
+pnpm test:teardown
+```
+
+Anvil is started automatically by the `with-anvil` wrapper used by `pnpm test` and `pnpm test:ci`.
+
 ## Community support
 
 [Join our Discord](https://lattice.xyz/discord) to get support and connect with the community!
