@@ -35,7 +35,11 @@ export async function runGasReport(options: CommandOptions): Promise<GasReport> 
   // Extract the gas reports from the logs
   const lines = logs.split("\n").map(stripAnsi);
   const gasReportPattern = /^\s*GAS REPORT: (\d+) (.*)$/;
-  const testFunctionPattern = /^\[(?:PASS|FAIL).*\] (\w+)\(\)/;
+  // Matches both non-fuzz `testName()` and fuzz `testName(arg1,arg2,...)` signatures
+  const testFunctionPattern = /^\[(?:PASS|FAIL).*\] (\w+)\(/;
+  // Fuzz tests have parameters between the parens; their gas measurements vary
+  // by random seed and aren't a stable benchmark, so we skip them.
+  const fuzzTestPattern = /^\[(?:PASS|FAIL).*\] \w+\([^)]/;
   // Matches "Running" for forge versions before 2024-02-15
   // And "Ran" for forge versions after 2024-02-15
   const testFilePattern = /^(?:Running|Ran) \d+ tests? for (.*:.*)$/;
@@ -61,6 +65,7 @@ export async function runGasReport(options: CommandOptions): Promise<GasReport> 
     if (testFunctionLineIndex === -1) {
       throw new Error("Could not find nearest test function, did `forge test` output change?");
     }
+    if (fuzzTestPattern.test(lines[testFunctionLineIndex])) continue;
     const testFileLineIndex = nearestLine(testFilePattern, testFunctionLineIndex);
     if (testFileLineIndex === -1) {
       throw new Error("Could not find nearest test filename, did `forge test` output change?");
