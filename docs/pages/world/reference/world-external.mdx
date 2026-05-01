@@ -7,16 +7,22 @@
 **Inherits:**
 [IStore](/store/reference/store#istore), [IWorldKernel](/world/reference/world-external#iworldkernel), [IRegistrationSystem](/world/reference/world-external#iregistrationsystem), [IAccessManagementSystem](/world/reference/world-external#iaccessmanagementsystem), [IBalanceTransferSystem](/world/reference/world-external#ibalancetransfersystem), [IBatchCallSystem](/world/reference/world-external#ibatchcallsystem), [IModuleInstallationSystem](/world/reference/world-external#imoduleinstallationsystem), [IWorldRegistrationSystem](/world/reference/world-external#iworldregistrationsystem)
 
+**Title:**
+IBaseWorld
+
 This interface integrates all systems and associated function selectors
 that are dynamically registered in the World during deployment.
 
-_._
+.
 
 ## IWorldCall
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldKernel.sol)
 
-_This interface defines the contract for executing calls on the World's systems._
+**Title:**
+World Call Interface
+
+This interface defines the contract for executing calls on the World's systems.
 
 ### Functions
 
@@ -26,7 +32,7 @@ _This interface defines the contract for executing calls on the World's systems.
 
 Call the system at the given system ID.
 
-_If the system is not public, the caller must have access to the namespace or name (encoded in the system ID)._
+If the system is not public, the caller must have access to the namespace or name (encoded in the system ID).
 
 ```solidity
 function call(ResourceId systemId, bytes memory callData) external payable returns (bytes memory);
@@ -49,7 +55,7 @@ function call(ResourceId systemId, bytes memory callData) external payable retur
 
 Call the system at the given system ID on behalf of the given delegator.
 
-_If the system is not public, the delegator must have access to the namespace or name (encoded in the system ID)._
+If the system is not public, the delegator must have access to the namespace or name (encoded in the system ID).
 
 ```solidity
 function callFrom(
@@ -80,12 +86,15 @@ function callFrom(
 **Inherits:**
 [IWorldModuleInstallation](/world/reference/world-external#iworldmoduleinstallation), [IWorldCall](/world/reference/world-external#iworldcall), [IWorldErrors](/world/reference/world-external#iworlderrors), [IWorldEvents](/world/reference/world-external#iworldevents), [IModuleErrors](/world/reference/module-external#imoduleerrors)
 
+**Title:**
+World Kernel Interface
+
 The IWorldKernel interface includes all methods that are part of the World contract's
 internal bytecode. Consumers should use the `IBaseWorld` interface instead, which includes dynamically
 registered functions selectors from the `InitModule`.
 
-_The IWorldKernel interface inherits IModuleErrors because the world can be delegatecalled with module code,
-so it's ABI should include these errors._
+The IWorldKernel interface inherits IModuleErrors because the world can be delegatecalled with module code,
+so it's ABI should include these errors.
 
 ### Functions
 
@@ -121,7 +130,7 @@ function creator() external view returns (address);
 
 Initializes the World.
 
-_Can only be called once by the creator._
+Can only be called once by the creator.
 
 ```solidity
 function initialize(IModule initModule) external;
@@ -137,7 +146,10 @@ function initialize(IModule initModule) external;
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldKernel.sol)
 
-_This interface defines the contract responsible for managing root modules installation._
+**Title:**
+World Module Installation Interface
+
+This interface defines the contract responsible for managing root modules installation.
 
 ### Functions
 
@@ -145,7 +157,7 @@ _This interface defines the contract responsible for managing root modules insta
 
 Install the given root module in the World.
 
-_Requires the caller to own the root namespace. The module is delegatecalled and installed in the root namespace._
+Requires the caller to own the root namespace. The module is delegatecalled and installed in the root namespace.
 
 ```solidity
 function installRootModule(IModule module, bytes memory encodedArgs) external;
@@ -162,8 +174,11 @@ function installRootModule(IModule module, bytes memory encodedArgs) external;
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldErrors.sol)
 
-_This interface contains custom error types for the World contract. These errors provide
-more informative messages for certain operations within the World contract._
+**Title:**
+World Errors Interface
+
+This interface contains custom error types for the World contract. These errors provide
+more informative messages for certain operations within the World contract.
 
 ### Errors
 
@@ -379,8 +394,11 @@ error World_CallbackNotAllowed(bytes4 functionSelector);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldEvents.sol)
 
-_We bundle these events in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IWorldKernel.
-This ensures that all events are included in the IWorldKernel ABI for proper decoding in the frontend._
+**Title:**
+IWorldEvents
+
+We bundle these events in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IWorldKernel.
+This ensures that all events are included in the IWorldKernel ABI for proper decoding in the frontend.
 
 ### Events
 
@@ -402,9 +420,19 @@ event HelloWorld(bytes32 indexed worldVersion);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IRegistrationSystem.sol)
 
+**Title:**
+IRegistrationSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
+
 ## IAccessManagementSystem
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IAccessManagementSystem.sol)
+
+**Title:**
+IAccessManagementSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
 
 ### Functions
 
@@ -440,6 +468,11 @@ function renounceOwnership(ResourceId namespaceId) external;
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IBalanceTransferSystem.sol)
 
+**Title:**
+IBalanceTransferSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
+
 ### Functions
 
 #### transferBalanceToNamespace
@@ -460,6 +493,11 @@ function transferBalanceToAddress(ResourceId fromNamespaceId, address toAddress,
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IBatchCallSystem.sol)
 
+**Title:**
+IBatchCallSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
+
 ### Functions
 
 #### batchCall
@@ -478,6 +516,11 @@ function batchCallFrom(SystemCallFromData[] calldata systemCalls) external retur
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IModuleInstallationSystem.sol)
 
+**Title:**
+IModuleInstallationSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
+
 ### Functions
 
 #### installModule
@@ -489,6 +532,11 @@ function installModule(IModule module, bytes memory encodedArgs) external;
 ## IStoreRegistrationSystem
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IStoreRegistrationSystem.sol)
+
+**Title:**
+IStoreRegistrationSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
 
 ### Functions
 
@@ -522,6 +570,11 @@ function unregisterStoreHook(ResourceId tableId, IStoreHook hookAddress) externa
 ## IWorldRegistrationSystem
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IWorldRegistrationSystem.sol)
+
+**Title:**
+IWorldRegistrationSystem
+
+This interface is automatically generated from the corresponding system contract. Do not edit manually.
 
 ### Functions
 

@@ -4,6 +4,9 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Bytes.sol)
 
+**Title:**
+Bytes
+
 Utility functions for bytes.
 
 ### Functions
@@ -12,9 +15,9 @@ Utility functions for bytes.
 
 UTILS
 
-_Sets the length of a bytes blob in memory.
+Sets the length of a bytes blob in memory.
 This function does not resize the memory allocation; it only changes the length
-field, which affects operations that access the length property._
+field, which affects operations that access the length property.
 
 ```solidity
 function setLength(bytes memory input, uint256 length) internal pure returns (bytes memory);
@@ -37,7 +40,7 @@ function setLength(bytes memory input, uint256 length) internal pure returns (by
 
 SET
 
-_Sets a specific 4-byte sequence in a bytes blob at a given index._
+Sets a specific 4-byte sequence in a bytes blob at a given index.
 
 ```solidity
 function setBytes4(bytes memory input, uint256 index, bytes4 overwrite) internal pure returns (bytes memory);
@@ -62,7 +65,7 @@ function setBytes4(bytes memory input, uint256 index, bytes4 overwrite) internal
 GET
 Used by codegen libraries
 
-_Extracts a single byte from a bytes blob starting at a specific position._
+Extracts a single byte from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes1(bytes memory data, uint256 start) internal pure returns (bytes1 output);
@@ -83,7 +86,7 @@ function getBytes1(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes1
 
-_Extracts a single byte from a bytes32 value starting at a specific position._
+Extracts a single byte from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes1(bytes32 data, uint256 start) internal pure returns (bytes1 output);
@@ -104,7 +107,7 @@ function getBytes1(bytes32 data, uint256 start) internal pure returns (bytes1 ou
 
 #### getBytes2
 
-_Extracts a 2-byte sequence from a bytes blob starting at a specific position._
+Extracts a 2-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes2(bytes memory data, uint256 start) internal pure returns (bytes2 output);
@@ -125,7 +128,7 @@ function getBytes2(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes2
 
-_Extracts a 2-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 2-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes2(bytes32 data, uint256 start) internal pure returns (bytes2 output);
@@ -146,7 +149,7 @@ function getBytes2(bytes32 data, uint256 start) internal pure returns (bytes2 ou
 
 #### getBytes3
 
-_Extracts a 3-byte sequence from a bytes blob starting at a specific position._
+Extracts a 3-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes3(bytes memory data, uint256 start) internal pure returns (bytes3 output);
@@ -167,7 +170,7 @@ function getBytes3(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes3
 
-_Extracts a 3-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 3-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes3(bytes32 data, uint256 start) internal pure returns (bytes3 output);
@@ -188,7 +191,7 @@ function getBytes3(bytes32 data, uint256 start) internal pure returns (bytes3 ou
 
 #### getBytes4
 
-_Extracts a 4-byte sequence from a bytes blob starting at a specific position._
+Extracts a 4-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes4(bytes memory data, uint256 start) internal pure returns (bytes4 output);
@@ -209,7 +212,7 @@ function getBytes4(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes4
 
-_Extracts a 4-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 4-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes4(bytes32 data, uint256 start) internal pure returns (bytes4 output);
@@ -230,7 +233,7 @@ function getBytes4(bytes32 data, uint256 start) internal pure returns (bytes4 ou
 
 #### getBytes5
 
-_Extracts a 5-byte sequence from a bytes blob starting at a specific position._
+Extracts a 5-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes5(bytes memory data, uint256 start) internal pure returns (bytes5 output);
@@ -251,7 +254,7 @@ function getBytes5(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes5
 
-_Extracts a 5-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 5-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes5(bytes32 data, uint256 start) internal pure returns (bytes5 output);
@@ -272,7 +275,7 @@ function getBytes5(bytes32 data, uint256 start) internal pure returns (bytes5 ou
 
 #### getBytes6
 
-_Extracts a 6-byte sequence from a bytes blob starting at a specific position._
+Extracts a 6-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes6(bytes memory data, uint256 start) internal pure returns (bytes6 output);
@@ -293,7 +296,7 @@ function getBytes6(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes6
 
-_Extracts a 6-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 6-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes6(bytes32 data, uint256 start) internal pure returns (bytes6 output);
@@ -314,7 +317,7 @@ function getBytes6(bytes32 data, uint256 start) internal pure returns (bytes6 ou
 
 #### getBytes7
 
-_Extracts a 7-byte sequence from a bytes blob starting at a specific position._
+Extracts a 7-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes7(bytes memory data, uint256 start) internal pure returns (bytes7 output);
@@ -335,7 +338,7 @@ function getBytes7(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes7
 
-_Extracts a 7-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 7-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes7(bytes32 data, uint256 start) internal pure returns (bytes7 output);
@@ -356,7 +359,7 @@ function getBytes7(bytes32 data, uint256 start) internal pure returns (bytes7 ou
 
 #### getBytes8
 
-_Extracts a 8-byte sequence from a bytes blob starting at a specific position._
+Extracts a 8-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes8(bytes memory data, uint256 start) internal pure returns (bytes8 output);
@@ -377,7 +380,7 @@ function getBytes8(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes8
 
-_Extracts a 8-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 8-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes8(bytes32 data, uint256 start) internal pure returns (bytes8 output);
@@ -398,7 +401,7 @@ function getBytes8(bytes32 data, uint256 start) internal pure returns (bytes8 ou
 
 #### getBytes9
 
-_Extracts a 9-byte sequence from a bytes blob starting at a specific position._
+Extracts a 9-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes9(bytes memory data, uint256 start) internal pure returns (bytes9 output);
@@ -419,7 +422,7 @@ function getBytes9(bytes memory data, uint256 start) internal pure returns (byte
 
 #### getBytes9
 
-_Extracts a 9-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 9-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes9(bytes32 data, uint256 start) internal pure returns (bytes9 output);
@@ -440,7 +443,7 @@ function getBytes9(bytes32 data, uint256 start) internal pure returns (bytes9 ou
 
 #### getBytes10
 
-_Extracts a 10-byte sequence from a bytes blob starting at a specific position._
+Extracts a 10-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes10(bytes memory data, uint256 start) internal pure returns (bytes10 output);
@@ -461,7 +464,7 @@ function getBytes10(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes10
 
-_Extracts a 10-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 10-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes10(bytes32 data, uint256 start) internal pure returns (bytes10 output);
@@ -482,7 +485,7 @@ function getBytes10(bytes32 data, uint256 start) internal pure returns (bytes10 
 
 #### getBytes11
 
-_Extracts a 11-byte sequence from a bytes blob starting at a specific position._
+Extracts a 11-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes11(bytes memory data, uint256 start) internal pure returns (bytes11 output);
@@ -503,7 +506,7 @@ function getBytes11(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes11
 
-_Extracts a 11-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 11-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes11(bytes32 data, uint256 start) internal pure returns (bytes11 output);
@@ -524,7 +527,7 @@ function getBytes11(bytes32 data, uint256 start) internal pure returns (bytes11 
 
 #### getBytes12
 
-_Extracts a 12-byte sequence from a bytes blob starting at a specific position._
+Extracts a 12-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes12(bytes memory data, uint256 start) internal pure returns (bytes12 output);
@@ -545,7 +548,7 @@ function getBytes12(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes12
 
-_Extracts a 12-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 12-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes12(bytes32 data, uint256 start) internal pure returns (bytes12 output);
@@ -566,7 +569,7 @@ function getBytes12(bytes32 data, uint256 start) internal pure returns (bytes12 
 
 #### getBytes13
 
-_Extracts a 13-byte sequence from a bytes blob starting at a specific position._
+Extracts a 13-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes13(bytes memory data, uint256 start) internal pure returns (bytes13 output);
@@ -587,7 +590,7 @@ function getBytes13(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes13
 
-_Extracts a 13-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 13-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes13(bytes32 data, uint256 start) internal pure returns (bytes13 output);
@@ -608,7 +611,7 @@ function getBytes13(bytes32 data, uint256 start) internal pure returns (bytes13 
 
 #### getBytes14
 
-_Extracts a 14-byte sequence from a bytes blob starting at a specific position._
+Extracts a 14-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes14(bytes memory data, uint256 start) internal pure returns (bytes14 output);
@@ -629,7 +632,7 @@ function getBytes14(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes14
 
-_Extracts a 14-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 14-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes14(bytes32 data, uint256 start) internal pure returns (bytes14 output);
@@ -650,7 +653,7 @@ function getBytes14(bytes32 data, uint256 start) internal pure returns (bytes14 
 
 #### getBytes15
 
-_Extracts a 15-byte sequence from a bytes blob starting at a specific position._
+Extracts a 15-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes15(bytes memory data, uint256 start) internal pure returns (bytes15 output);
@@ -671,7 +674,7 @@ function getBytes15(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes15
 
-_Extracts a 15-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 15-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes15(bytes32 data, uint256 start) internal pure returns (bytes15 output);
@@ -692,7 +695,7 @@ function getBytes15(bytes32 data, uint256 start) internal pure returns (bytes15 
 
 #### getBytes16
 
-_Extracts a 16-byte sequence from a bytes blob starting at a specific position._
+Extracts a 16-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes16(bytes memory data, uint256 start) internal pure returns (bytes16 output);
@@ -713,7 +716,7 @@ function getBytes16(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes16
 
-_Extracts a 16-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 16-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes16(bytes32 data, uint256 start) internal pure returns (bytes16 output);
@@ -734,7 +737,7 @@ function getBytes16(bytes32 data, uint256 start) internal pure returns (bytes16 
 
 #### getBytes17
 
-_Extracts a 17-byte sequence from a bytes blob starting at a specific position._
+Extracts a 17-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes17(bytes memory data, uint256 start) internal pure returns (bytes17 output);
@@ -755,7 +758,7 @@ function getBytes17(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes17
 
-_Extracts a 17-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 17-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes17(bytes32 data, uint256 start) internal pure returns (bytes17 output);
@@ -776,7 +779,7 @@ function getBytes17(bytes32 data, uint256 start) internal pure returns (bytes17 
 
 #### getBytes18
 
-_Extracts a 18-byte sequence from a bytes blob starting at a specific position._
+Extracts a 18-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes18(bytes memory data, uint256 start) internal pure returns (bytes18 output);
@@ -797,7 +800,7 @@ function getBytes18(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes18
 
-_Extracts a 18-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 18-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes18(bytes32 data, uint256 start) internal pure returns (bytes18 output);
@@ -818,7 +821,7 @@ function getBytes18(bytes32 data, uint256 start) internal pure returns (bytes18 
 
 #### getBytes19
 
-_Extracts a 19-byte sequence from a bytes blob starting at a specific position._
+Extracts a 19-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes19(bytes memory data, uint256 start) internal pure returns (bytes19 output);
@@ -839,7 +842,7 @@ function getBytes19(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes19
 
-_Extracts a 19-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 19-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes19(bytes32 data, uint256 start) internal pure returns (bytes19 output);
@@ -860,7 +863,7 @@ function getBytes19(bytes32 data, uint256 start) internal pure returns (bytes19 
 
 #### getBytes20
 
-_Extracts a 20-byte sequence from a bytes blob starting at a specific position._
+Extracts a 20-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes20(bytes memory data, uint256 start) internal pure returns (bytes20 output);
@@ -881,7 +884,7 @@ function getBytes20(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes20
 
-_Extracts a 20-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 20-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes20(bytes32 data, uint256 start) internal pure returns (bytes20 output);
@@ -902,7 +905,7 @@ function getBytes20(bytes32 data, uint256 start) internal pure returns (bytes20 
 
 #### getBytes21
 
-_Extracts a 21-byte sequence from a bytes blob starting at a specific position._
+Extracts a 21-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes21(bytes memory data, uint256 start) internal pure returns (bytes21 output);
@@ -923,7 +926,7 @@ function getBytes21(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes21
 
-_Extracts a 21-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 21-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes21(bytes32 data, uint256 start) internal pure returns (bytes21 output);
@@ -944,7 +947,7 @@ function getBytes21(bytes32 data, uint256 start) internal pure returns (bytes21 
 
 #### getBytes22
 
-_Extracts a 22-byte sequence from a bytes blob starting at a specific position._
+Extracts a 22-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes22(bytes memory data, uint256 start) internal pure returns (bytes22 output);
@@ -965,7 +968,7 @@ function getBytes22(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes22
 
-_Extracts a 22-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 22-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes22(bytes32 data, uint256 start) internal pure returns (bytes22 output);
@@ -986,7 +989,7 @@ function getBytes22(bytes32 data, uint256 start) internal pure returns (bytes22 
 
 #### getBytes23
 
-_Extracts a 23-byte sequence from a bytes blob starting at a specific position._
+Extracts a 23-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes23(bytes memory data, uint256 start) internal pure returns (bytes23 output);
@@ -1007,7 +1010,7 @@ function getBytes23(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes23
 
-_Extracts a 23-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 23-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes23(bytes32 data, uint256 start) internal pure returns (bytes23 output);
@@ -1028,7 +1031,7 @@ function getBytes23(bytes32 data, uint256 start) internal pure returns (bytes23 
 
 #### getBytes24
 
-_Extracts a 24-byte sequence from a bytes blob starting at a specific position._
+Extracts a 24-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes24(bytes memory data, uint256 start) internal pure returns (bytes24 output);
@@ -1049,7 +1052,7 @@ function getBytes24(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes24
 
-_Extracts a 24-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 24-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes24(bytes32 data, uint256 start) internal pure returns (bytes24 output);
@@ -1070,7 +1073,7 @@ function getBytes24(bytes32 data, uint256 start) internal pure returns (bytes24 
 
 #### getBytes25
 
-_Extracts a 25-byte sequence from a bytes blob starting at a specific position._
+Extracts a 25-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes25(bytes memory data, uint256 start) internal pure returns (bytes25 output);
@@ -1091,7 +1094,7 @@ function getBytes25(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes25
 
-_Extracts a 25-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 25-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes25(bytes32 data, uint256 start) internal pure returns (bytes25 output);
@@ -1112,7 +1115,7 @@ function getBytes25(bytes32 data, uint256 start) internal pure returns (bytes25 
 
 #### getBytes26
 
-_Extracts a 26-byte sequence from a bytes blob starting at a specific position._
+Extracts a 26-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes26(bytes memory data, uint256 start) internal pure returns (bytes26 output);
@@ -1133,7 +1136,7 @@ function getBytes26(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes26
 
-_Extracts a 26-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 26-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes26(bytes32 data, uint256 start) internal pure returns (bytes26 output);
@@ -1154,7 +1157,7 @@ function getBytes26(bytes32 data, uint256 start) internal pure returns (bytes26 
 
 #### getBytes27
 
-_Extracts a 27-byte sequence from a bytes blob starting at a specific position._
+Extracts a 27-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes27(bytes memory data, uint256 start) internal pure returns (bytes27 output);
@@ -1175,7 +1178,7 @@ function getBytes27(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes27
 
-_Extracts a 27-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 27-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes27(bytes32 data, uint256 start) internal pure returns (bytes27 output);
@@ -1196,7 +1199,7 @@ function getBytes27(bytes32 data, uint256 start) internal pure returns (bytes27 
 
 #### getBytes28
 
-_Extracts a 28-byte sequence from a bytes blob starting at a specific position._
+Extracts a 28-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes28(bytes memory data, uint256 start) internal pure returns (bytes28 output);
@@ -1217,7 +1220,7 @@ function getBytes28(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes28
 
-_Extracts a 28-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 28-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes28(bytes32 data, uint256 start) internal pure returns (bytes28 output);
@@ -1238,7 +1241,7 @@ function getBytes28(bytes32 data, uint256 start) internal pure returns (bytes28 
 
 #### getBytes29
 
-_Extracts a 29-byte sequence from a bytes blob starting at a specific position._
+Extracts a 29-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes29(bytes memory data, uint256 start) internal pure returns (bytes29 output);
@@ -1259,7 +1262,7 @@ function getBytes29(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes29
 
-_Extracts a 29-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 29-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes29(bytes32 data, uint256 start) internal pure returns (bytes29 output);
@@ -1280,7 +1283,7 @@ function getBytes29(bytes32 data, uint256 start) internal pure returns (bytes29 
 
 #### getBytes30
 
-_Extracts a 30-byte sequence from a bytes blob starting at a specific position._
+Extracts a 30-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes30(bytes memory data, uint256 start) internal pure returns (bytes30 output);
@@ -1301,7 +1304,7 @@ function getBytes30(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes30
 
-_Extracts a 30-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 30-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes30(bytes32 data, uint256 start) internal pure returns (bytes30 output);
@@ -1322,7 +1325,7 @@ function getBytes30(bytes32 data, uint256 start) internal pure returns (bytes30 
 
 #### getBytes31
 
-_Extracts a 31-byte sequence from a bytes blob starting at a specific position._
+Extracts a 31-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes31(bytes memory data, uint256 start) internal pure returns (bytes31 output);
@@ -1343,7 +1346,7 @@ function getBytes31(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes31
 
-_Extracts a 31-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 31-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes31(bytes32 data, uint256 start) internal pure returns (bytes31 output);
@@ -1364,7 +1367,7 @@ function getBytes31(bytes32 data, uint256 start) internal pure returns (bytes31 
 
 #### getBytes32
 
-_Extracts a 32-byte sequence from a bytes blob starting at a specific position._
+Extracts a 32-byte sequence from a bytes blob starting at a specific position.
 
 ```solidity
 function getBytes32(bytes memory data, uint256 start) internal pure returns (bytes32 output);
@@ -1385,7 +1388,7 @@ function getBytes32(bytes memory data, uint256 start) internal pure returns (byt
 
 #### getBytes32
 
-_Extracts a 32-byte sequence from a bytes32 value starting at a specific position._
+Extracts a 32-byte sequence from a bytes32 value starting at a specific position.
 
 ```solidity
 function getBytes32(bytes32 data, uint256 start) internal pure returns (bytes32 output);
@@ -1408,7 +1411,10 @@ function getBytes32(bytes32 data, uint256 start) internal pure returns (bytes32 
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/FieldLayout.sol)
 
-_Provides instance functions for obtaining information from an encoded FieldLayout._
+**Title:**
+FieldLayoutInstance
+
+Provides instance functions for obtaining information from an encoded FieldLayout.
 
 ### Functions
 
@@ -1537,7 +1543,7 @@ function isEmpty(FieldLayout fieldLayout) internal pure returns (bool);
 
 Validate the field layout with various checks on the length and size of the fields.
 
-_Reverts if total fields, static field length, or static byte length exceed allowed limits._
+Reverts if total fields, static field length, or static byte length exceed allowed limits.
 
 ```solidity
 function validate(FieldLayout fieldLayout) internal pure;
@@ -1573,9 +1579,12 @@ function unwrap(FieldLayout fieldLayout) internal pure returns (bytes32);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/FieldLayout.sol)
 
-_A library for handling field layout encoding into a single bytes32.
+**Title:**
+FieldLayoutLib
+
+A library for handling field layout encoding into a single bytes32.
 It provides a function to encode static and dynamic fields and ensure
-various constraints regarding the length and size of the fields._
+various constraints regarding the length and size of the fields.
 
 ### Functions
 
@@ -1585,8 +1594,8 @@ various constraints regarding the length and size of the fields._
 
 Encodes the given field layout into a single bytes32.
 
-_Ensures various constraints on the length and size of the fields.
-Reverts if total fields, static field length, or static byte length exceed allowed limits._
+Ensures various constraints on the length and size of the fields.
+Reverts if total fields, static field length, or static byte length exceed allowed limits.
 
 ```solidity
 function encode(uint256[] memory _staticFieldLengths, uint256 numDynamicFields) internal pure returns (FieldLayout);
@@ -1609,24 +1618,30 @@ function encode(uint256[] memory _staticFieldLengths, uint256 numDynamicFields) 
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/FieldLayout.sol)
 
-\*Represents a field layout encoded into a single bytes32.
+**Title:**
+FieldLayout
+
+Represents a field layout encoded into a single bytes32.
 From left to right, the bytes are laid out as follows:
 
 - 2 bytes for total length of all static fields
 - 1 byte for number of static size fields
 - 1 byte for number of dynamic size fields
 - 28 bytes for 28 static field lengths
-  (MAX_DYNAMIC_FIELDS allows EncodedLengths to pack the dynamic lengths into 1 word)\*
+  (MAX_DYNAMIC_FIELDS allows EncodedLengths to pack the dynamic lengths into 1 word)
 
 ```solidity
-type FieldLayout is bytes32;
+type FieldLayout is bytes32
 ```
 
 ## HookInstance
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Hook.sol)
 
-_Library for interacting with Hook instances._
+**Title:**
+HookInstance
+
+Library for interacting with Hook instances.
 
 ### Functions
 
@@ -1634,7 +1649,7 @@ _Library for interacting with Hook instances._
 
 Check if the given hook types are enabled in the hook.
 
-_We check multiple hook types at once by using a bitmap._
+We check multiple hook types at once by using a bitmap.
 
 ```solidity
 function isEnabled(Hook self, uint8 hookTypes) internal pure returns (bool);
@@ -1657,7 +1672,7 @@ function isEnabled(Hook self, uint8 hookTypes) internal pure returns (bool);
 
 Get the address from the hook.
 
-_The address is stored in the leftmost 20 bytes._
+The address is stored in the leftmost 20 bytes.
 
 ```solidity
 function getAddress(Hook self) internal pure returns (address);
@@ -1679,7 +1694,7 @@ function getAddress(Hook self) internal pure returns (address);
 
 Get the bitmap from the hook.
 
-_The bitmap is stored in the rightmost byte._
+The bitmap is stored in the rightmost byte.
 
 ```solidity
 function getBitmap(Hook self) internal pure returns (uint8);
@@ -1701,7 +1716,10 @@ function getBitmap(Hook self) internal pure returns (uint8);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Hook.sol)
 
-_Library for encoding hooks and filtering hooks from a list by address._
+**Title:**
+HookLib
+
+Library for encoding hooks and filtering hooks from a list by address.
 
 ### Functions
 
@@ -1709,7 +1727,7 @@ _Library for encoding hooks and filtering hooks from a list by address._
 
 Packs the bitmap of enabled hooks with the hook address into a Hook value (bytes21).
 
-_The hook address is stored in the leftmost 20 bytes, and the bitmap is stored in the rightmost byte._
+The hook address is stored in the leftmost 20 bytes, and the bitmap is stored in the rightmost byte.
 
 ```solidity
 function encode(address hookAddress, uint8 encodedHooks) internal pure returns (Hook);
@@ -1732,7 +1750,7 @@ function encode(address hookAddress, uint8 encodedHooks) internal pure returns (
 
 Filter a hook from the hook list by its address.
 
-_This function writes the updated hook list to the table in place._
+This function writes the updated hook list to the table in place.
 
 ```solidity
 function filterListByAddress(
@@ -1755,16 +1773,19 @@ function filterListByAddress(
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Hook.sol)
 
 ```solidity
-type Hook is bytes21;
+type Hook is bytes21
 ```
 
 ## Memory
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Memory.sol)
 
+**Title:**
+Memory Operations
+
 A library for performing low-level memory operations.
 
-_This library provides low-level memory operations with safety checks._
+This library provides low-level memory operations with safety checks.
 
 ### Functions
 
@@ -1772,9 +1793,9 @@ _This library provides low-level memory operations with safety checks._
 
 Gets the actual data pointer of dynamic arrays.
 
-_In dynamic arrays, the first word stores the length of the data, after which comes the actual data.
+In dynamic arrays, the first word stores the length of the data, after which comes the actual data.
 Example: 0x40 0x01 0x02
-^len ^data_
+^len ^data
 
 ```solidity
 function dataPointer(bytes memory data) internal pure returns (uint256 memoryPointer);
@@ -1796,7 +1817,7 @@ function dataPointer(bytes memory data) internal pure returns (uint256 memoryPoi
 
 Copies memory from one location to another.
 
-_Safely copies memory in chunks of 32 bytes, then handles any residual bytes._
+Safely copies memory in chunks of 32 bytes, then handles any residual bytes.
 
 ```solidity
 function copy(uint256 fromPointer, uint256 toPointer, uint256 length) internal pure;
@@ -1816,17 +1837,20 @@ function copy(uint256 fromPointer, uint256 toPointer, uint256 length) internal p
 
 #### TYPE_BITS
 
-_Number of bits reserved for the type in the ResourceId._
+Number of bits reserved for the type in the ResourceId.
 
 ```solidity
-uint256 constant TYPE_BITS = 2 * 8;
+uint256 constant TYPE_BITS = 2 * 8
 ```
 
 ## ResourceIdInstance
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
 
-_Provides functions to extract data from a ResourceId._
+**Title:**
+ResourceIdInstance Library
+
+Provides functions to extract data from a ResourceId.
 
 ### Functions
 
@@ -1894,7 +1918,10 @@ function unwrap(ResourceId resourceId) internal pure returns (bytes32);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
 
-_Provides functions to encode data into the ResourceId_
+**Title:**
+ResourceIdLib Library
+
+Provides functions to encode data into the ResourceId
 
 ### Functions
 
@@ -1923,18 +1950,24 @@ function encode(bytes2 typeId, bytes30 name) internal pure returns (ResourceId);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
 
-_A ResourceId is a bytes32 data structure that consists of a
-type and a name_
+**Title:**
+ResourceId type definition and related utilities
+
+A ResourceId is a bytes32 data structure that consists of a
+type and a name
 
 ```solidity
-type ResourceId is bytes32;
+type ResourceId is bytes32
 ```
 
 ## SchemaInstance
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Schema.sol)
 
-_Instance utility functions for handling a Schema instance._
+**Title:**
+SchemaInstance
+
+Instance utility functions for handling a Schema instance.
 
 ### Functions
 
@@ -2098,7 +2131,10 @@ function unwrap(Schema schema) internal pure returns (bytes32);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Schema.sol)
 
-_Static utility functions for handling Schemas._
+**Title:**
+SchemaLib
+
+Static utility functions for handling Schemas.
 
 ### Functions
 
@@ -2126,19 +2162,25 @@ function encode(SchemaType[] memory schemas) internal pure returns (Schema);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Schema.sol)
 
-_Defines and handles the encoding/decoding of Schemas which describe the layout of data structures.
+**Title:**
+Schema handling in Lattice
+
+Defines and handles the encoding/decoding of Schemas which describe the layout of data structures.
 2 bytes length of all the static (in size) fields in the schema
 1 byte for number of static size fields
 1 byte for number of dynamic size fields
-28 bytes for 28 schema types (MAX_DYNAMIC_FIELDS allows us to pack the lengths into 1 word)_
+28 bytes for 28 schema types (MAX_DYNAMIC_FIELDS allows us to pack the lengths into 1 word)
 
 ```solidity
-type Schema is bytes32;
+type Schema is bytes32
 ```
 
 ## SliceInstance
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Slice.sol)
+
+**Title:**
+Instance functions for Slice
 
 ### Functions
 
@@ -2186,7 +2228,7 @@ function length(Slice self) internal pure returns (uint256);
 
 Converts a Slice to bytes
 
-_This function internally manages the conversion of a slice into a bytes format._
+This function internally manages the conversion of a slice into a bytes format.
 
 ```solidity
 function toBytes(Slice self) internal pure returns (bytes memory data);
@@ -2208,7 +2250,7 @@ function toBytes(Slice self) internal pure returns (bytes memory data);
 
 Converts a Slice to bytes32
 
-_This function converts a slice into a fixed-length bytes32. Uses inline assembly for the conversion._
+This function converts a slice into a fixed-length bytes32. Uses inline assembly for the conversion.
 
 ```solidity
 function toBytes32(Slice self) internal pure returns (bytes32 result);
@@ -2230,12 +2272,15 @@ function toBytes32(Slice self) internal pure returns (bytes32 result);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Slice.sol)
 
+**Title:**
+Static functions for Slice
+
 ### State Variables
 
 #### MASK_LEN
 
 ```solidity
-uint256 constant MASK_LEN = uint256(type(uint128).max);
+uint256 constant MASK_LEN = uint256(type(uint128).max)
 ```
 
 ### Functions
@@ -2285,7 +2330,7 @@ function getSubslice(bytes memory data, uint256 start) internal pure returns (Sl
 
 Subslice a bytes array using the given indexes (without copying data)
 
-_The start index is inclusive, the end index is exclusive_
+The start index is inclusive, the end index is exclusive
 
 ```solidity
 function getSubslice(bytes memory data, uint256 start, uint256 end) internal pure returns (Slice);
@@ -2310,14 +2355,17 @@ function getSubslice(bytes memory data, uint256 start, uint256 end) internal pur
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Slice.sol)
 
 ```solidity
-type Slice is uint256;
+type Slice is uint256
 ```
 
 ## Storage
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Storage.sol)
 
-_Provides functions for low-level storage manipulation, including storing and retrieving bytes._
+**Title:**
+Storage Library
+
+Provides functions for low-level storage manipulation, including storing and retrieving bytes.
 
 ### Functions
 
@@ -2447,8 +2495,8 @@ function load(uint256 storagePointer, uint256 offset, uint256 length, uint256 me
 
 Load up to 32 bytes from storage at a given pointer and offset.
 
-_Since fields are tightly packed, they can span more than one slot.
-Since they're max 32 bytes, they can span at most 2 slots._
+Since fields are tightly packed, they can span more than one slot.
+Since they're max 32 bytes, they can span at most 2 slots.
 
 ```solidity
 function loadField(uint256 storagePointer, uint256 length, uint256 offset) internal view returns (bytes32 result);
@@ -2474,61 +2522,67 @@ function loadField(uint256 storagePointer, uint256 length, uint256 offset) inter
 
 #### WORD_SIZE
 
-_This file provides constants for better handling of EVM and Schema related functionalities._
+**Title:**
+Shared constants for EVM and schema handling
 
-_Represents the total byte length of an EVM word._
+This file provides constants for better handling of EVM and Schema related functionalities.
+
+Represents the total byte length of an EVM word.
 
 ```solidity
-uint256 constant WORD_SIZE = 32;
+uint256 constant WORD_SIZE = 32
 ```
 
 #### WORD_LAST_INDEX
 
-_Represents the index of the last byte in an EVM word._
+Represents the index of the last byte in an EVM word.
 
 ```solidity
-uint256 constant WORD_LAST_INDEX = 31;
+uint256 constant WORD_LAST_INDEX = 31
 ```
 
 #### BYTE_TO_BITS
 
-_Represents the conversion constant from byte to bits._
+Represents the conversion constant from byte to bits.
 
 ```solidity
-uint256 constant BYTE_TO_BITS = 8;
+uint256 constant BYTE_TO_BITS = 8
 ```
 
 #### MAX_TOTAL_FIELDS
 
-_Represents the maximum number of fields a Schema can handle._
+Represents the maximum number of fields a Schema can handle.
 
 ```solidity
-uint256 constant MAX_TOTAL_FIELDS = 28;
+uint256 constant MAX_TOTAL_FIELDS = 28
 ```
 
 #### MAX_STATIC_FIELDS
 
-_Represents the maximum number of static fields in a FieldLayout._
+Represents the maximum number of static fields in a FieldLayout.
 
 ```solidity
-uint256 constant MAX_STATIC_FIELDS = 28;
+uint256 constant MAX_STATIC_FIELDS = 28
 ```
 
 #### MAX_DYNAMIC_FIELDS
 
-_Represents the maximum number of dynamic fields that can be packed in EncodedLengths._
+Represents the maximum number of dynamic fields that can be packed in EncodedLengths.
 
 ```solidity
-uint256 constant MAX_DYNAMIC_FIELDS = 5;
+uint256 constant MAX_DYNAMIC_FIELDS = 5
 ```
 
 ## LayoutOffsets
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/constants.sol)
 
+**Title:**
+LayoutOffsets Library
+
 This library provides constant offsets for FieldLayout and Schema metadata.
 
-_FieldLayout and Schema utilize the same offset values for metadata._
+FieldLayout and Schema utilize the same offset values for metadata.
 
 ### State Variables
 
@@ -2537,7 +2591,7 @@ _FieldLayout and Schema utilize the same offset values for metadata._
 Represents the total length offset within the EVM word.
 
 ```solidity
-uint256 internal constant TOTAL_LENGTH = (WORD_SIZE - 2) * BYTE_TO_BITS;
+uint256 internal constant TOTAL_LENGTH = (WORD_SIZE - 2) * BYTE_TO_BITS
 ```
 
 #### NUM_STATIC_FIELDS
@@ -2545,7 +2599,7 @@ uint256 internal constant TOTAL_LENGTH = (WORD_SIZE - 2) * BYTE_TO_BITS;
 Represents the number of static fields offset within the EVM word.
 
 ```solidity
-uint256 internal constant NUM_STATIC_FIELDS = (WORD_SIZE - 2 - 1) * BYTE_TO_BITS;
+uint256 internal constant NUM_STATIC_FIELDS = (WORD_SIZE - 2 - 1) * BYTE_TO_BITS
 ```
 
 #### NUM_DYNAMIC_FIELDS
@@ -2553,20 +2607,23 @@ uint256 internal constant NUM_STATIC_FIELDS = (WORD_SIZE - 2 - 1) * BYTE_TO_BITS
 Represents the number of dynamic fields offset within the EVM word.
 
 ```solidity
-uint256 internal constant NUM_DYNAMIC_FIELDS = (WORD_SIZE - 2 - 1 - 1) * BYTE_TO_BITS;
+uint256 internal constant NUM_DYNAMIC_FIELDS = (WORD_SIZE - 2 - 1 - 1) * BYTE_TO_BITS
 ```
 
 ## rightMask
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/rightMask.sol)
 
+**Title:**
+Byte Mask Utility
+
 Utility functions to manage bytes in memory.
 
 Computes a right-aligned byte mask based on the provided byte length.
 
-_Adapted from https://github.com/dk1a/solidity-stringutils/blob/main/src/utils/mem.sol#L149-L167_
+Adapted from https://github.com/dk1a/solidity-stringutils/blob/main/src/utils/mem.sol#L149-L167
 
-_The mask is used to extract a specified number of rightmost bytes._
+The mask is used to extract a specified number of rightmost bytes.
 
 ```solidity
 function rightMask(uint256 byteLength) pure returns (uint256 mask);
@@ -2590,107 +2647,100 @@ function rightMask(uint256 byteLength) pure returns (uint256 mask);
 
 #### BEFORE_SET_RECORD
 
+**Title:**
+Store Hook Flags
+
 Constants for enabling store hooks.
 
-_These bitmaps can be used to enable selected store hooks. They can be combined with a bitwise OR (`|`)._
+These bitmaps can be used to enable selected store hooks. They can be combined with a bitwise OR (`|`).
 
-_Flag to enable the `onBeforeSetRecord` hook._
+Flag to enable the `onBeforeSetRecord` hook.
 
 ```solidity
-uint8 constant BEFORE_SET_RECORD = 1 << 0;
+uint8 constant BEFORE_SET_RECORD = 1 << 0
 ```
 
 #### AFTER_SET_RECORD
 
-_Flag to enable the `afterSetRecord` hook._
+Flag to enable the `afterSetRecord` hook.
 
 ```solidity
-uint8 constant AFTER_SET_RECORD = 1 << 1;
+uint8 constant AFTER_SET_RECORD = 1 << 1
 ```
 
 #### BEFORE_SPLICE_STATIC_DATA
 
-_Flag to enable the `beforeSpliceStaticData` hook._
+Flag to enable the `beforeSpliceStaticData` hook.
 
 ```solidity
-uint8 constant BEFORE_SPLICE_STATIC_DATA = 1 << 2;
+uint8 constant BEFORE_SPLICE_STATIC_DATA = 1 << 2
 ```
 
 #### AFTER_SPLICE_STATIC_DATA
 
-_Flag to enable the `afterSpliceStaticData` hook._
+Flag to enable the `afterSpliceStaticData` hook.
 
 ```solidity
-uint8 constant AFTER_SPLICE_STATIC_DATA = 1 << 3;
+uint8 constant AFTER_SPLICE_STATIC_DATA = 1 << 3
 ```
 
 #### BEFORE_SPLICE_DYNAMIC_DATA
 
-_Flag to enable the `beforeSpliceDynamicData` hook._
+Flag to enable the `beforeSpliceDynamicData` hook.
 
 ```solidity
-uint8 constant BEFORE_SPLICE_DYNAMIC_DATA = 1 << 4;
+uint8 constant BEFORE_SPLICE_DYNAMIC_DATA = 1 << 4
 ```
 
 #### AFTER_SPLICE_DYNAMIC_DATA
 
-_Flag to enable the `afterSpliceDynamicData` hook._
+Flag to enable the `afterSpliceDynamicData` hook.
 
 ```solidity
-uint8 constant AFTER_SPLICE_DYNAMIC_DATA = 1 << 5;
+uint8 constant AFTER_SPLICE_DYNAMIC_DATA = 1 << 5
 ```
 
 #### BEFORE_DELETE_RECORD
 
-_Flag to enable the `beforeDeleteRecord` hook._
+Flag to enable the `beforeDeleteRecord` hook.
 
 ```solidity
-uint8 constant BEFORE_DELETE_RECORD = 1 << 6;
+uint8 constant BEFORE_DELETE_RECORD = 1 << 6
 ```
 
 #### AFTER_DELETE_RECORD
 
-_Flag to enable the `afterDeleteRecord` hook._
+Flag to enable the `afterDeleteRecord` hook.
 
 ```solidity
-uint8 constant AFTER_DELETE_RECORD = 1 << 7;
+uint8 constant AFTER_DELETE_RECORD = 1 << 7
 ```
 
 #### ALL
 
-_Bitmap to enable all hooks._
+Bitmap to enable all hooks.
 
 ```solidity
-uint8 constant ALL = BEFORE_SET_RECORD |
-  AFTER_SET_RECORD |
-  BEFORE_SPLICE_STATIC_DATA |
-  AFTER_SPLICE_STATIC_DATA |
-  BEFORE_SPLICE_DYNAMIC_DATA |
-  AFTER_SPLICE_DYNAMIC_DATA |
-  BEFORE_DELETE_RECORD |
-  AFTER_DELETE_RECORD;
+uint8 constant ALL = BEFORE_SET_RECORD | AFTER_SET_RECORD | BEFORE_SPLICE_STATIC_DATA | AFTER_SPLICE_STATIC_DATA
+| BEFORE_SPLICE_DYNAMIC_DATA | AFTER_SPLICE_DYNAMIC_DATA | BEFORE_DELETE_RECORD | AFTER_DELETE_RECORD
 ```
 
 #### BEFORE_ALL
 
-_Bitmap to enable all "before" hooks._
+Bitmap to enable all "before" hooks.
 
 ```solidity
-uint8 constant BEFORE_ALL = BEFORE_SET_RECORD |
-  BEFORE_SPLICE_STATIC_DATA |
-  BEFORE_SPLICE_DYNAMIC_DATA |
-  BEFORE_DELETE_RECORD;
+uint8 constant BEFORE_ALL =
+BEFORE_SET_RECORD | BEFORE_SPLICE_STATIC_DATA | BEFORE_SPLICE_DYNAMIC_DATA | BEFORE_DELETE_RECORD
 ```
 
 #### AFTER_ALL
 
-_Bitmap to enable all "after" hooks._
+Bitmap to enable all "after" hooks.
 
 ```solidity
-uint8 constant AFTER_ALL = AFTER_SET_RECORD |
-  AFTER_SPLICE_STATIC_DATA |
-  AFTER_SPLICE_DYNAMIC_DATA |
-  AFTER_DELETE_RECORD;
+uint8 constant AFTER_ALL = AFTER_SET_RECORD | AFTER_SPLICE_STATIC_DATA | AFTER_SPLICE_DYNAMIC_DATA
+| AFTER_DELETE_RECORD
 ```
 
 ## storeResourceTypes.sol constants
@@ -2699,22 +2749,25 @@ uint8 constant AFTER_ALL = AFTER_SET_RECORD |
 
 #### RESOURCE_TABLE
 
+**Title:**
+Resource Identifiers
+
 Constants representing unique identifiers for different resource types.
 
-_These identifiers can be used to distinguish between various resource types._
+These identifiers can be used to distinguish between various resource types.
 
-_Identifier for a resource table._
+Identifier for a resource table.
 
 ```solidity
-bytes2 constant RESOURCE_TABLE = "tb";
+bytes2 constant RESOURCE_TABLE = "tb"
 ```
 
 #### RESOURCE_OFFCHAIN_TABLE
 
-_Identifier for an offchain resource table._
+Identifier for an offchain resource table.
 
 ```solidity
-bytes2 constant RESOURCE_OFFCHAIN_TABLE = "ot";
+bytes2 constant RESOURCE_OFFCHAIN_TABLE = "ot"
 ```
 
 ## version.sol constants
@@ -2723,10 +2776,13 @@ bytes2 constant RESOURCE_OFFCHAIN_TABLE = "ot";
 
 #### STORE_VERSION
 
+**Title:**
+Store protocol version
+
 Contains a constant representing the version of the Store protocol.
 
-_Identifier for the current Store protocol version._
+Identifier for the current Store protocol version.
 
 ```solidity
-bytes32 constant STORE_VERSION = "2.0.2";
+bytes32 constant STORE_VERSION = "2.0.2"
 ```

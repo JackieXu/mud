@@ -4,24 +4,24 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/ERC165Checker.sol)
 
-_Library used to query support of an interface declared via [IERC165](./erc165-external#ierc165).
+Library used to query support of an interface declared via [IERC165](./erc165-external#ierc165).
 Note that these functions return the actual result of the query: they do not
 `revert` if an interface is not supported. It is up to the caller to decide
-what to do in these cases._
+what to do in these cases.
 
 ### State Variables
 
 #### INTERFACE_ID_INVALID
 
 ```solidity
-bytes4 private constant INTERFACE_ID_INVALID = 0xffffffff;
+bytes4 private constant INTERFACE_ID_INVALID = 0xffffffff
 ```
 
 ### Functions
 
 #### supportsERC165
 
-_Returns true if `account` supports the [IERC165](./erc165-external#ierc165) interface._
+Returns true if `account` supports the [IERC165](./erc165-external#ierc165) interface.
 
 ```solidity
 function supportsERC165(address account) internal view returns (bool);
@@ -29,9 +29,9 @@ function supportsERC165(address account) internal view returns (bool);
 
 #### supportsInterface
 
-_Returns true if `account` supports the interface defined by
+Returns true if `account` supports the interface defined by
 `interfaceId`. Support for [IERC165](./erc165-external#ierc165) itself is queried automatically.
-See [IERC165.supportsInterface](./erc165-external#supportsinterface)._
+See [IERC165.supportsInterface](./erc165-external#supportsinterface).
 
 ```solidity
 function supportsInterface(address account, bytes4 interfaceId) internal view returns (bool);
@@ -39,11 +39,11 @@ function supportsInterface(address account, bytes4 interfaceId) internal view re
 
 #### getSupportedInterfaces
 
-_Returns a boolean array where each value corresponds to the
+Returns a boolean array where each value corresponds to the
 interfaces passed in and whether they're supported or not. This allows
 you to batch check interfaces for a contract where your expectation
 is that some interfaces may not be supported.
-See [IERC165.supportsInterface](./erc165-external#supportsinterface)._
+See [IERC165.supportsInterface](./erc165-external#supportsinterface).
 
 ```solidity
 function getSupportedInterfaces(address account, bytes4[] memory interfaceIds) internal view returns (bool[] memory);
@@ -51,11 +51,11 @@ function getSupportedInterfaces(address account, bytes4[] memory interfaceIds) i
 
 #### supportsAllInterfaces
 
-_Returns true if `account` supports all the interfaces defined in
+Returns true if `account` supports all the interfaces defined in
 `interfaceIds`. Support for [IERC165](./erc165-external#ierc165) itself is queried automatically.
 Batch-querying can lead to gas savings by skipping repeated checks for
 [IERC165](./erc165-external#ierc165) support.
-See [IERC165.supportsInterface](./erc165-external#supportsinterface)._
+See [IERC165.supportsInterface](./erc165-external#supportsinterface).
 
 ```solidity
 function supportsAllInterfaces(address account, bytes4[] memory interfaceIds) internal view returns (bool);
@@ -65,12 +65,12 @@ function supportsAllInterfaces(address account, bytes4[] memory interfaceIds) in
 
 Query if a contract implements an interface, does not check ERC165 support
 
-_Assumes that account contains a contract that supports ERC165, otherwise
+Assumes that account contains a contract that supports ERC165, otherwise
 the behavior of this method is undefined. This precondition can be checked
 with [supportsERC165](/world/reference/internal/erc165#supportserc165).
 Some precompiled contracts will falsely indicate support for a given interface, so caution
 should be exercised when using this function.
-Interface identification is specified in ERC-165._
+Interface identification is specified in ERC-165.
 
 ```solidity
 function supportsERC165InterfaceUnchecked(address account, bytes4 interfaceId) internal view returns (bool);
@@ -95,7 +95,7 @@ function supportsERC165InterfaceUnchecked(address account, bytes4 interfaceId) i
 
 Checks if a given contract at `contractAddress` supports the interface with ID `interfaceId`.
 
-_Uses the ERC-165 `supportsInterface` method. If the contract doesn't support the interface or doesn't implement ERC-165, the function will revert with a relevant error message._
+Uses the ERC-165 `supportsInterface` method. If the contract doesn't support the interface or doesn't implement ERC-165, the function will revert with a relevant error message.
 
 ```solidity
 function requireInterface(address contractAddress, bytes4 interfaceId) view;

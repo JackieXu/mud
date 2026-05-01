@@ -7,14 +7,17 @@
 **Inherits:**
 [IModule](/world/reference/module-external#imodule), [WorldContextConsumer](/world/reference/world-context#worldcontextconsumer)
 
-_Abstract contract that implements the ERC-165 supportsInterface function for IModule._
+**Title:**
+Module
+
+Abstract contract that implements the ERC-165 supportsInterface function for IModule.
 
 ### State Variables
 
 #### \_\_self
 
 ```solidity
-address internal immutable __self = address(this);
+address internal immutable __self = address(this)
 ```
 
 ### Functions
@@ -23,7 +26,7 @@ address internal immutable __self = address(this);
 
 Checks if the given interfaceId is supported by this contract.
 
-_Overrides the functionality from IERC165 and WorldContextConsumer to check for supported interfaces._
+Overrides the functionality from IERC165 and WorldContextConsumer to check for supported interfaces.
 
 ```solidity
 function supportsInterface(
@@ -45,7 +48,7 @@ function supportsInterface(
 
 #### isInstalled
 
-_Check if a module with the given name and arguments is installed._
+Check if a module with the given name and arguments is installed.
 
 ```solidity
 function isInstalled(address moduleAddress, bytes memory encodedArgs) internal view returns (bool);
@@ -66,7 +69,7 @@ function isInstalled(address moduleAddress, bytes memory encodedArgs) internal v
 
 #### requireNotInstalled
 
-_Revert if the module with the given name and arguments is already installed._
+Revert if the module with the given name and arguments is already installed.
 
 ```solidity
 function requireNotInstalled(address moduleAddress, bytes memory encodedArgs) internal view;
@@ -83,8 +86,8 @@ function requireNotInstalled(address moduleAddress, bytes memory encodedArgs) in
 
 Installs the module as a root module.
 
-_This function is invoked by the World contract during `installRootModule` process.
-The module expects to be called via the World contract and thus installs itself on the `msg.sender`._
+This function is invoked by the World contract during `installRootModule` process.
+The module expects to be called via the World contract and thus installs itself on the `msg.sender`.
 
 ```solidity
 function installRoot(bytes memory encodedArgs) public virtual;
@@ -100,9 +103,9 @@ function installRoot(bytes memory encodedArgs) public virtual;
 
 Installs the module.
 
-_This function is invoked by the World contract during `installModule` process.
+This function is invoked by the World contract during `installModule` process.
 The module expects to be called via the World contract and thus installs itself on the `msg.sender`.
-Logic might differ from `installRoot`, for example, this might accept namespace parameters._
+Logic might differ from `installRoot`, for example, this might accept namespace parameters.
 
 ```solidity
 function install(bytes memory encodedArgs) public virtual;

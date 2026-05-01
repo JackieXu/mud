@@ -7,9 +7,12 @@
 **Inherits:**
 [IERC165](/world/reference/internal/erc165-external#ierc165)
 
-_Interface defining system hooks for external functionality.
+**Title:**
+ISystemHook
+
+Interface defining system hooks for external functionality.
 Provides pre and post hooks that can be triggered before and after a system call respectively.
-This interface adheres to the ERC-165 standard for determining interface support._
+This interface adheres to the ERC-165 standard for determining interface support.
 
 ### Functions
 
@@ -17,7 +20,7 @@ This interface adheres to the ERC-165 standard for determining interface support
 
 Executes before a system call.
 
-_Provides the ability to add custom logic or checks before a system is invoked._
+Provides the ability to add custom logic or checks before a system is invoked.
 
 ```solidity
 function onBeforeCallSystem(address msgSender, ResourceId systemId, bytes memory callData) external;
@@ -35,7 +38,7 @@ function onBeforeCallSystem(address msgSender, ResourceId systemId, bytes memory
 
 Executes after a system call.
 
-_Provides the ability to add custom logic or checks after a system call completes._
+Provides the ability to add custom logic or checks after a system call completes.
 
 ```solidity
 function onAfterCallSystem(address msgSender, ResourceId systemId, bytes memory callData) external;

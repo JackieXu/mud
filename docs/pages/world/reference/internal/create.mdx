@@ -4,22 +4,25 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/Create2.sol)
 
-_Library to deploy contracts using the CREATE2 opcode._
+**Title:**
+Create2
+
+Library to deploy contracts using the CREATE2 opcode.
 
 ### Functions
 
 #### deploy
 
-\*Deploys a contract using `CREATE2`. The address where the contract
+Deploys a contract using `CREATE2`. The address where the contract
 will be deployed can be known in advance.
 The bytecode for a contract can be obtained from Solidity with
 `type(contractName).creationCode`.
 Requirements:
 
 - `creationCode` must not be empty.
-- `salt` must have not been used for `creationCode` already.\*
+- `salt` must have not been used for `creationCode` already.
 
-_If the CREATE2 fails, reverts_
+If the CREATE2 fails, reverts
 
 ```solidity
 function deploy(bytes memory creationCode, uint256 salt) internal returns (address addr);
@@ -42,15 +45,18 @@ function deploy(bytes memory creationCode, uint256 salt) internal returns (addre
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/Create2Factory.sol)
 
-_Helper Contract to facilitate create2 deployment of Contracts._
+**Title:**
+Create2Factory
+
+Helper Contract to facilitate create2 deployment of Contracts.
 
 ### Functions
 
 #### deployContract
 
-_Deploys a new Contract using create2._
+Deploys a new Contract using create2.
 
-_Emit ContractDeployed on success_
+Emit ContractDeployed on success
 
 ```solidity
 function deployContract(bytes memory byteCode, uint256 salt) public;
@@ -67,7 +73,7 @@ function deployContract(bytes memory byteCode, uint256 salt) public;
 
 #### ContractDeployed
 
-_Emitted when a new contract is deployed using the `deployContract` function._
+Emitted when a new contract is deployed using the `deployContract` function.
 
 ```solidity
 event ContractDeployed(address addr, uint256 salt);

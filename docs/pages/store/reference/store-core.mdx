@@ -4,6 +4,9 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/StoreCore.sol)
 
+**Title:**
+StoreCore Library
+
 This library includes implementations for all IStore methods and events related to the store actions.
 
 ### Functions
@@ -12,10 +15,10 @@ This library includes implementations for all IStore methods and events related 
 
 Initialize the store address in StoreSwitch.
 
-_Consumers must call this function in their constructor.
+Consumers must call this function in their constructor.
 StoreSwitch uses the storeAddress to decide where to write data to.
 If StoreSwitch is called in the context of a Store contract (storeAddress == address(this)),
-StoreSwitch uses internal methods to write data instead of external calls._
+StoreSwitch uses internal methods to write data instead of external calls.
 
 ```solidity
 function initialize() internal;
@@ -25,8 +28,8 @@ function initialize() internal;
 
 Register Store protocol's internal tables in the store.
 
-_Consumers must call this function in their constructor before setting
-any table data to allow indexers to decode table events._
+Consumers must call this function in their constructor before setting
+any table data to allow indexers to decode table events.
 
 ```solidity
 function registerInternalTables() internal;
@@ -58,7 +61,7 @@ function getFieldLayout(ResourceId tableId) internal view returns (FieldLayout);
 
 Get the key schema for the given table ID.
 
-_Reverts if the table ID is not registered._
+Reverts if the table ID is not registered.
 
 ```solidity
 function getKeySchema(ResourceId tableId) internal view returns (Schema keySchema);
@@ -80,7 +83,7 @@ function getKeySchema(ResourceId tableId) internal view returns (Schema keySchem
 
 Get the value schema for the given table ID.
 
-_Reverts if the table ID is not registered._
+Reverts if the table ID is not registered.
 
 ```solidity
 function getValueSchema(ResourceId tableId) internal view returns (Schema valueSchema);
@@ -104,14 +107,14 @@ function getValueSchema(ResourceId tableId) internal view returns (Schema valueS
 
 Register a new table with the given configuration.
 
-\*This method reverts if
+This method reverts if
 
 - The table ID is not of type RESOURCE_TABLE or RESOURCE_OFFCHAIN_TABLE.
 - The field layout is invalid.
 - The key schema is invalid.
 - The value schema is invalid.
 - The number of key names does not match the number of key schema types.
-- The number of field names does not match the number of field layout fields.\*
+- The number of field names does not match the number of field layout fields.
 
 ```solidity
 function registerTable(
@@ -143,8 +146,8 @@ REGISTER HOOKS
 
 Register hooks to be called when a record or field is set or deleted.
 
-_This method reverts for all resource IDs other than tables.
-Hooks are not supported for offchain tables._
+This method reverts for all resource IDs other than tables.
+Hooks are not supported for offchain tables.
 
 ```solidity
 function registerStoreHook(ResourceId tableId, IStoreHook hookAddress, uint8 enabledHooksBitmap) internal;
@@ -177,9 +180,9 @@ function unregisterStoreHook(ResourceId tableId, IStoreHook hookAddress) interna
 
 Set a full record for the given table ID and key tuple.
 
-_Calling this method emits a Store_SetRecord event.
+Calling this method emits a Store_SetRecord event.
 This method internally calls another overload of setRecord by fetching the field layout for the given table ID.
-If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read._
+If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read.
 
 ```solidity
 function setRecord(
@@ -205,10 +208,10 @@ function setRecord(
 
 Set a full data record for the given table ID, key tuple, and field layout.
 
-_For onchain tables, the method emits a `Store_SetRecord` event, updates the data in storage,
+For onchain tables, the method emits a `Store_SetRecord` event, updates the data in storage,
 calls `onBeforeSetRecord` hooks before actually modifying the state, and calls `onAfterSetRecord`
 hooks after modifying the state. For offchain tables, the method returns early after emitting the
-event without calling hooks or modifying the state._
+event without calling hooks or modifying the state.
 
 ```solidity
 function setRecord(
@@ -236,9 +239,9 @@ function setRecord(
 
 Splice the static data for the given table ID and key tuple.
 
-_This method emits a `Store_SpliceStaticData` event, updates the data in storage, and calls
+This method emits a `Store_SpliceStaticData` event, updates the data in storage, and calls
 `onBeforeSpliceStaticData` and `onAfterSpliceStaticData` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function spliceStaticData(ResourceId tableId, bytes32[] memory keyTuple, uint48 start, bytes memory data) internal;
@@ -257,9 +260,9 @@ function spliceStaticData(ResourceId tableId, bytes32[] memory keyTuple, uint48 
 
 Splice the dynamic data for the given table ID, key tuple, and dynamic field index.
 
-_This method emits a `Store_SpliceDynamicData` event, updates the data in storage, and calls
+This method emits a `Store_SpliceDynamicData` event, updates the data in storage, and calls
 `onBeforeSpliceDynamicData` and `onAfterSpliceDynamicData` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function spliceDynamicData(
@@ -287,10 +290,10 @@ function spliceDynamicData(
 
 Set data for a field at the given index in a table with the given tableId, key tuple, and value field layout.
 
-_This method internally calls another overload of setField by fetching the field layout for the given table ID.
+This method internally calls another overload of setField by fetching the field layout for the given table ID.
 If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read.
 This function emits a `Store_SpliceStaticData` or `Store_SpliceDynamicData` event and calls the corresponding hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function setField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldIndex, bytes memory data) internal;
@@ -309,11 +312,11 @@ function setField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldInde
 
 Set data for a field at the given index in a table with the given tableId, key tuple, and value field layout.
 
-_This method internally calls to `setStaticField` or `setDynamicField` based on the field index and layout.
+This method internally calls to `setStaticField` or `setDynamicField` based on the field index and layout.
 Calling `setStaticField` or `setDynamicField` directly is recommended if the caller is aware of the field layout.
 This function emits a `Store_SpliceStaticData` or `Store_SpliceDynamicData` event, updates the data in storage,
 and calls the corresponding hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function setField(
@@ -339,9 +342,9 @@ function setField(
 
 Set a static field for the given table ID, key tuple, field index, and field layout.
 
-_This method emits a `Store_SpliceStaticData` event, updates the data in storage and calls the
+This method emits a `Store_SpliceStaticData` event, updates the data in storage and calls the
 `onBeforeSpliceStaticData` and `onAfterSpliceStaticData` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function setStaticField(
@@ -367,9 +370,9 @@ function setStaticField(
 
 Set a dynamic field for the given table ID, key tuple, and dynamic field index.
 
-_This method emits a `Store_SpliceDynamicData` event, updates the data in storage and calls the
+This method emits a `Store_SpliceDynamicData` event, updates the data in storage and calls the
 `onBeforeSpliceDynamicaData` and `onAfterSpliceDynamicData` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function setDynamicField(
@@ -393,11 +396,11 @@ function setDynamicField(
 
 Delete a record for the given table ID and key tuple.
 
-_This method internally calls another overload of deleteRecord by fetching the field layout for the given table ID.
+This method internally calls another overload of deleteRecord by fetching the field layout for the given table ID.
 This method deletes static data and sets the dynamic data length to 0, but does not
 actually modify the dynamic data. It emits a `Store_DeleteRecord` event and emits the
 `onBeforeDeleteRecord` and `onAfterDeleteRecord` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple) internal;
@@ -414,10 +417,10 @@ function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple) internal;
 
 Delete a record for the given table ID and key tuple.
 
-_This method deletes static data and sets the dynamic data length to 0, but does not
+This method deletes static data and sets the dynamic data length to 0, but does not
 actually modify the dynamic data. It emits a `Store_DeleteRecord` event and emits the
 `onBeforeDeleteRecord` and `onAfterDeleteRecord` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple, FieldLayout fieldLayout) internal;
@@ -435,9 +438,9 @@ function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple, FieldLayout
 
 Push data to a field at the dynamic field index in a table with the given table ID and key tuple.
 
-_This method emits a `Store_SpliceDynamicData` event, updates the data in storage and calls the
+This method emits a `Store_SpliceDynamicData` event, updates the data in storage and calls the
 `onBeforeSpliceDynamicData` and `onAfterSpliceDynamicData` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function pushToDynamicField(
@@ -461,9 +464,9 @@ function pushToDynamicField(
 
 Pop data from a field at the dynamic field index in a table with the given table ID and key tuple.
 
-_This method emits a `Store_SpliceDynamicData` event, updates the data in storage and calls the
+This method emits a `Store_SpliceDynamicData` event, updates the data in storage and calls the
 `onBeforeSpliceDynamicData` and `onAfterSpliceDynamicData` hooks.
-For offchain tables, it returns early after emitting the event._
+For offchain tables, it returns early after emitting the event.
 
 ```solidity
 function popFromDynamicField(
@@ -487,8 +490,8 @@ function popFromDynamicField(
 
 Get the full record (all fields, static and dynamic data) for the given table ID and key tuple.
 
-_This function internally calls another overload of `getRecord`, loading the field layout from storage.
-If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read._
+This function internally calls another overload of `getRecord`, loading the field layout from storage.
+If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read.
 
 ```solidity
 function getRecord(
@@ -544,7 +547,7 @@ function getRecord(
 
 Get a single field from the given table ID and key tuple.
 
-_This function internally calls another overload of `getField`, loading the field layout from storage._
+This function internally calls another overload of `getField`, loading the field layout from storage.
 
 ```solidity
 function getField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldIndex) internal view returns (bytes memory);
@@ -596,8 +599,8 @@ function getField(
 
 Get a single static field from the given table ID and key tuple, with the given value field layout.
 
-_The field value is left-aligned in the returned bytes32, the rest of the word is not zeroed out.
-Consumers are expected to truncate the returned value as needed._
+The field value is left-aligned in the returned bytes32, the rest of the word is not zeroed out.
+Consumers are expected to truncate the returned value as needed.
 
 ```solidity
 function getStaticField(
@@ -653,8 +656,8 @@ function getDynamicField(
 
 Get the byte length of a single field from the given table ID and key tuple.
 
-_This function internally calls another overload of `getFieldLength`, loading the field layout from storage.
-If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read._
+This function internally calls another overload of `getFieldLength`, loading the field layout from storage.
+If the field layout is available to the caller, it is recommended to use the other overload to avoid an additional storage read.
 
 ```solidity
 function getFieldLength(
@@ -766,27 +769,30 @@ function getDynamicFieldSlice(
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/StoreCore.sol)
 
-_This library contains internal functions used by StoreCore.
-They are not intended to be used directly by consumers of StoreCore._
+**Title:**
+StoreCoreInternal
+
+This library contains internal functions used by StoreCore.
+They are not intended to be used directly by consumers of StoreCore.
 
 ### State Variables
 
 #### SLOT
 
 ```solidity
-bytes32 internal constant SLOT = keccak256("mud.store");
+bytes32 internal constant SLOT = keccak256("mud.store")
 ```
 
 #### DYNAMIC_DATA_SLOT
 
 ```solidity
-bytes32 internal constant DYNAMIC_DATA_SLOT = keccak256("mud.store.dynamicData");
+bytes32 internal constant DYNAMIC_DATA_SLOT = keccak256("mud.store.dynamicData")
 ```
 
 #### DYNAMIC_DATA_LENGTH_SLOT
 
 ```solidity
-bytes32 internal constant DYNAMIC_DATA_LENGTH_SLOT = keccak256("mud.store.dynamicDataLength");
+bytes32 internal constant DYNAMIC_DATA_LENGTH_SLOT = keccak256("mud.store.dynamicDataLength")
 ```
 
 ### Functions
@@ -795,13 +801,13 @@ bytes32 internal constant DYNAMIC_DATA_LENGTH_SLOT = keccak256("mud.store.dynami
 
 Splice dynamic data in the store.
 
-_This function checks various conditions to ensure the operation is valid.
+This function checks various conditions to ensure the operation is valid.
 It emits a `Store_SpliceDynamicData` event, calls `onBeforeSpliceDynamicData` hooks before actually modifying the storage,
 and calls `onAfterSpliceDynamicData` hooks after modifying the storage.
 It reverts with `Store_InvalidResourceType` if the table ID is not a table.
 (Splicing dynamic data is not supported for offchain tables, as it requires reading the previous encoded lengths from storage.)
 It reverts with `Store_InvalidSplice` if the splice total length of the field is changed but the splice is not at the end of the field.
-It reverts with `Store_IndexOutOfBounds` if the start index is larger than the previous length of the field._
+It reverts with `Store_IndexOutOfBounds` if the start index is larger than the previous length of the field.
 
 ```solidity
 function _spliceDynamicData(
@@ -1022,9 +1028,12 @@ function _loadEncodedDynamicDataLength(
 **Inherits:**
 [IStoreKernel](/store/reference/store#istorekernel), [StoreRead](/store/reference/store-core#storeread)
 
+**Title:**
+StoreKernel Contract
+
 This contract integrates the storage functionalities except registration and provides an interface for data storage.
 
-_This abstract contract initializes `StoreCore`, implements `storeVersion`, and read methods._
+This abstract contract initializes `StoreCore`, implements `storeVersion`, and read methods.
 
 ### Functions
 
@@ -1032,7 +1041,7 @@ _This abstract contract initializes `StoreCore`, implements `storeVersion`, and 
 
 Constructs the StoreKernel contract and initializes the StoreCore.
 
-_Emits a HelloStore event upon creation._
+Emits a HelloStore event upon creation.
 
 ```solidity
 constructor();
@@ -1059,10 +1068,13 @@ function storeVersion() public pure returns (bytes32);
 **Inherits:**
 [IStore](/store/reference/store#istore), [StoreKernel](/store/reference/store-core#storekernel)
 
+**Title:**
+Store Contract
+
 This contract integrates the core storage functionalities and provides an interface for data storage.
 
-_This abstract contract initializes `StoreCore`, implements `storeVersion`, and read methods,
-but not write methods._
+This abstract contract initializes `StoreCore`, implements `storeVersion`, and read methods,
+but not write methods.
 
 ## StoreRead
 
@@ -1071,7 +1083,10 @@ but not write methods._
 **Inherits:**
 [IStoreRead](/store/reference/store#istoreread)
 
-_A contract that provides read operations for storage tables using `StoreCore`._
+**Title:**
+StoreRead
+
+A contract that provides read operations for storage tables using `StoreCore`.
 
 ### Functions
 
@@ -1193,8 +1208,8 @@ function getRecord(
 
 Retrieves data for a specified field in a record.
 
-_This overload loads the FieldLayout from storage. If the table's FieldLayout is known
-to the caller, it should be passed in to the other overload to avoid the storage read._
+This overload loads the FieldLayout from storage. If the table's FieldLayout is known
+to the caller, it should be passed in to the other overload to avoid the storage read.
 
 ```solidity
 function getField(
@@ -1304,8 +1319,8 @@ function getDynamicField(
 
 Calculates the length of a specified field in a record.
 
-_This overload loads the FieldLayout from storage. If the table's FieldLayout is known
-to the caller, it should be passed in to the other overload to avoid the storage read._
+This overload loads the FieldLayout from storage. If the table's FieldLayout is known
+to the caller, it should be passed in to the other overload to avoid the storage read.
 
 ```solidity
 function getFieldLength(
@@ -1418,21 +1433,24 @@ function getDynamicFieldSlice(
 | [Usage Sample](/store/table-libraries#storeswitch) | [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/StoreSwitch.sol) |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 
+**Title:**
+StoreSwitch Library
+
 This library serves as an interface switch to interact with the store,
 either by directing calls to itself or to a designated external store.
 
-_The primary purpose is to abstract the storage details, such that the
+The primary purpose is to abstract the storage details, such that the
 calling function doesn't need to know if it's interacting with its own
-storage or with an external contract's storage._
+storage or with an external contract's storage.
 
 ### State Variables
 
 #### STORAGE_SLOT
 
-_Internal constant representing the storage slot used by the library._
+Internal constant representing the storage slot used by the library.
 
 ```solidity
-bytes32 private constant STORAGE_SLOT = keccak256("mud.store.storage.StoreSwitch");
+bytes32 private constant STORAGE_SLOT = keccak256("mud.store.storage.StoreSwitch")
 ```
 
 ### Functions
@@ -1473,7 +1491,7 @@ function getStoreAddress() internal view returns (address);
 
 Set the store address for subsequent operations.
 
-_If it stays uninitialized, StoreSwitch falls back to calling store methods on msg.sender._
+If it stays uninitialized, StoreSwitch falls back to calling store methods on msg.sender.
 
 ```solidity
 function setStoreAddress(address _storeAddress) internal;
@@ -1518,7 +1536,7 @@ function unregisterStoreHook(ResourceId tableId, IStoreHook hookAddress) interna
 
 #### getFieldLayout
 
-_Fetches the field layout for a specified table._
+Fetches the field layout for a specified table.
 
 ```solidity
 function getFieldLayout(ResourceId tableId) internal view returns (FieldLayout fieldLayout);
@@ -1538,7 +1556,7 @@ function getFieldLayout(ResourceId tableId) internal view returns (FieldLayout f
 
 #### getValueSchema
 
-_Retrieves the value schema for a specified table._
+Retrieves the value schema for a specified table.
 
 ```solidity
 function getValueSchema(ResourceId tableId) internal view returns (Schema valueSchema);
@@ -1558,7 +1576,7 @@ function getValueSchema(ResourceId tableId) internal view returns (Schema valueS
 
 #### getKeySchema
 
-_Retrieves the key schema for a specified table._
+Retrieves the key schema for a specified table.
 
 ```solidity
 function getKeySchema(ResourceId tableId) internal view returns (Schema keySchema);
@@ -1578,7 +1596,7 @@ function getKeySchema(ResourceId tableId) internal view returns (Schema keySchem
 
 #### registerTable
 
-_Registers a table with specified configurations._
+Registers a table with specified configurations.
 
 ```solidity
 function registerTable(
@@ -1604,7 +1622,7 @@ function registerTable(
 
 #### setRecord
 
-_Sets a record in the store._
+Sets a record in the store.
 
 ```solidity
 function setRecord(
@@ -1628,7 +1646,7 @@ function setRecord(
 
 #### spliceStaticData
 
-_Splices the static (fixed length) data for a given table ID and key tuple, starting at a specific point._
+Splices the static (fixed length) data for a given table ID and key tuple, starting at a specific point.
 
 ```solidity
 function spliceStaticData(ResourceId tableId, bytes32[] memory keyTuple, uint48 start, bytes memory data) internal;
@@ -1645,7 +1663,7 @@ function spliceStaticData(ResourceId tableId, bytes32[] memory keyTuple, uint48 
 
 #### spliceDynamicData
 
-_Splices the dynamic data for a given table ID, key tuple, and dynamic field index._
+Splices the dynamic data for a given table ID, key tuple, and dynamic field index.
 
 ```solidity
 function spliceDynamicData(
@@ -1671,7 +1689,7 @@ function spliceDynamicData(
 
 #### setField
 
-_Sets the data for a specific field in a record identified by table ID and key tuple._
+Sets the data for a specific field in a record identified by table ID and key tuple.
 
 ```solidity
 function setField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldIndex, bytes memory data) internal;
@@ -1688,7 +1706,7 @@ function setField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldInde
 
 #### setField
 
-_Sets the data for a specific field in a record, considering a specific field layout._
+Sets the data for a specific field in a record, considering a specific field layout.
 
 ```solidity
 function setField(
@@ -1712,7 +1730,7 @@ function setField(
 
 #### setStaticField
 
-_Sets the data for a specific static (fixed length) field in a record, considering a specific field layout._
+Sets the data for a specific static (fixed length) field in a record, considering a specific field layout.
 
 ```solidity
 function setStaticField(
@@ -1736,7 +1754,7 @@ function setStaticField(
 
 #### setDynamicField
 
-_Sets the value of a specific dynamic (variable-length) field in a record._
+Sets the value of a specific dynamic (variable-length) field in a record.
 
 ```solidity
 function setDynamicField(
@@ -1758,7 +1776,7 @@ function setDynamicField(
 
 #### pushToDynamicField
 
-_Appends data to a specific dynamic (variable length) field of a record._
+Appends data to a specific dynamic (variable length) field of a record.
 
 ```solidity
 function pushToDynamicField(
@@ -1780,7 +1798,7 @@ function pushToDynamicField(
 
 #### popFromDynamicField
 
-_Removes data from the end of a specific dynamic (variable length) field of a record._
+Removes data from the end of a specific dynamic (variable length) field of a record.
 
 ```solidity
 function popFromDynamicField(
@@ -1802,7 +1820,7 @@ function popFromDynamicField(
 
 #### deleteRecord
 
-_Deletes a record from a table._
+Deletes a record from a table.
 
 ```solidity
 function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple) internal;
@@ -1817,7 +1835,7 @@ function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple) internal;
 
 #### getRecord
 
-_Retrieves a record from a table._
+Retrieves a record from a table.
 
 ```solidity
 function getRecord(
@@ -1843,7 +1861,7 @@ function getRecord(
 
 #### getRecord
 
-_Retrieves a record from a table with a specific layout._
+Retrieves a record from a table with a specific layout.
 
 ```solidity
 function getRecord(
@@ -1871,7 +1889,7 @@ function getRecord(
 
 #### getField
 
-_Retrieves a specific field from a record._
+Retrieves a specific field from a record.
 
 ```solidity
 function getField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldIndex) internal view returns (bytes memory);
@@ -1893,7 +1911,7 @@ function getField(ResourceId tableId, bytes32[] memory keyTuple, uint8 fieldInde
 
 #### getField
 
-_Retrieves a specific field from a record with a given layout._
+Retrieves a specific field from a record with a given layout.
 
 ```solidity
 function getField(
@@ -1921,7 +1939,7 @@ function getField(
 
 #### getStaticField
 
-_Retrieves a specific static (fixed length) field from a record with a given layout._
+Retrieves a specific static (fixed length) field from a record with a given layout.
 
 ```solidity
 function getStaticField(
@@ -1949,7 +1967,7 @@ function getStaticField(
 
 #### getDynamicField
 
-_Retrieves a specific dynamic (variable length) field from a record._
+Retrieves a specific dynamic (variable length) field from a record.
 
 ```solidity
 function getDynamicField(
@@ -1975,7 +1993,7 @@ function getDynamicField(
 
 #### getFieldLength
 
-_Retrieves the length of a specific field in a record._
+Retrieves the length of a specific field in a record.
 
 ```solidity
 function getFieldLength(
@@ -2001,7 +2019,7 @@ function getFieldLength(
 
 #### getFieldLength
 
-_Retrieves the length of a specific field in a record with a given layout._
+Retrieves the length of a specific field in a record with a given layout.
 
 ```solidity
 function getFieldLength(
@@ -2029,7 +2047,7 @@ function getFieldLength(
 
 #### getDynamicFieldLength
 
-_Retrieves the length of a specific dynamic (variable length) field in a record._
+Retrieves the length of a specific dynamic (variable length) field in a record.
 
 ```solidity
 function getDynamicFieldLength(
@@ -2055,7 +2073,7 @@ function getDynamicFieldLength(
 
 #### getDynamicFieldSlice
 
-_Retrieves a slice of a dynamic (variable length) field from a record._
+Retrieves a slice of a dynamic (variable length) field from a record.
 
 ```solidity
 function getDynamicFieldSlice(
@@ -2087,10 +2105,10 @@ function getDynamicFieldSlice(
 
 #### StorageSlotLayout
 
-_Represents the layout of the storage slot (currently just the address)_
+Represents the layout of the storage slot (currently just the address)
 
 ```solidity
 struct StorageSlotLayout {
-  address storeAddress;
+  address storeAddress; // Address of the external store (or self).
 }
 ```

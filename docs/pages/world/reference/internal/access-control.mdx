@@ -4,7 +4,10 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/AccessControl.sol)
 
-_Provides access control functions for checking permissions and ownership within a namespace._
+**Title:**
+AccessControl
+
+Provides access control functions for checking permissions and ownership within a namespace.
 
 ### Functions
 
@@ -33,7 +36,7 @@ function hasAccess(ResourceId resourceId, address caller) internal view returns 
 
 Checks if the caller has access to the given resource ID or its namespace.
 
-_This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts._
+This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts.
 
 ```solidity
 function _hasAccess(ResourceId resourceId, address caller) internal view returns (bool);
@@ -56,7 +59,7 @@ function _hasAccess(ResourceId resourceId, address caller) internal view returns
 
 Check for access at the given namespace or resource.
 
-_Reverts with IWorldErrors.World_AccessDenied if access is denied._
+Reverts with IWorldErrors.World_AccessDenied if access is denied.
 
 ```solidity
 function requireAccess(ResourceId resourceId, address caller) internal view;
@@ -73,9 +76,9 @@ function requireAccess(ResourceId resourceId, address caller) internal view;
 
 Check for access at the given namespace or resource.
 
-_Reverts with IWorldErrors.World_AccessDenied if access is denied._
+Reverts with IWorldErrors.World_AccessDenied if access is denied.
 
-_This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts._
+This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts.
 
 ```solidity
 function _requireAccess(ResourceId resourceId, address caller) internal view;
@@ -92,7 +95,7 @@ function _requireAccess(ResourceId resourceId, address caller) internal view;
 
 Check for ownership of the namespace of the given resource ID.
 
-_Reverts with IWorldErrors.World_AccessDenied if caller is not owner of the namespace of the resource._
+Reverts with IWorldErrors.World_AccessDenied if caller is not owner of the namespace of the resource.
 
 ```solidity
 function requireOwner(ResourceId resourceId, address caller) internal view;
@@ -109,9 +112,9 @@ function requireOwner(ResourceId resourceId, address caller) internal view;
 
 Check for ownership of the namespace of the given resource ID.
 
-_Reverts with IWorldErrors.World_AccessDenied if caller is not owner of the namespace of the resource._
+Reverts with IWorldErrors.World_AccessDenied if caller is not owner of the namespace of the resource.
 
-_This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts._
+This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts.
 
 ```solidity
 function _requireOwner(ResourceId resourceId, address caller) internal view;
@@ -128,7 +131,7 @@ function _requireOwner(ResourceId resourceId, address caller) internal view;
 
 Check for existence of the given resource ID.
 
-_Reverts with IWorldErrors.World_ResourceNotFound if the resource does not exist._
+Reverts with IWorldErrors.World_ResourceNotFound if the resource does not exist.
 
 ```solidity
 function requireExistence(ResourceId resourceId) internal view;
@@ -144,9 +147,9 @@ function requireExistence(ResourceId resourceId) internal view;
 
 Check for existence of the given resource ID.
 
-_Reverts with IWorldErrors.World_ResourceNotFound if the resource does not exist._
+Reverts with IWorldErrors.World_ResourceNotFound if the resource does not exist.
 
-_This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts._
+This bypasses StoreSwitch and assumes its being called within the Store, saving gas for known call contexts.
 
 ```solidity
 function _requireExistence(ResourceId resourceId) internal view;

@@ -8,6 +8,9 @@
 **Inherits:**
 [IERC165](/world/reference/internal/erc165-external#ierc165)
 
+**Title:**
+IStoreHook
+
 ### Functions
 
 #### onBeforeSetRecord
@@ -66,8 +69,8 @@ function onAfterSetRecord(
 
 Called before splicing static data in the store.
 
-_Splice operations in static data always overwrite data starting at the start position,
-so the total length of the data remains the same and no data is shifted._
+Splice operations in static data always overwrite data starting at the start position,
+so the total length of the data remains the same and no data is shifted.
 
 ```solidity
 function onBeforeSpliceStaticData(
@@ -91,8 +94,8 @@ function onBeforeSpliceStaticData(
 
 Called after splicing static data in the store.
 
-_Splice operations in static data always overwrite data starting at the start position,
-so the total length of the data remains the same and no data is shifted._
+Splice operations in static data always overwrite data starting at the start position,
+so the total length of the data remains the same and no data is shifted.
 
 ```solidity
 function onAfterSpliceStaticData(
@@ -116,8 +119,8 @@ function onAfterSpliceStaticData(
 
 Called before splicing dynamic data in the store.
 
-_Splice operations in dynamic data always reach the end of the dynamic data
-to avoid shifting data after the inserted or deleted data._
+Splice operations in dynamic data always reach the end of the dynamic data
+to avoid shifting data after the inserted or deleted data.
 
 ```solidity
 function onBeforeSpliceDynamicData(
@@ -147,8 +150,8 @@ function onBeforeSpliceDynamicData(
 
 Called after splicing dynamic data in the store.
 
-_Splice operations in dynamic data always reach the end of the dynamic data
-to avoid shifting data after the inserted or deleted data._
+Splice operations in dynamic data always reach the end of the dynamic data
+to avoid shifting data after the inserted or deleted data.
 
 ```solidity
 function onAfterSpliceDynamicData(
