@@ -4,7 +4,6 @@
 // TODO: remove once https://github.com/coinbase/smart-wallet/pull/91 lands
 
 import * as Signature from "ox/Signature";
-import type * as WebAuthnP256 from "ox/WebAuthnP256";
 import {
   Address,
   OneOf,
@@ -347,7 +346,20 @@ export function toReplaySafeTypedData({ address, chainId, hash }: { address: Add
 }
 
 /** @internal */
-export function toWebAuthnSignature({ webauthn, signature }: { webauthn: WebAuthnP256.SignMetadata; signature: Hex }) {
+export function toWebAuthnSignature({
+  webauthn,
+  signature,
+}: {
+  // Loose shape so we accept viem's WebAuthnAccount return value, whose underlying
+  // ox pin (which makes these optional) may differ from this package's ox pin.
+  webauthn: {
+    authenticatorData: Hex;
+    clientDataJSON: string;
+    challengeIndex?: number | undefined;
+    typeIndex?: number | undefined;
+  };
+  signature: Hex;
+}) {
   const { r, s } = Signature.fromHex(signature);
   return encodeAbiParameters(
     [
@@ -376,8 +388,8 @@ export function toWebAuthnSignature({ webauthn, signature }: { webauthn: WebAuth
       {
         authenticatorData: webauthn.authenticatorData,
         clientDataJSON: stringToHex(webauthn.clientDataJSON),
-        challengeIndex: BigInt(webauthn.challengeIndex),
-        typeIndex: BigInt(webauthn.typeIndex),
+        challengeIndex: BigInt(webauthn.challengeIndex ?? 0),
+        typeIndex: BigInt(webauthn.typeIndex ?? 0),
         r,
         s,
       },

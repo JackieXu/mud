@@ -54,11 +54,11 @@ export async function kmsKeyToAccount({
       const signature = await signWithKms({
         client,
         keyId,
-        hash: keccak256(serializer(signableTransaction)),
+        hash: keccak256(await serializer(signableTransaction)),
         address,
       });
 
-      return serializer(transaction, signature);
+      return await serializer(transaction, signature);
     },
     async signTypedData(typedData) {
       const signature = await signWithKms({

@@ -80,7 +80,7 @@ export async function writeContract<
             ...feeRef.fees,
             ...request,
             nonce,
-          } as const satisfies WriteContractParameters<abi, functionName, args, chain, account, chainOverride>;
+          } as const;
           debug("calling", params.functionName, "at", params.address, "with nonce", nonce);
           return await getAction(client, viem_writeContract, "writeContract")(params as never);
         },
