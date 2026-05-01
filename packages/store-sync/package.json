@@ -115,7 +115,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "viem": "2.35.1",
+    "viem": "2.48.7",
     "wagmi": "2.16.5"
   },
   "peerDependencies": {

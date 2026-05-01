@@ -76,7 +76,7 @@ export async function sendTransaction<
             ...feeRef.fees,
             ...request,
             nonce,
-          } as const satisfies SendTransactionParameters<chain, account, chainOverride, request>;
+          } as const;
           debug("sending tx to", request.to, "with nonce", nonce);
           return await getAction(client, viem_sendTransaction, "sendTransaction")(params as never);
         },
