@@ -103,8 +103,8 @@ importers:
         specifier: ^16.0.3
         version: 16.0.3
       forge-std:
-        specifier: https://github.com/foundry-rs/forge-std.git#60acb7aaadcce2d68e52986a0a66fe79f07d138f
-        version: https://codeload.github.com/foundry-rs/forge-std/tar.gz/60acb7aaadcce2d68e52986a0a66fe79f07d138f
+        specifier: https://github.com/foundry-rs/forge-std.git#620536fa5277db4e3fd46772d5cbc1ea0696fb43
+        version: https://codeload.github.com/foundry-rs/forge-std/tar.gz/620536fa5277db4e3fd46772d5cbc1ea0696fb43
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -843,9 +843,9 @@ packages:
       debug:
         optional: true
 
-  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/60acb7aaadcce2d68e52986a0a66fe79f07d138f:
-    resolution: {tarball: https://codeload.github.com/foundry-rs/forge-std/tar.gz/60acb7aaadcce2d68e52986a0a66fe79f07d138f}
-    version: 1.9.7
+  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/620536fa5277db4e3fd46772d5cbc1ea0696fb43:
+    resolution: {tarball: https://codeload.github.com/foundry-rs/forge-std/tar.gz/620536fa5277db4e3fd46772d5cbc1ea0696fb43}
+    version: 1.16.1
 
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
@@ -883,7 +883,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   google-protobuf@3.21.2:
     resolution: {integrity: sha512-3MSOYFO5U9mPGikIYCzK0SaThypfGgS6bHqrUGXG3DPHCrb+txNqeEcns1W0lkGfk0rCyNXm7xB9rMxnCiZOoA==}
@@ -1298,6 +1298,7 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -1807,7 +1808,7 @@ snapshots:
 
   follow-redirects@1.15.2: {}
 
-  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/60acb7aaadcce2d68e52986a0a66fe79f07d138f: {}
+  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/620536fa5277db4e3fd46772d5cbc1ea0696fb43: {}
 
   fs.realpath@1.0.0: {}
 
