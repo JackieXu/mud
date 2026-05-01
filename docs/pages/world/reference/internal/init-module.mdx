@@ -7,34 +7,37 @@
 **Inherits:**
 [Module](/world/reference/module#module)
 
+**Title:**
+Init Module
+
 Registers internal World tables, systems, and their function selectors.
 
-_This module only supports `installRoot` because it installs root tables, systems and function selectors._
+This module only supports `installRoot` because it installs root tables, systems and function selectors.
 
 ### State Variables
 
 #### accessManagementSystem
 
 ```solidity
-address internal immutable accessManagementSystem;
+address internal immutable accessManagementSystem
 ```
 
 #### balanceTransferSystem
 
 ```solidity
-address internal immutable balanceTransferSystem;
+address internal immutable balanceTransferSystem
 ```
 
 #### batchCallSystem
 
 ```solidity
-address internal immutable batchCallSystem;
+address internal immutable batchCallSystem
 ```
 
 #### registrationSystem
 
 ```solidity
-address internal immutable registrationSystem;
+address internal immutable registrationSystem
 ```
 
 ### Functions
@@ -54,7 +57,7 @@ constructor(
 
 Root installation of the module.
 
-_Registers core tables, systems, and function selectors in the World._
+Registers core tables, systems, and function selectors in the World.
 
 ```solidity
 function installRoot(bytes memory) public override;
@@ -64,7 +67,7 @@ function installRoot(bytes memory) public override;
 
 Register World's tables.
 
-_This internal function registers various tables and sets initial permissions._
+This internal function registers various tables and sets initial permissions.
 
 ```solidity
 function _registerTables() internal;
@@ -82,7 +85,7 @@ function _registerSystems() internal;
 
 Register the internal system in the World.
 
-_Uses the WorldRegistrationSystem's `registerSystem` implementation to register the system on the World._
+Uses the WorldRegistrationSystem's `registerSystem` implementation to register the system on the World.
 
 ```solidity
 function _registerSystem(address target, ResourceId systemId) internal;
@@ -92,7 +95,7 @@ function _registerSystem(address target, ResourceId systemId) internal;
 
 Register function selectors for all core system functions in the World.
 
-_Iterates through known function signatures and registers them._
+Iterates through known function signatures and registers them.
 
 ```solidity
 function _registerFunctionSelectors() internal;
@@ -102,7 +105,7 @@ function _registerFunctionSelectors() internal;
 
 Register the function selector in the World.
 
-_Uses the RegistrationSystem's `registerRootFunctionSelector` to register the function selector._
+Uses the RegistrationSystem's `registerRootFunctionSelector` to register the function selector.
 
 ```solidity
 function _registerRootFunctionSelector(ResourceId systemId, string memory functionSignature) internal;
@@ -114,50 +117,46 @@ function _registerRootFunctionSelector(ResourceId systemId, string memory functi
 
 #### ACCESS_MANAGEMENT_SYSTEM_ID
 
-_Resource ID for access management system._
+Resource ID for access management system.
 
-_This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name._
+This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name.
 
 ```solidity
-ResourceId constant ACCESS_MANAGEMENT_SYSTEM_ID = ResourceId.wrap(
-  bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("AccessManagement")))
-);
+ResourceId constant ACCESS_MANAGEMENT_SYSTEM_ID =
+ResourceId.wrap(bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("AccessManagement"))))
 ```
 
 #### BALANCE_TRANSFER_SYSTEM_ID
 
-_Resource ID for balance transfer system._
+Resource ID for balance transfer system.
 
-_This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name._
+This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name.
 
 ```solidity
-ResourceId constant BALANCE_TRANSFER_SYSTEM_ID = ResourceId.wrap(
-  bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("BalanceTransfer")))
-);
+ResourceId constant BALANCE_TRANSFER_SYSTEM_ID =
+ResourceId.wrap(bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("BalanceTransfer"))))
 ```
 
 #### BATCH_CALL_SYSTEM_ID
 
-_Resource ID for batch call system._
+Resource ID for batch call system.
 
-_This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name._
+This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name.
 
 ```solidity
-ResourceId constant BATCH_CALL_SYSTEM_ID = ResourceId.wrap(
-  bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("BatchCall")))
-);
+ResourceId constant BATCH_CALL_SYSTEM_ID =
+ResourceId.wrap(bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("BatchCall"))))
 ```
 
 #### REGISTRATION_SYSTEM_ID
 
-_Resource ID for core registration system._
+Resource ID for core registration system.
 
-_This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name._
+This ID is derived from the RESOURCE_SYSTEM type, the ROOT_NAMESPACE, and the system name.
 
 ```solidity
-ResourceId constant REGISTRATION_SYSTEM_ID = ResourceId.wrap(
-  bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("Registration")))
-);
+ResourceId constant REGISTRATION_SYSTEM_ID =
+ResourceId.wrap(bytes32(abi.encodePacked(RESOURCE_SYSTEM, ROOT_NAMESPACE, bytes16("Registration"))))
 ```
 
 ## RegistrationSystem
@@ -167,30 +166,36 @@ ResourceId constant REGISTRATION_SYSTEM_ID = ResourceId.wrap(
 **Inherits:**
 [IWorldErrors](/world/reference/world-external#iworlderrors), [ModuleInstallationSystem](/world/reference/internal/init-module-implementation#moduleinstallationsystem), [StoreRegistrationSystem](/world/reference/internal/init-module-implementation#storeregistrationsystem), [WorldRegistrationSystem](/world/reference/internal/init-module-implementation#worldregistrationsystem)
 
+**Title:**
+Registration System for World
+
 This system aggregates World registration and installation functionalities externalized from the World contract, aiming to keep the World contract's bytecode lean.
 
-_Aggregates multiple system implementations for the World._
+Aggregates multiple system implementations for the World.
 
 ## LimitedCallContext
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/modules/init/LimitedCallContext.sol)
 
-_Systems are expected to be always called via the central World contract.
+**Title:**
+LimitedCallContext
+
+Systems are expected to be always called via the central World contract.
 Depending on whether it is a root or non-root system, the call is performed via `delegatecall` or `call`.
 Since Systems are expected to be stateless and only interact with the World state,
 it is normally not necessary to prevent direct calls to the systems.
 However, since the `CoreSystem` is known to always be registered as a root system in the World,
-it is always expected to be delegatecalled, so we made this expectation explicit by reverting if it is not delegatecalled._
+it is always expected to be delegatecalled, so we made this expectation explicit by reverting if it is not delegatecalled.
 
-_Based on OpenZeppelin's UUPSUpgradeable.sol
-https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.0.0/contracts/proxy/utils/UUPSUpgradeable.sol#L50_
+Based on OpenZeppelin's UUPSUpgradeable.sol
+https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.0.0/contracts/proxy/utils/UUPSUpgradeable.sol#L50
 
 ### State Variables
 
 #### \_\_self
 
 ```solidity
-address private immutable __self = address(this);
+address private immutable __self = address(this)
 ```
 
 ### Functions
@@ -198,12 +203,12 @@ address private immutable __self = address(this);
 #### onlyDelegatecall
 
 ```solidity
-modifier onlyDelegatecall();
+modifier onlyDelegatecall() ;
 ```
 
 #### \_checkDelegatecall
 
-_Reverts if the execution is not performed via delegatecall._
+Reverts if the execution is not performed via delegatecall.
 
 ```solidity
 function _checkDelegatecall() internal view virtual;
@@ -221,13 +226,18 @@ error UnauthorizedCallContext();
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/modules/init/types.sol)
 
+**Title:**
+System Call Data Structure
+
 Holds data for making system calls.
 
-_Used to represent a call to a specific system identified by a ResourceId._
+Used to represent a call to a specific system identified by a ResourceId.
 
 ```solidity
 struct SystemCallData {
+  /// @dev The ID of the system to call.
   ResourceId systemId;
+  /// @dev The call data to pass to the system function.
   bytes callData;
 }
 ```
@@ -236,14 +246,20 @@ struct SystemCallData {
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/modules/init/types.sol)
 
+**Title:**
+System Call From Data Structure
+
 Holds data for making system calls with a specific sender.
 
-_Used to represent a call from a specific address to a specific system._
+Used to represent a call from a specific address to a specific system.
 
 ```solidity
 struct SystemCallFromData {
+  /// @dev The address from which the system call is made.
   address from;
+  /// @dev The ID of the system to call.
   ResourceId systemId;
+  /// @dev The call data to pass to the system function.
   bytes callData;
 }
 ```

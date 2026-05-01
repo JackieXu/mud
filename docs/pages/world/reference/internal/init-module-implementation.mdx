@@ -7,7 +7,10 @@
 **Inherits:**
 [System](/world/reference/system#system), [LimitedCallContext](/world/reference/internal/init-module#limitedcallcontext)
 
-_This contract manages the granting and revoking of access from/to resources._
+**Title:**
+Access Management System
+
+This contract manages the granting and revoking of access from/to resources.
 
 ### Functions
 
@@ -15,7 +18,7 @@ _This contract manages the granting and revoking of access from/to resources._
 
 Grant access to the resource at the given resource ID.
 
-_Requires the caller to own the namespace._
+Requires the caller to own the namespace.
 
 ```solidity
 function grantAccess(ResourceId resourceId, address grantee) public virtual onlyDelegatecall;
@@ -32,7 +35,7 @@ function grantAccess(ResourceId resourceId, address grantee) public virtual only
 
 Revoke access from the resource at the given resource ID.
 
-_Requires the caller to own the namespace._
+Requires the caller to own the namespace.
 
 ```solidity
 function revokeAccess(ResourceId resourceId, address grantee) public virtual onlyDelegatecall;
@@ -49,7 +52,7 @@ function revokeAccess(ResourceId resourceId, address grantee) public virtual onl
 
 Transfer ownership of the given namespace to newOwner and manages the access.
 
-_Requires the caller to own the namespace. Revoke ResourceAccess for previous owner and grant to newOwner._
+Requires the caller to own the namespace. Revoke ResourceAccess for previous owner and grant to newOwner.
 
 ```solidity
 function transferOwnership(ResourceId namespaceId, address newOwner) public virtual onlyDelegatecall;
@@ -66,7 +69,7 @@ function transferOwnership(ResourceId namespaceId, address newOwner) public virt
 
 Renounces ownership of the given namespace
 
-_Requires the caller to own the namespace. Revoke ResourceAccess for previous owner_
+Requires the caller to own the namespace. Revoke ResourceAccess for previous owner
 
 ```solidity
 function renounceOwnership(ResourceId namespaceId) public virtual onlyDelegatecall;
@@ -85,7 +88,10 @@ function renounceOwnership(ResourceId namespaceId) public virtual onlyDelegateca
 **Inherits:**
 [System](/world/reference/system#system), [LimitedCallContext](/world/reference/internal/init-module#limitedcallcontext)
 
-_A system contract to handle the installation of (non-root) modules in the World._
+**Title:**
+Module Installation System
+
+A system contract to handle the installation of (non-root) modules in the World.
 
 ### Functions
 
@@ -93,8 +99,8 @@ _A system contract to handle the installation of (non-root) modules in the World
 
 Installs a module into the World under a specified namespace.
 
-_Validates the given module against the IModule interface and delegates the installation process.
-The module is then registered in the InstalledModules table._
+Validates the given module against the IModule interface and delegates the installation process.
+The module is then registered in the InstalledModules table.
 
 ```solidity
 function installModule(IModule module, bytes memory encodedArgs) public onlyDelegatecall;
@@ -114,7 +120,10 @@ function installModule(IModule module, bytes memory encodedArgs) public onlyDele
 **Inherits:**
 [System](/world/reference/system#system), [IWorldErrors](/world/reference/world-external#iworlderrors), [LimitedCallContext](/world/reference/internal/init-module#limitedcallcontext)
 
-_A system contract that facilitates balance transfers in the World and outside of the World._
+**Title:**
+Balance Transfer System
+
+A system contract that facilitates balance transfers in the World and outside of the World.
 
 ### Functions
 
@@ -122,7 +131,7 @@ _A system contract that facilitates balance transfers in the World and outside o
 
 Transfer balance to another namespace in the World.
 
-_Requires the caller to have access to the source namespace and ensures the destination namespace type is valid._
+Requires the caller to have access to the source namespace and ensures the destination namespace type is valid.
 
 ```solidity
 function transferBalanceToNamespace(
@@ -146,7 +155,7 @@ function transferBalanceToNamespace(
 
 Transfer balance out of the World to a specific address.
 
-_Requires the caller to have access to the source namespace and ensures sufficient balance before transfer._
+Requires the caller to have access to the source namespace and ensures sufficient balance before transfer.
 
 ```solidity
 function transferBalanceToAddress(
@@ -171,7 +180,10 @@ function transferBalanceToAddress(
 **Inherits:**
 [System](/world/reference/system#system), [IWorldErrors](/world/reference/world-external#iworlderrors), IStoreRegistration, [LimitedCallContext](/world/reference/internal/init-module#limitedcallcontext)
 
-_This contract provides functionality for the registration of store-related resources within the World framework._
+**Title:**
+Store Registration System
+
+This contract provides functionality for the registration of store-related resources within the World framework.
 
 ### Functions
 
@@ -179,8 +191,8 @@ _This contract provides functionality for the registration of store-related reso
 
 Register a table within the World framework.
 
-_Registers a table with the specified configuration. If the namespace for the table does not exist, it's created.
-Existing namespaces require the caller to be the owner for table registration._
+Registers a table with the specified configuration. If the namespace for the table does not exist, it's created.
+Existing namespaces require the caller to be the owner for table registration.
 
 ```solidity
 function registerTable(
@@ -208,8 +220,8 @@ function registerTable(
 
 Register a storage hook for a specified table.
 
-_The caller must be the owner of the namespace to which the table belongs.
-The hook must conform to the IStoreHook interface._
+The caller must be the owner of the namespace to which the table belongs.
+The hook must conform to the IStoreHook interface.
 
 ```solidity
 function registerStoreHook(
@@ -231,7 +243,7 @@ function registerStoreHook(
 
 Unregister a previously registered storage hook for a specified table.
 
-_The caller must be the owner of the namespace to which the table belongs._
+The caller must be the owner of the namespace to which the table belongs.
 
 ```solidity
 function unregisterStoreHook(ResourceId tableId, IStoreHook hookAddress) public virtual onlyDelegatecall;
@@ -251,7 +263,10 @@ function unregisterStoreHook(ResourceId tableId, IStoreHook hookAddress) public 
 **Inherits:**
 [System](/world/reference/system#system), [LimitedCallContext](/world/reference/internal/init-module#limitedcallcontext)
 
-_A system contract that facilitates batching of calls to various systems in a single transaction._
+**Title:**
+Batch Call System
+
+A system contract that facilitates batching of calls to various systems in a single transaction.
 
 ### Functions
 
@@ -259,7 +274,7 @@ _A system contract that facilitates batching of calls to various systems in a si
 
 Make batch calls to multiple systems into a single transaction.
 
-_Iterates through an array of system calls, executes them, and returns an array of return data._
+Iterates through an array of system calls, executes them, and returns an array of return data.
 
 ```solidity
 function batchCall(SystemCallData[] calldata systemCalls) public onlyDelegatecall returns (bytes[] memory returnDatas);
@@ -281,7 +296,7 @@ function batchCall(SystemCallData[] calldata systemCalls) public onlyDelegatecal
 
 Make batch calls from specific addresses to multiple systems in a single transaction.
 
-_Iterates through an array of system calls with specified 'from' addresses, executes them, and returns an array of return data._
+Iterates through an array of system calls with specified 'from' addresses, executes them, and returns an array of return data.
 
 ```solidity
 function batchCallFrom(
@@ -308,7 +323,10 @@ function batchCallFrom(
 **Inherits:**
 [System](/world/reference/system#system), [IWorldErrors](/world/reference/world-external#iworlderrors), [LimitedCallContext](/world/reference/internal/init-module#limitedcallcontext)
 
-_This contract provides functions related to registering resources other than tables in the World._
+**Title:**
+WorldRegistrationSystem
+
+This contract provides functions related to registering resources other than tables in the World.
 
 ### Functions
 
@@ -318,7 +336,7 @@ _This contract provides functions related to registering resources other than ta
 
 Registers a new namespace
 
-_Creates a new namespace resource with the given ID_
+Creates a new namespace resource with the given ID
 
 ```solidity
 function registerNamespace(ResourceId namespaceId) public virtual onlyDelegatecall;
@@ -334,7 +352,7 @@ function registerNamespace(ResourceId namespaceId) public virtual onlyDelegateca
 
 Registers a new system hook
 
-_Adds a new hook for the system at the provided system ID_
+Adds a new hook for the system at the provided system ID
 
 ```solidity
 function registerSystemHook(
@@ -356,7 +374,7 @@ function registerSystemHook(
 
 Unregisters a system hook
 
-_Removes a hook for the system at the provided system ID_
+Removes a hook for the system at the provided system ID
 
 ```solidity
 function unregisterSystemHook(ResourceId systemId, ISystemHook hookAddress) public virtual onlyDelegatecall;
@@ -375,13 +393,13 @@ function unregisterSystemHook(ResourceId systemId, ISystemHook hookAddress) publ
 
 Registers a system
 
-_Registers or upgrades a system at the given ID
+Registers or upgrades a system at the given ID
 If the namespace doesn't exist yet, it is registered.
 The system is granted access to its namespace, so it can write to any
 table in the same namespace.
 If publicAccess is true, no access control check is performed for calling the system.
 This function doesn't check whether a system already exists at the given selector,
-making it possible to upgrade systems._
+making it possible to upgrade systems.
 
 ```solidity
 function registerSystem(ResourceId systemId, System system, bool publicAccess) public virtual onlyDelegatecall;
@@ -401,7 +419,7 @@ function registerSystem(ResourceId systemId, System system, bool publicAccess) p
 
 Registers a new World function selector
 
-_Creates a mapping between a World function and its associated system function_
+Creates a mapping between a World function and its associated system function
 
 ```solidity
 function registerFunctionSelector(
@@ -429,7 +447,7 @@ function registerFunctionSelector(
 
 Registers a root World function selector
 
-_Creates a mapping for a root World function without namespace or name prefix_
+Creates a mapping for a root World function without namespace or name prefix
 
 ```solidity
 function registerRootFunctionSelector(
@@ -457,7 +475,7 @@ function registerRootFunctionSelector(
 
 Registers a delegation for the caller
 
-_Creates a new delegation from the caller to the specified delegatee_
+Creates a new delegation from the caller to the specified delegatee
 
 ```solidity
 function registerDelegation(
@@ -479,7 +497,7 @@ function registerDelegation(
 
 Unregisters a delegation
 
-_Deletes the new delegation from the caller to the specified delegatee_
+Deletes the new delegation from the caller to the specified delegatee
 
 ```solidity
 function unregisterDelegation(address delegatee) public onlyDelegatecall;
@@ -495,7 +513,7 @@ function unregisterDelegation(address delegatee) public onlyDelegatecall;
 
 Registers a delegation for a namespace
 
-_Sets up a new delegation control for a specific namespace_
+Sets up a new delegation control for a specific namespace
 
 ```solidity
 function registerNamespaceDelegation(
@@ -517,7 +535,7 @@ function registerNamespaceDelegation(
 
 Unregisters a delegation for a namespace
 
-_Deletes the delegation control for a specific namespace_
+Deletes the delegation control for a specific namespace
 
 ```solidity
 function unregisterNamespaceDelegation(ResourceId namespaceId) public onlyDelegatecall;

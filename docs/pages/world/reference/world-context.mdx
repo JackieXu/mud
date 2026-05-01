@@ -7,11 +7,14 @@
 **Inherits:**
 [IWorldContextConsumer](/world/reference/world-context-external#iworldcontextconsumer)
 
+**Title:**
+WorldContextConsumer - Extracting trusted context values from appended calldata.
+
 This contract is designed to extract trusted context values (like msg.sender and msg.value)
 from the appended calldata. It provides mechanisms similar to EIP-2771 (https://eips.ethereum.org/EIPS/eip-2771),
 but allowing any contract to be the trusted forwarder.
 
-_This contract should only be used for contracts without their own storage, like Systems._
+This contract should only be used for contracts without their own storage, like Systems.
 
 ### Functions
 
@@ -85,12 +88,15 @@ function supportsInterface(bytes4 interfaceId) public pure virtual returns (bool
 #### CONTEXT_BYTES
 
 ```solidity
-uint256 constant CONTEXT_BYTES = 20 + 32;
+uint256 constant CONTEXT_BYTES = 20 + 32
 ```
 
 ## WorldContextConsumerLib
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/WorldContext.sol)
+
+**Title:**
+WorldContextConsumerLib
 
 Helpers for working with data in the context of calling a World
 
@@ -141,6 +147,9 @@ function _world() internal view returns (address);
 ## WorldContextProviderLib
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/WorldContext.sol)
+
+**Title:**
+WorldContextProviderLib - Utility functions to call contracts with context values appended to calldata.
 
 This library provides functions to make calls or delegatecalls to other contracts,
 appending the context values (like msg.sender and msg.value) to the calldata for WorldContextConsumer to consume.
@@ -258,7 +267,7 @@ function delegatecallWithContext(
 
 Makes a call to the target contract with context values appended to the calldata.
 
-_Revert in the case of failure._
+Revert in the case of failure.
 
 ```solidity
 function callWithContextOrRevert(
@@ -288,7 +297,7 @@ function callWithContextOrRevert(
 
 Makes a delegatecall to the target contract with context values appended to the calldata.
 
-_Revert in the case of failure._
+Revert in the case of failure.
 
 ```solidity
 function delegatecallWithContextOrRevert(

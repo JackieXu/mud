@@ -7,10 +7,13 @@
 **Inherits:**
 StoreKernel, [IWorldKernel](/world/reference/world-external#iworldkernel)
 
-_This contract is the core "World" contract containing various methods for
-data manipulation, system calls, and dynamic function selector handling._
+**Title:**
+World Contract
 
-_World doesn't inherit `Store` because the `IStoreRegistration` methods are added via the `InitModule`._
+This contract is the core "World" contract containing various methods for
+data manipulation, system calls, and dynamic function selector handling.
+
+World doesn't inherit `Store` because the `IStoreRegistration` methods are added via the `InitModule`.
 
 ### State Variables
 
@@ -19,7 +22,7 @@ _World doesn't inherit `Store` because the `IStoreRegistration` methods are adde
 Address of the contract's creator.
 
 ```solidity
-address public immutable creator;
+address public immutable creator
 ```
 
 ### Functions
@@ -38,7 +41,7 @@ function worldVersion() public pure returns (bytes32);
 
 #### constructor
 
-_Event emitted when the World contract is created._
+Event emitted when the World contract is created.
 
 ```solidity
 constructor();
@@ -46,20 +49,20 @@ constructor();
 
 #### prohibitDirectCallback
 
-_Prevents the World contract from calling itself.
+Prevents the World contract from calling itself.
 If the World is able to call itself via `delegatecall` from a system, the system would have root access to context like internal tables, causing a potential vulnerability.
 Ideally this should not happen because all operations to internal tables happen as internal library calls, and all calls to root systems happen as a `delegatecall` to the system.
-However, since this is an important invariant, we make it explicit by reverting if `msg.sender` is `address(this)` in all `World` methods._
+However, since this is an important invariant, we make it explicit by reverting if `msg.sender` is `address(this)` in all `World` methods.
 
 ```solidity
-modifier prohibitDirectCallback();
+modifier prohibitDirectCallback() ;
 ```
 
 #### initialize
 
 Initializes the World by installing the core module.
 
-_Only the initial creator can initialize. This can be done only once._
+Only the initial creator can initialize. This can be done only once.
 
 ```solidity
 function initialize(IModule initModule) public prohibitDirectCallback;
@@ -75,7 +78,7 @@ function initialize(IModule initModule) public prohibitDirectCallback;
 
 Installs a given root module in the World.
 
-_The caller must own the root namespace._
+The caller must own the root namespace.
 
 ```solidity
 function installRootModule(IModule module, bytes memory encodedArgs) public prohibitDirectCallback;
@@ -94,7 +97,7 @@ WORLD STORE METHODS
 
 Writes a record in the table identified by `tableId`.
 
-_Requires the caller to have access to the table's namespace or name (encoded in the tableId)._
+Requires the caller to have access to the table's namespace or name (encoded in the tableId).
 
 ```solidity
 function setRecord(
@@ -214,7 +217,7 @@ function setField(
 
 Writes data into a static (fixed length) field in the table identified by `tableId`.
 
-_Requires the caller to have access to the table's namespace or name (encoded in the tableId)._
+Requires the caller to have access to the table's namespace or name (encoded in the tableId).
 
 ```solidity
 function setStaticField(
@@ -306,7 +309,7 @@ function popFromDynamicField(
 
 Deletes a record from the table identified by `tableId`.
 
-_Requires the caller to have access to the table's namespace or name._
+Requires the caller to have access to the table's namespace or name.
 
 ```solidity
 function deleteRecord(ResourceId tableId, bytes32[] calldata keyTuple) public virtual prohibitDirectCallback;
@@ -327,7 +330,7 @@ SYSTEM CALLS
 
 Calls a system with a given system ID.
 
-_If system is private, caller must have appropriate access._
+If system is private, caller must have appropriate access.
 
 ```solidity
 function call(
@@ -353,7 +356,7 @@ function call(
 
 Calls a system with a given system ID on behalf of the given delegator.
 
-_If system is private, caller must have appropriate access._
+If system is private, caller must have appropriate access.
 
 ```solidity
 function callFrom(
@@ -389,7 +392,7 @@ receive() external payable;
 
 #### fallback
 
-_Fallback function to call registered function selectors._
+Fallback function to call registered function selectors.
 
 ```solidity
 fallback() external payable prohibitDirectCallback;
@@ -402,9 +405,12 @@ fallback() external payable prohibitDirectCallback;
 **Inherits:**
 [IWorldFactory](/world/reference/world-external#iworldfactory)
 
+**Title:**
+WorldFactory
+
 A factory contract to deploy new World instances.
 
-_This contract allows users to deploy a new World, install the InitModule, and transfer the ownership._
+This contract allows users to deploy a new World, install the InitModule, and transfer the ownership.
 
 ### State Variables
 
@@ -413,7 +419,7 @@ _This contract allows users to deploy a new World, install the InitModule, and t
 Address of the init module to be set in the World instances.
 
 ```solidity
-IModule public immutable initModule;
+IModule public immutable initModule
 ```
 
 ### Functions
@@ -434,7 +440,7 @@ constructor(IModule _initModule);
 
 Deploys a new World instance, installs the InitModule and transfers ownership to the caller.
 
-_Uses the Create2 for deterministic deployment._
+Uses the Create2 for deterministic deployment.
 
 ```solidity
 function deployWorld(bytes memory salt) public returns (address worldAddress);

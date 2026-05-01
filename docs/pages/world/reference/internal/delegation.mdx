@@ -4,13 +4,16 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/Delegation.sol)
 
-_Library for managing and verifying delegations._
+**Title:**
+Delegation
+
+Library for managing and verifying delegations.
 
 ### Functions
 
 #### exists
 
-_Check if a delegation control ID exists by comparing it to an empty `bytes32` value._
+Check if a delegation control ID exists by comparing it to an empty `bytes32` value.
 
 ```solidity
 function exists(ResourceId delegationControlId) internal pure returns (bool);
@@ -30,7 +33,7 @@ function exists(ResourceId delegationControlId) internal pure returns (bool);
 
 #### isUnlimited
 
-_Check if a delegation is unlimited by comparing it to the constant for unlimited delegations._
+Check if a delegation is unlimited by comparing it to the constant for unlimited delegations.
 
 ```solidity
 function isUnlimited(ResourceId delegationControlId) internal pure returns (bool);
@@ -50,7 +53,7 @@ function isUnlimited(ResourceId delegationControlId) internal pure returns (bool
 
 #### isLimited
 
-_Check if a delegation is limited._
+Check if a delegation is limited.
 
 ```solidity
 function isLimited(ResourceId delegationControlId) internal pure returns (bool);
@@ -72,7 +75,7 @@ function isLimited(ResourceId delegationControlId) internal pure returns (bool);
 
 Verify a delegation.
 
-_Verifying the delegation might have side effects in the delegation control contract._
+Verifying the delegation might have side effects in the delegation control contract.
 
 ```solidity
 function verify(
@@ -107,8 +110,11 @@ function verify(
 **Inherits:**
 [System](/world/reference/system#system), [IDelegationControl](/world/reference/delegation-external#idelegationcontrol)
 
-_Abstract contract to manage delegations and check interface support.
-Inherits functionalities from WorldContextConsumer and IDelegationControl._
+**Title:**
+DelegationControl
+
+Abstract contract to manage delegations and check interface support.
+Inherits functionalities from WorldContextConsumer and IDelegationControl.
 
 ### Functions
 
@@ -116,7 +122,7 @@ Inherits functionalities from WorldContextConsumer and IDelegationControl._
 
 Check if the given interfaceId is supported by this contract.
 
-_Overrides the functionality from IERC165 and WorldContextConsumer to check for supported interfaces._
+Overrides the functionality from IERC165 and WorldContextConsumer to check for supported interfaces.
 
 ```solidity
 function supportsInterface(

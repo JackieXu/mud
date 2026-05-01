@@ -7,30 +7,33 @@
 #### NAMESPACE_BYTES
 
 ```solidity
-uint256 constant NAMESPACE_BYTES = 14;
+uint256 constant NAMESPACE_BYTES = 14
 ```
 
 #### NAMESPACE_BITS
 
 ```solidity
-uint256 constant NAMESPACE_BITS = 14 * 8;
+uint256 constant NAMESPACE_BITS = 14 * 8
 ```
 
 #### NAME_BITS
 
 ```solidity
-uint256 constant NAME_BITS = 16 * 8;
+uint256 constant NAME_BITS = 16 * 8
 ```
 
 #### NAMESPACE_MASK
 
 ```solidity
-bytes32 constant NAMESPACE_MASK = bytes32(~bytes14("")) >> (TYPE_BITS);
+bytes32 constant NAMESPACE_MASK = bytes32(~bytes14("")) >> (TYPE_BITS)
 ```
 
 ## WorldResourceIdInstance
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/WorldResourceId.sol)
+
+**Title:**
+WorldResourceIdInstance
 
 A library for handling instances of World Resource IDs.
 
@@ -120,6 +123,9 @@ function toString(ResourceId resourceId) internal pure returns (string memory);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/WorldResourceId.sol)
 
+**Title:**
+WorldResourceIdLib
+
 A library for handling World Resource ID encoding and decoding.
 
 ### Functions
@@ -194,20 +200,20 @@ function toTrimmedString(bytes16 paddedString) internal pure returns (string mem
 
 #### RESOURCE_NAMESPACE
 
-_Constants used to work with world resource types._
+Constants used to work with world resource types.
 
 ```solidity
-bytes2 constant RESOURCE_NAMESPACE = "ns";
+bytes2 constant RESOURCE_NAMESPACE = "ns"
 ```
 
 #### RESOURCE_SYSTEM
 
 ```solidity
-bytes2 constant RESOURCE_SYSTEM = "sy";
+bytes2 constant RESOURCE_SYSTEM = "sy"
 ```
 
 #### MASK_RESOURCE_NAMESPACE
 
 ```solidity
-bytes32 constant MASK_RESOURCE_NAMESPACE = bytes32(RESOURCE_NAMESPACE);
+bytes32 constant MASK_RESOURCE_NAMESPACE = bytes32(RESOURCE_NAMESPACE)
 ```

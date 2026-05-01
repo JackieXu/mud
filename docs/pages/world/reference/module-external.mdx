@@ -7,9 +7,12 @@
 **Inherits:**
 [IERC165](/world/reference/internal/erc165-external#ierc165), [IModuleErrors](/world/reference/module-external#imoduleerrors)
 
-_Interface for the Module system.
+**Title:**
+IModule
+
+Interface for the Module system.
 A module can be installed within the context of a world, either as a root or non-root module.
-This interface adheres to the ERC-165 standard for determining interface support._
+This interface adheres to the ERC-165 standard for determining interface support.
 
 ### Functions
 
@@ -17,8 +20,8 @@ This interface adheres to the ERC-165 standard for determining interface support
 
 Installs the module as a root module.
 
-_This function is invoked by the World contract during `installRootModule` process.
-The module expects to be called via the World contract and thus installs itself on the `msg.sender`._
+This function is invoked by the World contract during `installRootModule` process.
+The module expects to be called via the World contract and thus installs itself on the `msg.sender`.
 
 ```solidity
 function installRoot(bytes memory encodedArgs) external;
@@ -34,9 +37,9 @@ function installRoot(bytes memory encodedArgs) external;
 
 Installs the module.
 
-_This function is invoked by the World contract during `installModule` process.
+This function is invoked by the World contract during `installModule` process.
 The module expects to be called via the World contract and thus installs itself on the `msg.sender`.
-Logic might differ from `installRoot`, for example, this might accept namespace parameters._
+Logic might differ from `installRoot`, for example, this might accept namespace parameters.
 
 ```solidity
 function install(bytes memory encodedArgs) external;
@@ -52,10 +55,13 @@ function install(bytes memory encodedArgs) external;
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IModuleErrors.sol)
 
+**Title:**
+IModuleErrors
+
 This interface includes errors for the Module library.
 
-_We bundle these errors in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IWorldKernel.
-This ensures that all errors are included in the IWorldKernel ABI for proper decoding in the frontend._
+We bundle these errors in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IWorldKernel.
+This ensures that all errors are included in the IWorldKernel ABI for proper decoding in the frontend.
 
 ### Errors
 

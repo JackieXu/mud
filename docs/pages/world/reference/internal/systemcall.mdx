@@ -4,8 +4,11 @@
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/SystemCall.sol)
 
-_The SystemCall library provides functions for interacting with systems using their unique Resource IDs.
-It ensures the necessary access control checks, handles system hooks, and performs system calls._
+**Title:**
+SystemCall
+
+The SystemCall library provides functions for interacting with systems using their unique Resource IDs.
+It ensures the necessary access control checks, handles system hooks, and performs system calls.
 
 ### Functions
 
@@ -15,7 +18,7 @@ It ensures the necessary access control checks, handles system hooks, and perfor
 
 Calls a system identified by its Resource ID while ensuring necessary access controls.
 
-_This function does not revert if the system call fails. Instead, it returns a success flag._
+This function does not revert if the system call fails. Instead, it returns a success flag.
 
 ```solidity
 function call(
@@ -46,7 +49,7 @@ function call(
 
 Makes a staticcall to a system identified by its Resource ID while ensuring necessary access controls.
 
-_This function does not revert if the system staticcall fails. Instead, it returns a success flag._
+This function does not revert if the system staticcall fails. Instead, it returns a success flag.
 
 ```solidity
 function staticcall(
@@ -101,7 +104,7 @@ function staticcallOrRevert(
 
 Calls a system identified by its Resource ID, ensuring access controls, and triggers associated system hooks.
 
-_This function does not revert if the system call fails. Instead, it returns a success flag._
+This function does not revert if the system call fails. Instead, it returns a success flag.
 
 ```solidity
 function callWithHooks(

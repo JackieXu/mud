@@ -7,9 +7,15 @@
 **Inherits:**
 [IStoreKernel](/store/reference/store#istorekernel), [IStoreRegistration](/store/reference/store#istoreregistration)
 
+**Title:**
+IStore
+
 ## IStoreEvents
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/IStoreEvents.sol)
+
+**Title:**
+IStoreEvents
 
 ### Events
 
@@ -55,8 +61,8 @@ event Store_SetRecord(
 
 Emitted when static data in the store is spliced.
 
-_In static data, data is always overwritten starting at the start position,
-so the total length of the data remains the same and no data is shifted._
+In static data, data is always overwritten starting at the start position,
+so the total length of the data remains the same and no data is shifted.
 
 ```solidity
 event Store_SpliceStaticData(ResourceId indexed tableId, bytes32[] keyTuple, uint48 start, bytes data);
@@ -118,10 +124,13 @@ event Store_DeleteRecord(ResourceId indexed tableId, bytes32[] keyTuple);
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/IStoreErrors.sol)
 
+**Title:**
+IStoreErrors
+
 This interface includes errors for Store.
 
-_We bundle these errors in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IStore.
-This ensures that all possible errors are included in the IStore ABI for proper decoding in the frontend._
+We bundle these errors in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IStore.
+This ensures that all possible errors are included in the IStore ABI for proper decoding in the frontend.
 
 ### Errors
 
@@ -190,7 +199,7 @@ error Store_InvalidBounds(uint256 start, uint256 end);
 
 Error raised if the provided index is out of bounds.
 
-_Raised if the start index is larger than the previous length of the field._
+Raised if the start index is larger than the previous length of the field.
 
 ```solidity
 error Store_IndexOutOfBounds(uint256 length, uint256 accessedIndex);
@@ -297,7 +306,7 @@ error Store_InvalidValueSchemaDynamicLength(uint256 expected, uint256 received);
 
 Error raised if the provided splice is invalid.
 
-_Raised if the splice total length of the field is changed but the splice is not at the end of the field._
+Raised if the splice total length of the field is changed but the splice is not at the end of the field.
 
 ```solidity
 error Store_InvalidSplice(uint40 startWithinField, uint40 deleteCount, uint40 fieldLength);
@@ -314,6 +323,9 @@ error Store_InvalidSplice(uint40 startWithinField, uint40 deleteCount, uint40 fi
 ## IStoreRead
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/IStoreRead.sol)
+
+**Title:**
+IStoreRead
 
 ### Functions
 
@@ -470,6 +482,9 @@ function getDynamicFieldSlice(
 **Inherits:**
 [IStoreEvents](/store/reference/store#istoreevents)
 
+**Title:**
+IStoreWrite
+
 ### Functions
 
 #### setRecord
@@ -576,7 +591,10 @@ function deleteRecord(ResourceId tableId, bytes32[] memory keyTuple) external;
 
 [Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/IStoreRegistration.sol)
 
-_This interface includes methods for managing table field layouts, metadata, and hooks, which are usually called once in the setup phase of an application, making them less performance critical than the methods._
+**Title:**
+IStoreRegistration
+
+This interface includes methods for managing table field layouts, metadata, and hooks, which are usually called once in the setup phase of an application, making them less performance critical than the methods.
 
 ### Functions
 
@@ -615,6 +633,9 @@ function unregisterStoreHook(ResourceId tableId, IStoreHook hookAddress) externa
 
 **Inherits:**
 [IStoreRead](/store/reference/store#istoreread), [IStoreWrite](/store/reference/store#istorewrite), [IStoreErrors](/store/reference/store#istoreerrors), [IFieldLayoutErrors](/src/IFieldLayoutErrors.sol/interface.IFieldLayoutErrors.md), [IEncodedLengthsErrors](/src/IEncodedLengthsErrors.sol/interface.IEncodedLengthsErrors.md), [ISchemaErrors](/src/ISchemaErrors.sol/interface.ISchemaErrors.md), [ISliceErrors](/src/ISliceErrors.sol/interface.ISliceErrors.md)
+
+**Title:**
+IStoreKernel
 
 IStoreKernel includes the error interfaces for each library that it uses.
 
