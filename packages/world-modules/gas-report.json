@@ -45,7 +45,7 @@
     "file": "test/ERC721.t.sol:ERC721Test",
     "test": "testBurnGas",
     "name": "burn",
-    "gasUsed": 157535
+    "gasUsed": 160035
   },
   {
     "file": "test/ERC721.t.sol:ERC721Test",
@@ -105,13 +105,13 @@
     "file": "test/KeysInTableModule.t.sol:KeysInTableModuleTest",
     "test": "testSetAndDeleteRecordHookCompositeGas",
     "name": "change a composite record on a table with keysInTableModule installed",
-    "gasUsed": 67468
+    "gasUsed": 69968
   },
   {
     "file": "test/KeysInTableModule.t.sol:KeysInTableModuleTest",
     "test": "testSetAndDeleteRecordHookCompositeGas",
     "name": "delete a composite record on a table with keysInTableModule installed",
-    "gasUsed": 226500
+    "gasUsed": 229000
   },
   {
     "file": "test/KeysInTableModule.t.sol:KeysInTableModuleTest",
@@ -123,13 +123,13 @@
     "file": "test/KeysInTableModule.t.sol:KeysInTableModuleTest",
     "test": "testSetAndDeleteRecordHookGas",
     "name": "change a record on a table with keysInTableModule installed",
-    "gasUsed": 70137
+    "gasUsed": 72637
   },
   {
     "file": "test/KeysInTableModule.t.sol:KeysInTableModuleTest",
     "test": "testSetAndDeleteRecordHookGas",
     "name": "delete a record on a table with keysInTableModule installed",
-    "gasUsed": 149159
+    "gasUsed": 151659
   },
   {
     "file": "test/KeysWithValueModule.t.sol:KeysWithValueModuleTest",
@@ -171,13 +171,13 @@
     "file": "test/KeysWithValueModule.t.sol:KeysWithValueModuleTest",
     "test": "testSetAndDeleteRecordHook",
     "name": "change a record on a table with KeysWithValueModule installed",
-    "gasUsed": 167214
+    "gasUsed": 169714
   },
   {
     "file": "test/KeysWithValueModule.t.sol:KeysWithValueModuleTest",
     "test": "testSetAndDeleteRecordHook",
     "name": "delete a record on a table with KeysWithValueModule installed",
-    "gasUsed": 86583
+    "gasUsed": 89083
   },
   {
     "file": "test/KeysWithValueModule.t.sol:KeysWithValueModuleTest",
@@ -195,61 +195,61 @@
     "file": "test/KeysWithValueModule.t.sol:KeysWithValueModuleTest",
     "test": "testSetField",
     "name": "change a field on a table with KeysWithValueModule installed",
-    "gasUsed": 168369
+    "gasUsed": 170869
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testCombinedHasHasValueNotQuery",
     "name": "CombinedHasHasValueNotQuery",
-    "gasUsed": 170472
+    "gasUsed": 212972
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testCombinedHasHasValueQuery",
     "name": "CombinedHasHasValueQuery",
-    "gasUsed": 90323
+    "gasUsed": 107823
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testCombinedHasNotQuery",
     "name": "CombinedHasNotQuery",
-    "gasUsed": 207004
+    "gasUsed": 269504
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testCombinedHasQuery",
     "name": "CombinedHasQuery",
-    "gasUsed": 131312
+    "gasUsed": 171312
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testCombinedHasValueNotQuery",
     "name": "CombinedHasValueNotQuery",
-    "gasUsed": 135776
+    "gasUsed": 173276
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testCombinedHasValueQuery",
     "name": "CombinedHasValueQuery",
-    "gasUsed": 24919
+    "gasUsed": 27419
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testHasQuery",
     "name": "HasQuery",
-    "gasUsed": 29862
+    "gasUsed": 37362
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testHasQuery1000Keys",
     "name": "HasQuery with 1000 keys",
-    "gasUsed": 9312775
+    "gasUsed": 11815275
   },
   {
     "file": "test/query.t.sol:QueryTest",
     "test": "testHasQuery100Keys",
     "name": "HasQuery with 100 keys",
-    "gasUsed": 906957
+    "gasUsed": 1159457
   },
   {
     "file": "test/query.t.sol:QueryTest",
@@ -261,7 +261,7 @@
     "file": "test/query.t.sol:QueryTest",
     "test": "testNotValueQuery",
     "name": "NotValueQuery",
-    "gasUsed": 72573
+    "gasUsed": 90073
   },
   {
     "file": "test/StandardDelegationsModule.t.sol:StandardDelegationsModuleTest",

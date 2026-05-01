@@ -93,7 +93,7 @@
     "file": "test/World.t.sol:WorldTest",
     "test": "testDeleteRecord",
     "name": "Delete record",
-    "gasUsed": 40655
+    "gasUsed": 43155
   },
   {
     "file": "test/World.t.sol:WorldTest",
@@ -135,7 +135,7 @@
     "file": "test/World.t.sol:WorldTest",
     "test": "testRenounceNamespace",
     "name": "Renounce namespace ownership",
-    "gasUsed": 64008
+    "gasUsed": 66508
   },
   {
     "file": "test/World.t.sol:WorldTest",
@@ -165,19 +165,19 @@
     "file": "test/WorldDynamicUpdate.t.sol:UpdateInDynamicFieldTest",
     "test": "testPopFromDynamicField",
     "name": "pop 1 address (cold)",
-    "gasUsed": 53608
+    "gasUsed": 56108
   },
   {
     "file": "test/WorldDynamicUpdate.t.sol:UpdateInDynamicFieldTest",
     "test": "testPopFromDynamicField",
     "name": "pop 1 address (warm)",
-    "gasUsed": 53554
+    "gasUsed": 56054
   },
   {
     "file": "test/WorldDynamicUpdate.t.sol:UpdateInDynamicFieldTest",
     "test": "testSpliceDynamicData",
     "name": "update in field 1 item (cold)",
-    "gasUsed": 54746
+    "gasUsed": 57246
   },
   {
     "file": "test/WorldDynamicUpdate.t.sol:UpdateInDynamicFieldTest",
@@ -213,7 +213,7 @@
     "file": "test/WorldProxy.t.sol:WorldProxyTest",
     "test": "testDeleteRecord",
     "name": "Delete record",
-    "gasUsed": 45557
+    "gasUsed": 48057
   },
   {
     "file": "test/WorldProxy.t.sol:WorldProxyTest",
@@ -255,7 +255,7 @@
     "file": "test/WorldProxy.t.sol:WorldProxyTest",
     "test": "testRenounceNamespace",
     "name": "Renounce namespace ownership",
-    "gasUsed": 68901
+    "gasUsed": 71401
   },
   {
     "file": "test/WorldProxy.t.sol:WorldProxyTest",
