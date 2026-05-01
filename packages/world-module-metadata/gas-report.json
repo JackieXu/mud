@@ -15,6 +15,6 @@
     "file": "test/MetadataModule.t.sol:MetadataModuleTest",
     "test": "testSetResourceTag",
     "name": "set resource tag",
-    "gasUsed": 113620
+    "gasUsed": 116120
   }
 ]
