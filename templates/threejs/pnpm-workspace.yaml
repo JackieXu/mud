@@ -4,3 +4,5 @@ allowBuilds:
   '@foundry-rs/anvil': true
   '@foundry-rs/forge': true
   esbuild: true
+overrides:
+  '@types/react': link:../../packages/dev-tools/node_modules/@types/react
