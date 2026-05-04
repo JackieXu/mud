@@ -11,6 +11,8 @@
     "test:ci": "pnpm run test"
   },
   "devDependencies": {
+    "@foundry-rs/anvil": "1.7.0",
+    "@foundry-rs/forge": "1.7.0",
     "@playwright/test": "1.35.1",
     "shx": "^0.3.4"
   }
