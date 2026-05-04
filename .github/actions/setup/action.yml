@@ -15,4 +15,4 @@ runs:
     - name: Setup forge
       shell: bash
       working-directory: packages/schema-type
-      run: forge build
+      run: pnpm exec forge build
