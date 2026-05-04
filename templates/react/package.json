@@ -6,12 +6,12 @@
     "dev": "mprocs",
     "dev:client": "pnpm --filter 'client' run dev",
     "dev:contracts": "pnpm --filter 'contracts' dev",
-    "foundry:up": "curl -L https://foundry.paradigm.xyz | bash && bash $HOME/.foundry/bin/foundryup",
     "mud:up": "pnpm mud set-version --tag main && pnpm install",
-    "prepare": "(forge --version || pnpm foundry:up)",
     "test": "pnpm recursive run test"
   },
   "devDependencies": {
+    "@foundry-rs/anvil": "1.7.0",
+    "@foundry-rs/forge": "1.7.0",
     "@latticexyz/cli": "link:../../packages/cli",
     "@latticexyz/common": "link:../../packages/common",
     "@latticexyz/explorer": "link:../../packages/explorer",
