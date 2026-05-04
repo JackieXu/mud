@@ -22,13 +22,13 @@ RUN mkdir -p /etc/apt/keyrings && \
 # pnpm
 ENV PNPM_HOME /pnpm
 ENV PATH $PATH:$PNPM_HOME
-RUN npm install pnpm@9.6.0 --global && pnpm --version
+RUN npm install pnpm@11.0.4 --global && pnpm --version
 
 FROM base AS mud
 COPY . /app
 WORKDIR /app
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm-v11,target=/pnpm/store pnpm install --frozen-lockfile
 RUN NODE_OPTIONS=--max-old-space-size=4096 pnpm run build --force
 
 FROM mud AS store-indexer
