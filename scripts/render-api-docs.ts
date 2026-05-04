@@ -97,11 +97,11 @@ const PUBLIC_APIS: PublicApis = {
       content = addSampleCodeFunction(content, "encode", "/world/namespaces-access-control#modifying-access-control");
 
       return content
-        .replace("## Constants", "## ResourceId.sol constants")
-        .replace("## Constants", "## constants.sol")
-        .replace("## Constants", "## storeHookTypes.sol constants")
-        .replace("## Constants", "## storeResourceTypes.sol constants")
-        .replace("## Constants", "## version.sol constants");
+        .replace(/^## Constants$/m, "## ResourceId.sol constants")
+        .replace(/^## Constants$/m, "## constants.sol")
+        .replace(/^## Constants$/m, "## storeHookTypes.sol constants")
+        .replace(/^## Constants$/m, "## storeResourceTypes.sol constants")
+        .replace(/^## Constants$/m, "## version.sol constants");
     },
   },
   "world/reference/internal/access-control.mdx": {
@@ -210,7 +210,7 @@ const PUBLIC_APIS: PublicApis = {
       content = formatHeadings(content);
       content = fixGithubLinks(content, "world");
       content = fixinheritance(content);
-      return content.replace("Constants", "systemHookTypes.sol constants");
+      return content.replace(/^## Constants$/m, "## systemHookTypes.sol constants");
     },
   },
   "world/reference/internal/systemcall.mdx": {
@@ -305,7 +305,7 @@ const PUBLIC_APIS: PublicApis = {
       content = formatHeadings(content);
       content = fixGithubLinks(content, "world");
       content = fixinheritance(content);
-      return content.replace("Constants", "WorldContext.sol constants");
+      return content.replace(/^## Constants$/m, "## WorldContext.sol constants");
     },
   },
   "world/reference/world-context-external.mdx": {
@@ -328,8 +328,8 @@ const PUBLIC_APIS: PublicApis = {
       content = addSampleCodeFunction(content, "encodeNamespace", "/world/systems#registering-systems");
 
       return content
-        .replace("Constants", "WorldResourceId.sol constants")
-        .replace("Constants", "worldResourceTypes.sol constants");
+        .replace(/^## Constants$/m, "## WorldResourceId.sol constants")
+        .replace(/^## Constants$/m, "## worldResourceTypes.sol constants");
     },
   },
   "world/reference/misc.mdx": {
@@ -344,7 +344,9 @@ const PUBLIC_APIS: PublicApis = {
       content = formatHeadings(content);
       content = fixGithubLinks(content, "world");
       content = fixinheritance(content);
-      return content.replace("Constants", "constants.sol").replace("Constants", "version.sol constants");
+      return content
+        .replace(/^## Constants$/m, "## constants.sol")
+        .replace(/^## Constants$/m, "## version.sol constants");
     },
   },
   "world/reference/internal/init-module.mdx": {
@@ -360,7 +362,7 @@ const PUBLIC_APIS: PublicApis = {
       content = formatHeadings(content);
       content = fixGithubLinks(content, "world");
       content = fixinheritance(content);
-      return content.replace("Constants", "constants.sol");
+      return content.replace(/^## Constants$/m, "## constants.sol");
     },
   },
   "world/reference/internal/init-module-implementation.mdx": {
@@ -387,7 +389,7 @@ const PUBLIC_APIS: PublicApis = {
       );
       content = addSampleCodeFunction(content, "transferBalanceToAddress", "/world/balance");
 
-      return content.replace("Constants", "constants.sol");
+      return content.replace(/^## Constants$/m, "## constants.sol");
     },
   },
 };
@@ -398,7 +400,7 @@ function formatHeadings(content: string) {
 }
 
 function fixGithubLinks(content: string, packageName: string) {
-  const pattern = /https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/[^/]+\/(.*)/g;
+  const pattern = /https:\/\/github\.com\/[^/]+\/mud\/blob\/[^/]+\/(.*)/g;
   const replacement = `https://github.com/latticexyz/mud/blob/main/packages/${packageName}/$1`;
   return content.replace(pattern, replacement);
 }
