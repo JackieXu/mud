@@ -10,6 +10,13 @@ packages:
 # pnpm 11's default node-wrapped shim then fails to exec it. Symlinking sidesteps that.
 preferSymlinkedExecutables: true
 packageManagerStrict: false
+# pnpm 10 reset the default `publicHoistPattern` to `[]`. Restore the pnpm 9
+# default so the root `pnpm lint` can still resolve workspace-owned plugins
+# like @trivago/prettier-plugin-sort-imports (referenced from explorer's
+# .prettierrc.cjs) when prettier runs from the repo root.
+publicHoistPattern:
+  - '*eslint*'
+  - '*prettier*'
 allowBuilds:
   '@foundry-rs/anvil': true
   '@foundry-rs/chisel': true
