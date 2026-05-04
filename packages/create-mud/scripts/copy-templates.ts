@@ -45,9 +45,16 @@ const __dirname = path.dirname(__filename);
         mudPackageNames.includes(packageName) ? `"${packageName}": "{{mud-version}}"` : match,
       );
       const json = JSON.parse(source);
-      // Strip out pnpm overrides
+      // Strip out pnpm overrides (legacy location; pnpm 10+ moved these to pnpm-workspace.yaml)
       delete json.pnpm;
       await fs.writeFile(destPath, JSON.stringify(json, null, 2) + "\n");
+    }
+    // Strip the `overrides` block from template pnpm-workspace.yaml. Those overrides use
+    // `link:` paths into the monorepo and won't resolve once the template is scaffolded.
+    else if (/templates\/[^/]+\/pnpm-workspace\.yaml$/.test(destPath)) {
+      const source = await fs.readFile(sourcePath, "utf-8");
+      const stripped = source.replace(/^overrides:\n(?: [^\n]*\n?)*/m, "");
+      await fs.writeFile(destPath, stripped);
     }
     // Replace template workspace root `tsconfig.json` files (which have paths relative to monorepo)
     // with one that inherits our base tsconfig.

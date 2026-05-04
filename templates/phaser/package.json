@@ -27,10 +27,5 @@
   "engines": {
     "node": "^24",
     "pnpm": "^11"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "link:../../packages/dev-tools/node_modules/@types/react"
-    }
   }
 }
