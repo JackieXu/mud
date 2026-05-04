@@ -14,6 +14,8 @@
     "test": "pnpm recursive run test"
   },
   "devDependencies": {
+    "@foundry-rs/anvil": "1.7.0",
+    "@foundry-rs/forge": "1.7.0",
     "@latticexyz/cli": "link:../../packages/cli",
     "@types/node": "^24",
     "@typescript-eslint/eslint-plugin": "7.1.1",

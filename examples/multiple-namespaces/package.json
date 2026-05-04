@@ -13,6 +13,8 @@
     "test": "tsc --noEmit && mud test"
   },
   "devDependencies": {
+    "@foundry-rs/anvil": "1.7.0",
+    "@foundry-rs/forge": "1.7.0",
     "@latticexyz/cli": "link:../../packages/cli",
     "@latticexyz/faucet": "link:../../packages/faucet",
     "@latticexyz/schema-type": "link:../../packages/schema-type",
