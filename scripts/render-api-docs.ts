@@ -398,7 +398,7 @@ function formatHeadings(content: string) {
 }
 
 function fixGithubLinks(content: string, packageName: string) {
-  const pattern = /https:\/\/github.com\/latticexyz\/mud\/blob\/[^/]+\/(.*)/g;
+  const pattern = /https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/[^/]+\/(.*)/g;
   const replacement = `https://github.com/latticexyz/mud/blob/main/packages/${packageName}/$1`;
   return content.replace(pattern, replacement);
 }
