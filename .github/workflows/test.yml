@@ -38,6 +38,15 @@ jobs:
         if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/setup
 
+      # Some store-sync tests import test fixtures from the e2e workspace
+      # (e.g. e2e/packages/contracts/mud.config.ts). Vitest 4's Vite Module
+      # Runner resolves bare specifiers strictly from the importer's location,
+      # so those files need their own node_modules linked.
+      - name: Install end-to-end testing dependencies
+        if: steps.check_changes.outputs.changes_outside_docs
+        working-directory: ./e2e
+        run: pnpm install --frozen-lockfile
+
       - name: Build
         if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/build
