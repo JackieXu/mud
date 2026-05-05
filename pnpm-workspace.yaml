@@ -6,9 +6,6 @@ packages:
   - test/puppet-modules
   - test/system-libraries
   - test/ts-benchmarks
-# turbo 1.9.3's postinstall replaces its bin/turbo JS shim with a Mach-O binary;
-# pnpm 11's default node-wrapped shim then fails to exec it. Symlinking sidesteps that.
-preferSymlinkedExecutables: true
 packageManagerStrict: false
 # pnpm 10 reset the default `publicHoistPattern` to `[]`. Restore the pnpm 9
 # default so the root `pnpm lint` can still resolve workspace-owned plugins
@@ -27,5 +24,4 @@ allowBuilds:
   bufferutil: true
   esbuild: true
   keccak: true
-  turbo: true
   utf-8-validate: true

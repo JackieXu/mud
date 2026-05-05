@@ -60,7 +60,7 @@
     "sort-package-json": "^2.10.1",
     "tsup": "8.3.0",
     "tsx": "4.19.0",
-    "turbo": "^1.9.3",
+    "turbo": "2.9.9",
     "typescript": "5.4.2",
     "viem": "2.48.7",
     "vitest": "2.1.2",
