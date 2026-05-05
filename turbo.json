@@ -38,5 +38,5 @@
       "cache": false
     }
   },
-  "globalPassThroughEnv": ["COREPACK_HOME"]
+  "globalPassThroughEnv": ["COREPACK_HOME", "PROOL_ANVIL_URL", "DATABASE_URL", "AWS_ENDPOINT_URL"]
 }
