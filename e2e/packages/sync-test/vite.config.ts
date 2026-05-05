@@ -5,7 +5,7 @@ export default defineConfig({
     environment: "happy-dom",
     testTimeout: 1000 * 60 * 2,
     hookTimeout: 1000 * 60 * 2,
-    singleThread: true,
+    fileParallelism: false,
     globalSetup: ["./setup/globalSetup.ts"],
     exclude: [...configDefaults.exclude, "compare"],
   },
