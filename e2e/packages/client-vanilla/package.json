@@ -30,7 +30,6 @@
     "viem": "2.48.7"
   },
   "devDependencies": {
-    "vite": "^4.2.1",
-    "vitest": "0.34.6"
+    "vite": "^6.0.7"
   }
 }
