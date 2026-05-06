@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.24;
+pragma solidity >=0.8.35;
 
 import { Entity } from "./Entity.sol";
 import { EntityCount } from "./codegen/tables/EntityCount.sol";

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.24;
+pragma solidity >=0.8.35;
 
 import { WorldContextConsumer } from "./WorldContext.sol";
 import { IWorldContextConsumer } from "./IWorldContextConsumer.sol";

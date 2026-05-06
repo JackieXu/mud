@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.24;
+pragma solidity >=0.8.35;
 
 import { IStoreHook } from "./IStoreHook.sol";
 import { IERC165 } from "./IERC165.sol";

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.24;
+pragma solidity >=0.8.35;
 import { ResourceId } from "@latticexyz/world/src/WorldResourceId.sol";
 import { WorldContextConsumerLib } from "@latticexyz/world/src/WorldContext.sol";
 import { CallWithSignatureNonces } from "./codegen/tables/CallWithSignatureNonces.sol";

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.28;
+pragma solidity >=0.8.35;
 
 import { System } from "@latticexyz/world/src/System.sol";
 import { Value } from "./codegen/tables/Value.sol";
