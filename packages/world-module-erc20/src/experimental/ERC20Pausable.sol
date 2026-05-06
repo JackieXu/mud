@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Adapted from OpenZeppelin's [ERC20Pausable extenstion](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f989fff93168606c726bc5e831ef50dd6e543f45/contracts/token/ERC20/extensions/ERC20Pausable.sol)
-pragma solidity >=0.8.24;
+pragma solidity >=0.8.35;
 
 import { ResourceId } from "@latticexyz/store/src/ResourceId.sol";
 import { Pausable } from "./Pausable.sol";
