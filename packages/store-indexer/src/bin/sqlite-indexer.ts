@@ -60,7 +60,7 @@ async function getCurrentChainState(): Promise<
     // TODO: replace this type workaround with `noUncheckedIndexedAccess: true` when we can fix all the issues related (https://github.com/latticexyz/mud/issues/1212)
     const currentChainState: (typeof currentChainStates)[number] | undefined = currentChainStates[0];
     return currentChainState;
-  } catch (error) {
+  } catch {
     // ignore errors, this is optional
   }
 }

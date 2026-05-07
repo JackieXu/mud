@@ -62,7 +62,7 @@ export function SendCalls() {
                   abi: worldAbi,
                   data: call.data,
                 });
-              } catch (error) {
+              } catch {
                 return;
               }
             })();

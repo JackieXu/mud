@@ -49,8 +49,8 @@ describe("resolveSchema", () => {
 
   it("should extend the output Schema type", () => {
     const scope = extendScope(AbiTypeScope, { CustomType: "address" });
-    const resolved = defineSchema({ regular: "uint256", user: "CustomType" }, scope);
-    attest<true, typeof resolved extends Schema ? true : false>();
+    const _resolved = defineSchema({ regular: "uint256", user: "CustomType" }, scope);
+    attest<true, typeof _resolved extends Schema ? true : false>();
   });
 
   it("should map user types to their primitive type", () => {

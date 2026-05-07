@@ -32,6 +32,6 @@
     "solhint": "^3.3.7",
     "solhint-config-mud": "link:../../packages/solhint-config-mud",
     "solhint-plugin-mud": "link:../../packages/solhint-plugin-mud",
-    "typescript": "5.4.2"
+    "typescript": "5.9.3"
   }
 }

@@ -63,7 +63,7 @@ describe("defineWorld", () => {
   });
 
   it("should extend the output World type", () => {
-    const config = defineWorld({
+    const _config = defineWorld({
       namespaces: {
         ExampleNS: {
           tables: {
@@ -87,7 +87,7 @@ describe("defineWorld", () => {
       },
     });
 
-    attest<typeof config, satisfy<World, typeof config>>();
+    attest<typeof _config, satisfy<World, typeof _config>>();
   });
 
   it("should only allow for single namespace or multiple namespaces, not both", () => {
@@ -502,7 +502,7 @@ describe("defineWorld", () => {
   });
 
   it("should use the custom name and namespace as table index", () => {
-    const config = defineWorld({
+    const _config = defineWorld({
       namespace: "CustomNS",
       tables: {
         Example: {
@@ -512,7 +512,7 @@ describe("defineWorld", () => {
       },
     });
 
-    attest<"CustomNS__Example", keyof typeof config.tables>();
+    attest<"CustomNS__Example", keyof typeof _config.tables>();
   });
 
   it("should throw if table label/namespace is overridden in namespace context", () => {

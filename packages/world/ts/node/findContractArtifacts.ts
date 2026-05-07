@@ -50,7 +50,6 @@ export async function findContractArtifacts({ forgeOutDir }: Input): Promise<Out
     .filter(isDefined)
     .filter(hasMetadata)
     .map((artifact) => {
-      artifact;
       const sourcePath = Object.keys(artifact.metadata.settings.compilationTarget)[0];
       const name = artifact.metadata.settings.compilationTarget[sourcePath];
       const deployedBytecodeSize = size(artifact.deployedBytecode.object);

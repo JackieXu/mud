@@ -18,12 +18,12 @@
     "@foundry-rs/forge": "1.7.0",
     "@latticexyz/cli": "link:../../packages/cli",
     "@types/node": "^24",
-    "@typescript-eslint/eslint-plugin": "7.1.1",
-    "@typescript-eslint/parser": "7.1.1",
+    "@typescript-eslint/eslint-plugin": "8.59.2",
+    "@typescript-eslint/parser": "8.59.2",
     "eslint": "8.57.0",
     "mprocs": "^0.7.3",
     "shx": "^0.3.4",
-    "typescript": "5.4.2"
+    "typescript": "5.9.3"
   },
   "engines": {
     "node": "^24",

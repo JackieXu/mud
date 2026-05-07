@@ -1,6 +1,7 @@
 dist
 .next
 templates/phaser/packages/art
+packages/create-mud/templates
 CODEOWNERS
 out
 

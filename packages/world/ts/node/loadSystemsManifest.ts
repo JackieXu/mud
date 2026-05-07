@@ -16,7 +16,7 @@ export async function loadSystemsManifest(opts: {
   const outFile = path.join(opts.rootDir, systemsManifestFilename);
   try {
     await fs.access(outFile, fs.constants.F_OK | fs.constants.R_OK);
-  } catch (error) {
+  } catch {
     throw new Error(
       `Systems manifest at "${systemsManifestFilename}" not found or not readable. Run \`mud build\` before trying again.`,
     );

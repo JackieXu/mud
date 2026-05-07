@@ -19,7 +19,7 @@ export function getContractData(
   const contractDataPath = path.join(forgeOutDirectory, filename, contractName + ".json");
   try {
     data = JSON.parse(readFileSync(contractDataPath, "utf8"));
-  } catch (error) {
+  } catch {
     throw new MUDError(`Error reading file at ${contractDataPath}`);
   }
 

@@ -12,7 +12,7 @@ async function run() {
   const { logError } = await import("./utils/errors");
   const { commands } = await import("./commands");
 
-  yargs(hideBin(process.argv))
+  void yargs(hideBin(process.argv))
     // Explicit name to display in help (by default it's the entry file, which may not be "mud" for e.g. ts-node)
     .scriptName("mud")
     // Use the commands directory to scaffold

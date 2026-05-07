@@ -53,7 +53,7 @@ try {
     startBlock = chainState.blockNumber + 1n;
     console.log("resuming from block number", startBlock);
   }
-} catch (error) {
+} catch {
   // ignore errors for now
 }
 

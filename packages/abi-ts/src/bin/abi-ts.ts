@@ -9,7 +9,7 @@ import chalk from "chalk";
 // which replaces `abi-ts abi-ts` with just `abi-ts`
 abiTsCommand.command = "$0";
 
-yargs(hideBin(process.argv))
+void yargs(hideBin(process.argv))
   .scriptName("abi-ts")
   // Use the commands directory to scaffold
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- command array overload isn't typed, see https://github.com/yargs/yargs/blob/main/docs/advanced.md#esm-hierarchy

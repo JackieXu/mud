@@ -33,7 +33,7 @@ export const defaultColumn: Partial<ColumnDef<TDataRow>> = {
           keyTuple={keyTuple}
         />
       );
-    } catch (e) {
+    } catch {
       return <TableColumn type={fieldType} value={value} />;
     }
   },

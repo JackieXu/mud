@@ -88,7 +88,7 @@ async function appendChangelogJSON() {
   let existingData: ChangelogEntry[] = [];
   try {
     existingData = JSON.parse(readFileSync(CHANGELOG_JSON_PATH, "utf8"));
-  } catch (error) {
+  } catch {
     existingData = [];
   }
 

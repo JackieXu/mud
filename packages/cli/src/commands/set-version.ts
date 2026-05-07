@@ -89,7 +89,7 @@ async function resolveVersion(options: Options) {
   try {
     console.log(chalk.blue(`Fetching available versions`));
     npmResult = await (await fetch(`https://registry.npmjs.org/${localPackageJson.name}`)).json();
-  } catch (e) {
+  } catch {
     throw new MUDError(`Could not fetch available MUD versions`);
   }
 

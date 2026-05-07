@@ -50,7 +50,7 @@ function getDecodedUserOperationCall({
       args = decodedCallData.args;
       from = delegator;
     }
-  } catch (error) {
+  } catch {
     functionName = data.length > 10 ? data.slice(0, 10) : "unknown";
   }
 
