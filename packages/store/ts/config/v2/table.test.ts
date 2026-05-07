@@ -15,14 +15,14 @@ describe("validateKeys", () => {
   });
 
   it("should return a tuple of valid keys with an extended scope", () => {
-    const scope = extendScope(AbiTypeScope, { static: "address", dynamic: "string" });
+    const _scope = extendScope(AbiTypeScope, { static: "address", dynamic: "string" });
 
     attest<
       readonly ["static", "customStatic"],
       validateKeys<
         getStaticAbiTypeKeys<
           { static: "uint256"; dynamic: "string"; customStatic: "static"; customDynamic: "dynamic" },
-          typeof scope
+          typeof _scope
         >,
         ["static", "customStatic"]
       >
@@ -30,14 +30,14 @@ describe("validateKeys", () => {
   });
 
   it("should return a tuple of valid keys with an extended scope", () => {
-    const scope = extendScope(AbiTypeScope, { static: "address", dynamic: "string" });
+    const _scope = extendScope(AbiTypeScope, { static: "address", dynamic: "string" });
 
     attest<
       readonly ["static", "customStatic"],
       validateKeys<
         getStaticAbiTypeKeys<
           { static: "uint256"; dynamic: "string"; customStatic: "static"; customDynamic: "dynamic" },
-          typeof scope
+          typeof _scope
         >,
         ["static", "customStatic"]
       >

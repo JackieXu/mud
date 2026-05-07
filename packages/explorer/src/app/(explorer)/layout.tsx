@@ -8,7 +8,7 @@ import "./globals.css";
 import { ServerEnvProvider } from "./providers/ServerEnvProvider";
 
 // Reference to imported store observer so the listener is established when this component is used.
-store;
+void store;
 
 const inter = Inter({
   subsets: ["latin"],

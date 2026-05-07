@@ -587,25 +587,25 @@ describe("defineStore", () => {
   });
 
   it("should accept an empty input", () => {
-    const config = defineStore({});
-    attest<typeof config, satisfy<Store, typeof config>>();
+    const _config = defineStore({});
+    attest<typeof _config, satisfy<Store, typeof _config>>();
   });
 
   it("should satisfy the output type when using single namespace", () => {
-    const config = defineStore({
+    const _config = defineStore({
       tables: { Name: { schema: { id: "address" }, key: ["id"] } },
       userTypes: { CustomType: { type: "address", filePath: "path/to/file" } },
     });
 
-    attest<typeof config, satisfy<Store, typeof config>>();
+    attest<typeof _config, satisfy<Store, typeof _config>>();
   });
 
   it("should satisfy the output type when using multiple namespaces", () => {
-    const config = defineStore({
+    const _config = defineStore({
       namespaces: {},
     });
 
-    attest<typeof config, satisfy<Store, typeof config>>();
+    attest<typeof _config, satisfy<Store, typeof _config>>();
   });
 
   it("should use the root namespace as default namespace", () => {
@@ -823,17 +823,17 @@ describe("defineStore", () => {
     });
 
     it("should satisfy the output type", () => {
-      const config = defineStore({
+      const _config = defineStore({
         tables: { Name: { schema: { id: "address" }, key: ["id"] } },
         userTypes: { CustomType: { type: "address", filePath: "path/to/file" } },
       });
 
-      attest<typeof config, satisfy<Store, typeof config>>();
+      attest<typeof _config, satisfy<Store, typeof _config>>();
     });
 
     it("should accept an empty input", () => {
-      const config = defineStore({});
-      attest<typeof config, satisfy<Store, typeof config>>();
+      const _config = defineStore({});
+      attest<typeof _config, satisfy<Store, typeof _config>>();
     });
 
     it("should accept a user type as input and expand it", () => {

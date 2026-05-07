@@ -123,7 +123,7 @@ export async function createInheritanceResolver(
       }
 
       return targetContractName ? resolvedContracts.get(targetContractName) : undefined;
-    } catch (error) {
+    } catch {
       // Silently fail if we can't read/parse a file
       return undefined;
     }

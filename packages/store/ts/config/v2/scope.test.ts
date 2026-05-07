@@ -32,12 +32,12 @@ describe("getStaticAbiTypeKeys", () => {
   });
 
   it("returns only static keys with a scope", () => {
-    const extendedScope = extendScope(AbiTypeScope, { static: "uint256", dynamic: "string" });
+    const _extendedScope = extendScope(AbiTypeScope, { static: "uint256", dynamic: "string" });
     attest<
       "static" | "customStatic",
       getStaticAbiTypeKeys<
         { static: "uint256"; dynamic: "string"; customStatic: "static"; customDynamic: "dynamic" },
-        typeof extendedScope
+        typeof _extendedScope
       >
     >();
   });

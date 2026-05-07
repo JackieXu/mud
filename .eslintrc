@@ -9,16 +9,10 @@
   ],
   "rules": {
     "max-len": ["error", { "code": 180, "comments": 180 }],
-    "@typescript-eslint/ban-types": [
-      "error",
-      {
-        "extendDefaults": true,
-        "types": {
-          // don't throw an error for the empty object type ({})
-          "{}": false,
-        },
-      },
-    ],
+    // @typescript-eslint v8 split `ban-types` into separate rules. Allow `{}`
+    // to preserve prior behavior (it was explicitly permitted before).
+    "@typescript-eslint/no-empty-object-type": "off",
+    "@typescript-eslint/no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
     // disable the base rule as it can report incorrect errors
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [

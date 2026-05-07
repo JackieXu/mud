@@ -32,7 +32,7 @@ export function Connect() {
                 },
               ],
             });
-          } catch (error) {
+          } catch {
             // TODO: improve this
             Actions.reject(porto, request);
           }
@@ -40,7 +40,7 @@ export function Connect() {
         onSignIn={async () => {
           try {
             await Actions.respond(porto, request);
-          } catch (error) {
+          } catch {
             // TODO: improve this
             Actions.reject(porto, request);
           }

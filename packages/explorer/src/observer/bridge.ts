@@ -29,7 +29,7 @@ export function createBridge({ url, timeout = 10_000 }: CreateBridgeOpts): EmitM
   const bridge = new Promise<HTMLIFrameElement>((resolve, reject) => {
     const iframe =
       Array.from(document.querySelectorAll("iframe[data-bridge][src]"))
-        .filter((el): el is HTMLIFrameElement => true)
+        .filter((_el): _el is HTMLIFrameElement => true)
         .find((el) => el.src === url) ?? document.createElement("iframe");
 
     if (iframe.dataset.bridge === "ready") {

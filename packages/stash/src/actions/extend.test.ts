@@ -16,7 +16,7 @@ describe("extend", () => {
   it("should allow overriding existing keys", () => {
     const stash = createStash();
     const actions = { deleteKey: () => true };
-    const extended = extend({ stash: stash, actions });
-    attest<(typeof extended)["deleteKey"], (typeof actions)["deleteKey"]>();
+    const _extended = extend({ stash: stash, actions });
+    attest<(typeof _extended)["deleteKey"], (typeof actions)["deleteKey"]>();
   });
 });

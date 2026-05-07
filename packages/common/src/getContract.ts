@@ -102,7 +102,7 @@ export function getContract<
               args?: readonly unknown[],
               options?: UnionOmit<WriteContractParameters, "abi" | "address" | "functionName" | "args">,
             ]
-          ) => {
+          ): never => {
             const { args, options } = getFunctionParameters(parameters);
             const request: WriteContractParameters<
               TAbi,

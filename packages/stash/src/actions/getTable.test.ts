@@ -128,10 +128,10 @@ describe("getTable", () => {
         schema: { field1: "string", field2: "uint32", field3: "uint256" },
         key: ["field2", "field3"],
       });
-      const table = stash.getTable({
+      const _table = stash.getTable({
         table: config,
       });
-      attest<typeof config, ReturnType<typeof table.getTableConfig>>();
+      attest<typeof config, ReturnType<typeof _table.getTableConfig>>();
     });
   });
 

@@ -44,7 +44,7 @@
     "@latticexyz/common": "workspace:*",
     "@latticexyz/schema-type": "workspace:*",
     "find-up": "^6.3.0",
-    "tsx": "^4.19.1"
+    "tsx": "^4.21.0"
   },
   "devDependencies": {
     "viem": "2.48.7"

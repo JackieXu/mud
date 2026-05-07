@@ -52,7 +52,7 @@ async function getLatestStoredBlockNumber(): Promise<bigint | undefined> {
       .then((rows) => rows.find(() => true));
 
     return chainState?.blockNumber;
-  } catch (error) {
+  } catch {
     // ignore errors for now
   }
 }

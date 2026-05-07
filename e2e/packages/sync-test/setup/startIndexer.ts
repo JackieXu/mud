@@ -79,7 +79,7 @@ export async function startIndexer(opts: StartIndexerOptions) {
     if (opts.indexer === "sqlite") {
       try {
         rmSync(opts.sqliteFilename);
-      } catch (error) {
+      } catch {
         console.log("could not delete", opts.sqliteFilename);
       }
     }
@@ -88,7 +88,7 @@ export async function startIndexer(opts: StartIndexerOptions) {
     if (opts.indexer === "postgres") {
       try {
         await cleanDatabase(drizzle(postgres(opts.databaseUrl)));
-      } catch (error) {
+      } catch {
         console.log("could not clean postgres database");
       }
     }
