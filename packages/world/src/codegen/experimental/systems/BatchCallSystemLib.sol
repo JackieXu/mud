@@ -61,9 +61,10 @@ library BatchCallSystemLib {
 
     bytes memory systemCall = abi.encodeCall(_batchCall_SystemCallDataArray.batchCall, (systemCalls));
 
-    bytes memory result = self.from == address(0)
-      ? _world().call(self.systemId, systemCall)
-      : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result =
+      self.from == address(0)
+        ? _world().call(self.systemId, systemCall)
+        : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (bytes[]));
@@ -79,9 +80,10 @@ library BatchCallSystemLib {
 
     bytes memory systemCall = abi.encodeCall(_batchCallFrom_SystemCallFromDataArray.batchCallFrom, (systemCalls));
 
-    bytes memory result = self.from == address(0)
-      ? _world().call(self.systemId, systemCall)
-      : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result =
+      self.from == address(0)
+        ? _world().call(self.systemId, systemCall)
+        : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (bytes[]));

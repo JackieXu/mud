@@ -32,8 +32,9 @@ library UserTyped {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "UserTyped", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000055736572547970656400000000000000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x004d050014080110200000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x004d050014080110200000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (address, int64, bool, uint128, bytes32)
   Schema constant _keySchema = Schema.wrap(0x004d05006127600f5f0000000000000000000000000000000000000000000000);

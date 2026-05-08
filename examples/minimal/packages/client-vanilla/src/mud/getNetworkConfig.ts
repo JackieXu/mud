@@ -19,7 +19,7 @@ export async function getNetworkConfig() {
 
   const initialBlockNumber = params.has("initialBlockNumber")
     ? Number(params.get("initialBlockNumber"))
-    : world?.blockNumber ?? 0n;
+    : (world?.blockNumber ?? 0n);
 
   return {
     privateKey: getBurnerPrivateKey(),

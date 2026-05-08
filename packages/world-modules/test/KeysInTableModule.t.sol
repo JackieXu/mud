@@ -47,10 +47,16 @@ contract KeysInTableModuleTest is Test, GasReporter {
   Schema private singletonKeySchema;
   Schema private compositeKeySchema;
   ResourceId private tableId = WorldResourceIdLib.encode({ typeId: RESOURCE_TABLE, namespace: namespace, name: name });
-  ResourceId private singletonTableId =
-    WorldResourceIdLib.encode({ typeId: RESOURCE_TABLE, namespace: namespace, name: singletonName });
-  ResourceId private compositeTableId =
-    WorldResourceIdLib.encode({ typeId: RESOURCE_TABLE, namespace: namespace, name: compositeName });
+  ResourceId private singletonTableId = WorldResourceIdLib.encode({
+    typeId: RESOURCE_TABLE,
+    namespace: namespace,
+    name: singletonName
+  });
+  ResourceId private compositeTableId = WorldResourceIdLib.encode({
+    typeId: RESOURCE_TABLE,
+    namespace: namespace,
+    name: compositeName
+  });
 
   uint256 private val1 = 123;
   uint256 private val2 = 42;

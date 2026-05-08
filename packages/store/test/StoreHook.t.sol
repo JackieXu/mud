@@ -13,7 +13,19 @@ import { EncodedLengths } from "../src/EncodedLengths.sol";
 import { FieldLayout } from "../src/FieldLayout.sol";
 import { ResourceId, ResourceIdLib } from "../src/ResourceId.sol";
 import { RESOURCE_TABLE } from "../src/storeResourceTypes.sol";
-import { BEFORE_SET_RECORD, AFTER_SET_RECORD, BEFORE_SPLICE_STATIC_DATA, AFTER_SPLICE_STATIC_DATA, BEFORE_SPLICE_DYNAMIC_DATA, AFTER_SPLICE_DYNAMIC_DATA, BEFORE_DELETE_RECORD, AFTER_DELETE_RECORD, ALL, BEFORE_ALL, AFTER_ALL } from "../src/storeHookTypes.sol";
+import {
+  BEFORE_SET_RECORD,
+  AFTER_SET_RECORD,
+  BEFORE_SPLICE_STATIC_DATA,
+  AFTER_SPLICE_STATIC_DATA,
+  BEFORE_SPLICE_DYNAMIC_DATA,
+  AFTER_SPLICE_DYNAMIC_DATA,
+  BEFORE_DELETE_RECORD,
+  AFTER_DELETE_RECORD,
+  ALL,
+  BEFORE_ALL,
+  AFTER_ALL
+} from "../src/storeHookTypes.sol";
 
 contract StoreHookTest is Test, GasReporter {
   event HookCalled(bytes);

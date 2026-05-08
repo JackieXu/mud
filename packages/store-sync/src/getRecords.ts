@@ -82,7 +82,7 @@ export async function getRecords<table extends Table>(
 
   const logs = await getLogs();
   const records = logs.map((log) => logToRecord({ log: log as LogToRecordArgs<table>["log"], table: options.table }));
-  const blockNumber = logs.length > 0 ? logs[logs.length - 1].blockNumber ?? 0n : 0n;
+  const blockNumber = logs.length > 0 ? (logs[logs.length - 1].blockNumber ?? 0n) : 0n;
   debug("found", records.length, "records for table", options.table.label, "at block", blockNumber);
   return { records, blockNumber };
 }

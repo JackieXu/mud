@@ -23,8 +23,9 @@ library SystemboundDelegations {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "SystemboundDeleg", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000053797374656d626f756e6444656c6567);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0020010020000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (address, address, bytes32)
   Schema constant _keySchema = Schema.wrap(0x0048030061615f00000000000000000000000000000000000000000000000000);

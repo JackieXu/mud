@@ -20,8 +20,9 @@ import { ResourceId } from "../../ResourceId.sol";
 import { ResourceId } from "../../ResourceId.sol";
 
 library Hooks {
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0000000100000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0000000100000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);

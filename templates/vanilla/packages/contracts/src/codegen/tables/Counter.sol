@@ -20,8 +20,9 @@ library Counter {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "app", name: "Counter", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x74626170700000000000000000000000436f756e746572000000000000000000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0004010004000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0004010004000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

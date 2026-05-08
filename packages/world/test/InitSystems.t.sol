@@ -9,9 +9,19 @@ import { StoreSwitch } from "@latticexyz/store/src/StoreSwitch.sol";
 import { createWorld } from "./createWorld.sol";
 
 import { LimitedCallContext } from "../src/modules/init/LimitedCallContext.sol";
-import { getFunctionSignaturesAccessManagement, getFunctionSignaturesBalanceTransfer, getFunctionSignaturesBatchCall, getFunctionSignaturesRegistration } from "../src/modules/init/functionSignatures.sol";
+import {
+  getFunctionSignaturesAccessManagement,
+  getFunctionSignaturesBalanceTransfer,
+  getFunctionSignaturesBatchCall,
+  getFunctionSignaturesRegistration
+} from "../src/modules/init/functionSignatures.sol";
 
-import { ACCESS_MANAGEMENT_SYSTEM_ID, BALANCE_TRANSFER_SYSTEM_ID, BATCH_CALL_SYSTEM_ID, REGISTRATION_SYSTEM_ID } from "../src/modules/init/constants.sol";
+import {
+  ACCESS_MANAGEMENT_SYSTEM_ID,
+  BALANCE_TRANSFER_SYSTEM_ID,
+  BATCH_CALL_SYSTEM_ID,
+  REGISTRATION_SYSTEM_ID
+} from "../src/modules/init/constants.sol";
 
 import { Systems } from "../src/codegen/tables/Systems.sol";
 

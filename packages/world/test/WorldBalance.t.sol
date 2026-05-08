@@ -28,10 +28,16 @@ contract WorldBalanceTest is Test, GasReporter {
   WorldBalanceTestSystem public nonRootSystem = new WorldBalanceTestSystem();
   bytes14 public namespace = "namespace";
   ResourceId public namespaceId = WorldResourceIdLib.encodeNamespace(namespace);
-  ResourceId public rootSystemId =
-    WorldResourceIdLib.encode({ typeId: RESOURCE_SYSTEM, namespace: ROOT_NAMESPACE, name: "testSystem" });
-  ResourceId public nonRootSystemId =
-    WorldResourceIdLib.encode({ typeId: RESOURCE_SYSTEM, namespace: namespace, name: "testSystem" });
+  ResourceId public rootSystemId = WorldResourceIdLib.encode({
+    typeId: RESOURCE_SYSTEM,
+    namespace: ROOT_NAMESPACE,
+    name: "testSystem"
+  });
+  ResourceId public nonRootSystemId = WorldResourceIdLib.encode({
+    typeId: RESOURCE_SYSTEM,
+    namespace: namespace,
+    name: "testSystem"
+  });
   address public caller = address(4242);
 
   function setUp() public {

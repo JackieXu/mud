@@ -18,7 +18,12 @@ import { World } from "@latticexyz/world/src/World.sol";
 import { IModule } from "@latticexyz/world/src/IModule.sol";
 import { IModuleErrors } from "@latticexyz/world/src/IModuleErrors.sol";
 import { IBaseWorld } from "@latticexyz/world/src/codegen/interfaces/IBaseWorld.sol";
-import { WorldResourceIdLib, WorldResourceIdInstance, NAME_BITS, TYPE_BITS } from "@latticexyz/world/src/WorldResourceId.sol";
+import {
+  WorldResourceIdLib,
+  WorldResourceIdInstance,
+  NAME_BITS,
+  TYPE_BITS
+} from "@latticexyz/world/src/WorldResourceId.sol";
 import { ROOT_NAMESPACE } from "@latticexyz/world/src/constants.sol";
 import { RESOURCE_TABLE } from "@latticexyz/world/src/worldResourceTypes.sol";
 
@@ -27,7 +32,11 @@ import { KeysWithValueModule } from "../src/modules/keyswithvalue/KeysWithValueM
 import { MODULE_NAMESPACE } from "../src/modules/keyswithvalue/constants.sol";
 import { KeysWithValue } from "../src/modules/keyswithvalue/tables/KeysWithValue.sol";
 import { getKeysWithValue } from "../src/modules/keyswithvalue/getKeysWithValue.sol";
-import { getTargetTableId, MODULE_NAMESPACE_BITS, TABLE_NAMESPACE_BITS } from "../src/modules/keyswithvalue/getTargetTableId.sol";
+import {
+  getTargetTableId,
+  MODULE_NAMESPACE_BITS,
+  TABLE_NAMESPACE_BITS
+} from "../src/modules/keyswithvalue/getTargetTableId.sol";
 
 contract KeysWithValueModuleTest is Test, GasReporter {
   using WorldResourceIdInstance for ResourceId;

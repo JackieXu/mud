@@ -45,7 +45,6 @@ library LibString {
 
       // Cache the end of the memory to calculate the length later.
       let end := str
-
       // We write the string from rightmost digit to leftmost digit.
       // The following is essentially a do-while loop that also handles the zero case.
       // prettier-ignore

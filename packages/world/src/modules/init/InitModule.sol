@@ -21,8 +21,18 @@ import { BalanceTransferSystem } from "./implementations/BalanceTransferSystem.s
 import { BatchCallSystem } from "./implementations/BatchCallSystem.sol";
 
 import { RegistrationSystem } from "./RegistrationSystem.sol";
-import { ACCESS_MANAGEMENT_SYSTEM_ID, BALANCE_TRANSFER_SYSTEM_ID, BATCH_CALL_SYSTEM_ID, REGISTRATION_SYSTEM_ID } from "./constants.sol";
-import { getFunctionSignaturesAccessManagement, getFunctionSignaturesBalanceTransfer, getFunctionSignaturesBatchCall, getFunctionSignaturesRegistration } from "./functionSignatures.sol";
+import {
+  ACCESS_MANAGEMENT_SYSTEM_ID,
+  BALANCE_TRANSFER_SYSTEM_ID,
+  BATCH_CALL_SYSTEM_ID,
+  REGISTRATION_SYSTEM_ID
+} from "./constants.sol";
+import {
+  getFunctionSignaturesAccessManagement,
+  getFunctionSignaturesBalanceTransfer,
+  getFunctionSignaturesBatchCall,
+  getFunctionSignaturesRegistration
+} from "./functionSignatures.sol";
 
 import { Systems } from "../../codegen/tables/Systems.sol";
 import { FunctionSelectors } from "../../codegen/tables/FunctionSelectors.sol";
