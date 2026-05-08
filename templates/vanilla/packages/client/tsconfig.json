@@ -5,7 +5,10 @@
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    // App templates aren't libraries; skipping `.d.ts` emit also skips TS 5.5+
+    // portability checks (TS2742/TS7056) on viem's deeply-extended client types.
+    "declaration": false
   },
   "include": ["src"]
 }
