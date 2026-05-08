@@ -1,3 +1,4 @@
 import { setup } from "@ark/attest";
 
-export default () => setup({ updateSnapshots: true });
+// Update snapshots locally; in CI, fail on mismatch instead of silently rewriting them.
+export default () => setup({ updateSnapshots: !("CI" in process.env) });
