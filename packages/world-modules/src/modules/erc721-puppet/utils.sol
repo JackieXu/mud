@@ -7,15 +7,7 @@ import { RESOURCE_TABLE } from "@latticexyz/store/src/storeResourceTypes.sol";
 import { WorldResourceIdLib } from "@latticexyz/world/src/WorldResourceId.sol";
 import { RESOURCE_SYSTEM } from "@latticexyz/world/src/worldResourceTypes.sol";
 
-import {
-  ERC721_SYSTEM_NAME,
-  BALANCES_NAME,
-  METADATA_NAME,
-  OPERATOR_APPROVAL_NAME,
-  OWNERS_NAME,
-  TOKEN_APPROVAL_NAME,
-  TOKEN_URI_NAME
-} from "./constants.sol";
+import { ERC721_SYSTEM_NAME, BALANCES_NAME, METADATA_NAME, OPERATOR_APPROVAL_NAME, OWNERS_NAME, TOKEN_APPROVAL_NAME, TOKEN_URI_NAME } from "./constants.sol";
 
 function _balancesTableId(bytes14 namespace) pure returns (ResourceId) {
   return WorldResourceIdLib.encode({ typeId: RESOURCE_TABLE, namespace: namespace, name: BALANCES_NAME });

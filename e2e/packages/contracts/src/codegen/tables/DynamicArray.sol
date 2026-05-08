@@ -25,9 +25,8 @@ library DynamicArray {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "DynamicArray", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000044796e616d6963417272617900000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0020010120000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0020010120000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

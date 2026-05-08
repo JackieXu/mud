@@ -20,9 +20,8 @@ library Score {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Score", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000053636f72650000000000000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0020010020000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (address, uint256)
   Schema constant _keySchema = Schema.wrap(0x00340200611f0000000000000000000000000000000000000000000000000000);

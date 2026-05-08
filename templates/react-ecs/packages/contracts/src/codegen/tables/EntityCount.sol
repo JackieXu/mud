@@ -20,9 +20,8 @@ library EntityCount {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "app", name: "EntityCount", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x74626170700000000000000000000000456e74697479436f756e740000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0020010020000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

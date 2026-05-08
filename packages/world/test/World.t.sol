@@ -17,17 +17,7 @@ import { EncodedLengths } from "@latticexyz/store/src/EncodedLengths.sol";
 import { SchemaEncodeHelper } from "@latticexyz/store/test/SchemaEncodeHelper.sol";
 import { Tables, ResourceIds } from "@latticexyz/store/src/codegen/index.sol";
 import { EncodeArray } from "@latticexyz/store/src/tightcoder/EncodeArray.sol";
-import {
-  ALL,
-  BEFORE_SET_RECORD,
-  AFTER_SET_RECORD,
-  BEFORE_SPLICE_STATIC_DATA,
-  AFTER_SPLICE_STATIC_DATA,
-  BEFORE_SPLICE_DYNAMIC_DATA,
-  AFTER_SPLICE_DYNAMIC_DATA,
-  BEFORE_DELETE_RECORD,
-  AFTER_DELETE_RECORD
-} from "@latticexyz/store/src/storeHookTypes.sol";
+import { ALL, BEFORE_SET_RECORD, AFTER_SET_RECORD, BEFORE_SPLICE_STATIC_DATA, AFTER_SPLICE_STATIC_DATA, BEFORE_SPLICE_DYNAMIC_DATA, AFTER_SPLICE_DYNAMIC_DATA, BEFORE_DELETE_RECORD, AFTER_DELETE_RECORD } from "@latticexyz/store/src/storeHookTypes.sol";
 import { RevertSubscriber } from "@latticexyz/store/test/RevertSubscriber.sol";
 import { EchoSubscriber } from "@latticexyz/store/test/EchoSubscriber.sol";
 
@@ -35,14 +25,7 @@ import { WORLD_VERSION } from "../src/version.sol";
 import { World } from "../src/World.sol";
 import { System } from "../src/System.sol";
 import { ResourceId, WorldResourceIdLib, WorldResourceIdInstance } from "../src/WorldResourceId.sol";
-import {
-  ROOT_NAMESPACE,
-  ROOT_NAME,
-  ROOT_NAMESPACE_ID,
-  UNLIMITED_DELEGATION,
-  WORLD_NAMESPACE_ID,
-  STORE_NAMESPACE_ID
-} from "../src/constants.sol";
+import { ROOT_NAMESPACE, ROOT_NAME, ROOT_NAMESPACE_ID, UNLIMITED_DELEGATION, WORLD_NAMESPACE_ID, STORE_NAMESPACE_ID } from "../src/constants.sol";
 import { RESOURCE_TABLE, RESOURCE_SYSTEM, RESOURCE_NAMESPACE } from "../src/worldResourceTypes.sol";
 import { WorldContextProviderLib, IWorldContextConsumer } from "../src/WorldContext.sol";
 import { SystemHook } from "../src/SystemHook.sol";

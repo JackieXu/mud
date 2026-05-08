@@ -32,9 +32,8 @@ library Statics {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Statics", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000053746174696373000000000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x004a060020041014010100000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x004a060020041014010100000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (uint256, int32, bytes16, address, bool, uint8)
   Schema constant _keySchema = Schema.wrap(0x004a06001f234f61600000000000000000000000000000000000000000000000);

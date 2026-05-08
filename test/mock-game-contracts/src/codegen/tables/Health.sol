@@ -20,9 +20,8 @@ library Health {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Health", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x746200000000000000000000000000004865616c746800000000000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0020010020000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (address)
   Schema constant _keySchema = Schema.wrap(0x0014010061000000000000000000000000000000000000000000000000000000);

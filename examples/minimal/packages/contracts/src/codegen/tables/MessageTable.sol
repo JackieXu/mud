@@ -20,9 +20,8 @@ library MessageTable {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "MessageTable", typeId: RESOURCE_OFFCHAIN_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x6f7400000000000000000000000000004d6573736167655461626c6500000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0000000100000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0000000100000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

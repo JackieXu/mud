@@ -28,9 +28,8 @@ library Dynamics1 {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Dynamics1", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000044796e616d6963733100000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0000000500000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0000000500000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);

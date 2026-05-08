@@ -20,9 +20,8 @@ library CallWithSignatureNonces {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "CallWithSignatur", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000043616c6c576974685369676e61747572);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0020010020000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (address)
   Schema constant _keySchema = Schema.wrap(0x0014010061000000000000000000000000000000000000000000000000000000);

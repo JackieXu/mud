@@ -20,9 +20,8 @@ import { ResourceId } from "@latticexyz/store/src/ResourceId.sol";
 import { ResourceId } from "@latticexyz/store/src/ResourceId.sol";
 
 library ERC20Registry {
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0014010014000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0014010014000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);

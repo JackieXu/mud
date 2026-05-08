@@ -26,9 +26,8 @@ library PositionValue {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "a", name: "PositionValue", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x74626100000000000000000000000000506f736974696f6e56616c7565000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0060030020202000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0060030020202000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

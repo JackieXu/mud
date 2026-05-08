@@ -190,10 +190,9 @@ library WorldRegistrationSystemLib {
       (systemId, systemFunctionSignature)
     );
 
-    bytes memory result =
-      self.from == address(0)
-        ? _world().call(self.systemId, systemCall)
-        : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result = self.from == address(0)
+      ? _world().call(self.systemId, systemCall)
+      : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (bytes4));
@@ -214,10 +213,9 @@ library WorldRegistrationSystemLib {
       (systemId, worldFunctionSignature, systemFunctionSignature)
     );
 
-    bytes memory result =
-      self.from == address(0)
-        ? _world().call(self.systemId, systemCall)
-        : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result = self.from == address(0)
+      ? _world().call(self.systemId, systemCall)
+      : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (bytes4));

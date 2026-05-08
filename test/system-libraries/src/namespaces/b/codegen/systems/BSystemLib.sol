@@ -59,10 +59,9 @@ library BSystemLib {
     if (address(_world()) == address(this)) revert BSystemLib_CallingFromRootSystem();
 
     bytes memory systemCall = abi.encodeCall(_getValueFromA.getValueFromA, ());
-    bytes memory worldCall =
-      self.from == address(0)
-        ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
-        : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
+    bytes memory worldCall = self.from == address(0)
+      ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
+      : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
     (bool success, bytes memory returnData) = address(_world()).staticcall(worldCall);
     if (!success) revertWithBytes(returnData);
 

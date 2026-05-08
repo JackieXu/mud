@@ -14,15 +14,7 @@ import { createPuppet } from "../puppet/createPuppet.sol";
 import { Balances } from "../tokens/tables/Balances.sol";
 
 import { MODULE_NAMESPACE, MODULE_NAMESPACE_ID, ERC721_REGISTRY_TABLE_ID } from "./constants.sol";
-import {
-  _erc721SystemId,
-  _balancesTableId,
-  _metadataTableId,
-  _tokenUriTableId,
-  _operatorApprovalTableId,
-  _ownersTableId,
-  _tokenApprovalTableId
-} from "./utils.sol";
+import { _erc721SystemId, _balancesTableId, _metadataTableId, _tokenUriTableId, _operatorApprovalTableId, _ownersTableId, _tokenApprovalTableId } from "./utils.sol";
 import { ERC721System } from "./ERC721System.sol";
 
 import { OperatorApproval } from "./tables/OperatorApproval.sol";

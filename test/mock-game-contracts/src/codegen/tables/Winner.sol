@@ -20,9 +20,8 @@ library Winner {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Winner", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000057696e6e657200000000000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0014010014000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0014010014000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (uint256)
   Schema constant _keySchema = Schema.wrap(0x002001001f000000000000000000000000000000000000000000000000000000);
