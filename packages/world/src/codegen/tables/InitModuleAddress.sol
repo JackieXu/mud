@@ -20,8 +20,9 @@ library InitModuleAddress {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "world", name: "InitModuleAddres", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462776f726c64000000000000000000496e69744d6f64756c65416464726573);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0014010014000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0014010014000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

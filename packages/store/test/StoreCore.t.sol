@@ -19,7 +19,19 @@ import { Tables, ResourceIds } from "../src/codegen/index.sol";
 import { ResourceId, ResourceIdLib } from "../src/ResourceId.sol";
 import { RESOURCE_TABLE, RESOURCE_OFFCHAIN_TABLE } from "../src/storeResourceTypes.sol";
 import { FieldLayoutEncodeHelper } from "./FieldLayoutEncodeHelper.sol";
-import { BEFORE_SET_RECORD, AFTER_SET_RECORD, BEFORE_SPLICE_STATIC_DATA, AFTER_SPLICE_STATIC_DATA, BEFORE_SPLICE_DYNAMIC_DATA, AFTER_SPLICE_DYNAMIC_DATA, BEFORE_DELETE_RECORD, AFTER_DELETE_RECORD, ALL, BEFORE_ALL, AFTER_ALL } from "../src/storeHookTypes.sol";
+import {
+  BEFORE_SET_RECORD,
+  AFTER_SET_RECORD,
+  BEFORE_SPLICE_STATIC_DATA,
+  AFTER_SPLICE_STATIC_DATA,
+  BEFORE_SPLICE_DYNAMIC_DATA,
+  AFTER_SPLICE_DYNAMIC_DATA,
+  BEFORE_DELETE_RECORD,
+  AFTER_DELETE_RECORD,
+  ALL,
+  BEFORE_ALL,
+  AFTER_ALL
+} from "../src/storeHookTypes.sol";
 import { SchemaEncodeHelper } from "./SchemaEncodeHelper.sol";
 import { StoreMock } from "./StoreMock.sol";
 import { MirrorSubscriber, indexerTableId } from "./MirrorSubscriber.sol";

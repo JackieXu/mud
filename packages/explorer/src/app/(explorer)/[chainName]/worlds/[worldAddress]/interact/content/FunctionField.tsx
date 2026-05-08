@@ -92,7 +92,7 @@ export function FunctionField({ systemId, worldAbi, functionAbi, useSearchParams
     resolver: zodResolver(formSchema),
     defaultValues: {
       inputs: useSearchParamsArgs ? JSON.parse(searchParams.get("args") || "[]") : [],
-      value: useSearchParamsArgs ? searchParams.get("value") ?? "" : "",
+      value: useSearchParamsArgs ? (searchParams.get("value") ?? "") : "",
       resolvedAddresses: {},
     },
   });

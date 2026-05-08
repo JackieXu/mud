@@ -20,7 +20,14 @@ import { Owners } from "./tables/Owners.sol";
 import { TokenApproval } from "./tables/TokenApproval.sol";
 import { TokenURI } from "./tables/TokenURI.sol";
 
-import { _balancesTableId, _metadataTableId, _tokenUriTableId, _operatorApprovalTableId, _ownersTableId, _tokenApprovalTableId } from "./utils.sol";
+import {
+  _balancesTableId,
+  _metadataTableId,
+  _tokenUriTableId,
+  _operatorApprovalTableId,
+  _ownersTableId,
+  _tokenApprovalTableId
+} from "./utils.sol";
 import { LibString } from "./libraries/LibString.sol";
 
 contract ERC721System is IERC721Mintable, System, PuppetMaster {

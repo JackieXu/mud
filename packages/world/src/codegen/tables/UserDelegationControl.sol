@@ -23,8 +23,9 @@ library UserDelegationControl {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "world", name: "UserDelegationCo", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462776f726c640000000000000000005573657244656c65676174696f6e436f);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0020010020000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (address, address)
   Schema constant _keySchema = Schema.wrap(0x0028020061610000000000000000000000000000000000000000000000000000);

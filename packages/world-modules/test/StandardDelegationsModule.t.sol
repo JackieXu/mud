@@ -20,15 +20,22 @@ import { StandardDelegationsModule } from "../src/modules/std-delegations/Standa
 import { CallboundDelegationControl } from "../src/modules/std-delegations/CallboundDelegationControl.sol";
 import { SystemboundDelegationControl } from "../src/modules/std-delegations/SystemboundDelegationControl.sol";
 import { TimeboundDelegationControl } from "../src/modules/std-delegations/TimeboundDelegationControl.sol";
-import { CALLBOUND_DELEGATION, SYSTEMBOUND_DELEGATION, TIMEBOUND_DELEGATION } from "../src/modules/std-delegations/StandardDelegationsModule.sol";
+import {
+  CALLBOUND_DELEGATION,
+  SYSTEMBOUND_DELEGATION,
+  TIMEBOUND_DELEGATION
+} from "../src/modules/std-delegations/StandardDelegationsModule.sol";
 
 import { WorldTestSystem, WorldTestSystemReturn } from "@latticexyz/world/test/World.t.sol";
 
 contract StandardDelegationsModuleTest is Test, GasReporter {
   using WorldResourceIdInstance for ResourceId;
   IBaseWorld private world;
-  ResourceId private systemId =
-    WorldResourceIdLib.encode({ typeId: RESOURCE_SYSTEM, namespace: "namespace", name: "testSystem" });
+  ResourceId private systemId = WorldResourceIdLib.encode({
+    typeId: RESOURCE_SYSTEM,
+    namespace: "namespace",
+    name: "testSystem"
+  });
   address private delegator = address(1);
   address private delegatee = address(2);
 

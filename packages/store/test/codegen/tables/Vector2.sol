@@ -25,8 +25,9 @@ library Vector2 {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Vector2", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x74620000000000000000000000000000566563746f7232000000000000000000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0008020004040000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0008020004040000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);

@@ -169,9 +169,10 @@ library ASystemLib {
     if (address(_world()) == address(this)) revert ASystemLib_CallingFromRootSystem();
 
     bytes memory systemCall = abi.encodeCall(_getValue.getValue, ());
-    bytes memory worldCall = self.from == address(0)
-      ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
-      : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
+    bytes memory worldCall =
+      self.from == address(0)
+        ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
+        : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
     (bool success, bytes memory returnData) = address(_world()).staticcall(worldCall);
     if (!success) revertWithBytes(returnData);
 
@@ -187,9 +188,10 @@ library ASystemLib {
     if (address(_world()) == address(this)) revert ASystemLib_CallingFromRootSystem();
 
     bytes memory systemCall = abi.encodeCall(_getTwoValues.getTwoValues, ());
-    bytes memory worldCall = self.from == address(0)
-      ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
-      : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
+    bytes memory worldCall =
+      self.from == address(0)
+        ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
+        : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
     (bool success, bytes memory returnData) = address(_world()).staticcall(worldCall);
     if (!success) revertWithBytes(returnData);
 
@@ -206,9 +208,10 @@ library ASystemLib {
 
     bytes memory systemCall = abi.encodeCall(_setAddress.setAddress, ());
 
-    bytes memory result = self.from == address(0)
-      ? _world().call(self.systemId, systemCall)
-      : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result =
+      self.from == address(0)
+        ? _world().call(self.systemId, systemCall)
+        : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (address));
@@ -230,9 +233,10 @@ library ASystemLib {
       (__auxArg0, b, __auxArg1, __auxArg2)
     );
 
-    bytes memory result = self.from == address(0)
-      ? _world().call(self.systemId, systemCall)
-      : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result =
+      self.from == address(0)
+        ? _world().call(self.systemId, systemCall)
+        : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (address, bytes, string[]));
@@ -244,9 +248,10 @@ library ASystemLib {
     if (address(_world()) == address(this)) revert ASystemLib_CallingFromRootSystem();
 
     bytes memory systemCall = abi.encodeCall(_getValueWithRevert.getValueWithRevert, ());
-    bytes memory worldCall = self.from == address(0)
-      ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
-      : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
+    bytes memory worldCall =
+      self.from == address(0)
+        ? abi.encodeCall(IWorldCall.call, (self.systemId, systemCall))
+        : abi.encodeCall(IWorldCall.callFrom, (self.from, self.systemId, systemCall));
     (bool success, bytes memory returnData) = address(_world()).staticcall(worldCall);
     if (!success) revertWithBytes(returnData);
 
@@ -263,9 +268,10 @@ library ASystemLib {
 
     bytes memory systemCall = abi.encodeCall(_setAddressWithRevert.setAddressWithRevert, ());
 
-    bytes memory result = self.from == address(0)
-      ? _world().call(self.systemId, systemCall)
-      : _world().callFrom(self.from, self.systemId, systemCall);
+    bytes memory result =
+      self.from == address(0)
+        ? _world().call(self.systemId, systemCall)
+        : _world().callFrom(self.from, self.systemId, systemCall);
     // skip decoding an empty result, which can happen after expectRevert
     if (result.length != 0) {
       return abi.decode(result, (address));

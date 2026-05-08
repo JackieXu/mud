@@ -23,8 +23,9 @@ library ResourceAccess {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "world", name: "ResourceAccess", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462776f726c640000000000000000005265736f757263654163636573730000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0001010001000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0001010001000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (bytes32, address)
   Schema constant _keySchema = Schema.wrap(0x003402005f610000000000000000000000000000000000000000000000000000);

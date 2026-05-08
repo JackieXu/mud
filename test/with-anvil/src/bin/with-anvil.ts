@@ -1,6 +1,5 @@
 #!/usr/bin/env -S pnpm tsx
-import { createServer } from "prool";
-import { anvil } from "prool/instances";
+import { Instance, Server } from "prool";
 import { ExecaError, execa } from "execa";
 
 const command = process.argv.slice(2);
@@ -8,24 +7,10 @@ if (!command.length) {
   throw new Error("No command provided.");
 }
 
-// polyfill Promise.withResolvers for prool
-// TODO: remove once we upgrade to node 22
-if (typeof Promise.withResolvers === "undefined") {
-  Promise.withResolvers = <T>() => {
-    let resolve: (value: T | PromiseLike<T>) => void;
-    let reject: (reason?: unknown) => void;
-    const promise = new Promise<T>((res, rej) => {
-      resolve = res;
-      reject = rej;
-    });
-    return { promise, resolve: resolve!, reject: reject! };
-  };
-}
-
 const host = process.env.PROOL_ANVIL_HOST || "127.0.0.1";
 const port = Number(process.env.PROOL_ANVIL_PORT) || 8556;
 
-const server = createServer({ instance: anvil(), host, port });
+const server = Server.create({ instance: Instance.anvil(), host, port });
 
 console.log("starting anvil proxy");
 await server.start();

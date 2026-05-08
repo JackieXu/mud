@@ -26,8 +26,9 @@ library Tasks {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "app", name: "Tasks", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x746261707000000000000000000000005461736b730000000000000000000000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0040020120200000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0040020120200000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);

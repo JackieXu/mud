@@ -23,8 +23,9 @@ library Terrain {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Terrain", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x746200000000000000000000000000005465727261696e000000000000000000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0001010001000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0001010001000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of (int32, int32)
   Schema constant _keySchema = Schema.wrap(0x0008020023230000000000000000000000000000000000000000000000000000);

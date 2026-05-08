@@ -25,8 +25,9 @@ library StaticArray {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "StaticArray", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x7462000000000000000000000000000053746174696341727261790000000000);
 
-  FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0020010120000000000000000000000000000000000000000000000000000000);
+  FieldLayout constant _fieldLayout = FieldLayout.wrap(
+    0x0020010120000000000000000000000000000000000000000000000000000000
+  );
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

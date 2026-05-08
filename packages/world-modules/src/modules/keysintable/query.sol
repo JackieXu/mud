@@ -132,11 +132,12 @@ function passesQueryFragment(
  */
 function query(QueryFragment[] memory fragments) view returns (bytes32[][] memory keyTuples) {
   // Create the first interim result
-  keyTuples = fragments[0].queryType == QueryType.Has
-    ? getKeysInTable(fragments[0].tableId)
-    : valuesToTuples(
-      getKeysWithValue(fragments[0].tableId, fragments[0].value, EncodedLengths.wrap(bytes32(0)), new bytes(0))
-    );
+  keyTuples =
+    fragments[0].queryType == QueryType.Has
+      ? getKeysInTable(fragments[0].tableId)
+      : valuesToTuples(
+        getKeysWithValue(fragments[0].tableId, fragments[0].value, EncodedLengths.wrap(bytes32(0)), new bytes(0))
+      );
 
   for (uint256 i = 1; i < fragments.length; i++) {
     bytes32[][] memory result = new bytes32[][](0);
@@ -169,11 +170,12 @@ function query(QueryFragment[] memory fragments) view returns (bytes32[][] memor
  */
 function query(IStore store, QueryFragment[] memory fragments) view returns (bytes32[][] memory keyTuples) {
   // Create the first interim result
-  keyTuples = fragments[0].queryType == QueryType.Has
-    ? getKeysInTable(store, fragments[0].tableId)
-    : valuesToTuples(
-      getKeysWithValue(store, fragments[0].tableId, fragments[0].value, EncodedLengths.wrap(bytes32(0)), new bytes(0))
-    );
+  keyTuples =
+    fragments[0].queryType == QueryType.Has
+      ? getKeysInTable(store, fragments[0].tableId)
+      : valuesToTuples(
+        getKeysWithValue(store, fragments[0].tableId, fragments[0].value, EncodedLengths.wrap(bytes32(0)), new bytes(0))
+      );
 
   for (uint256 i = 1; i < fragments.length; i++) {
     bytes32[][] memory result = new bytes32[][](0);
