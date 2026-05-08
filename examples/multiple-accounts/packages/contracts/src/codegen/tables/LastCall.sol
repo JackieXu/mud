@@ -25,9 +25,8 @@ library LastCall {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "LastCall", name: "LastCall", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x74624c61737443616c6c0000000000004c61737443616c6c0000000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0034020020140000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0034020020140000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (address)
   Schema constant _keySchema = Schema.wrap(0x0014010061000000000000000000000000000000000000000000000000000000);

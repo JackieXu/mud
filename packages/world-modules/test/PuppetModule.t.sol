@@ -42,11 +42,8 @@ contract PuppetModuleTest is Test, GasReporter {
   event Hello(string msg);
 
   IBaseWorld private world;
-  ResourceId private systemId = WorldResourceIdLib.encode({
-    typeId: RESOURCE_SYSTEM,
-    namespace: "namespace",
-    name: "testSystem"
-  });
+  ResourceId private systemId =
+    WorldResourceIdLib.encode({ typeId: RESOURCE_SYSTEM, namespace: "namespace", name: "testSystem" });
   PuppetTestSystem private puppet;
 
   function setUp() public {

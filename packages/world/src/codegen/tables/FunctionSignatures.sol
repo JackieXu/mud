@@ -20,9 +20,8 @@ library FunctionSignatures {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "world", name: "FunctionSignatur", typeId: RESOURCE_OFFCHAIN_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x6f74776f726c6400000000000000000046756e6374696f6e5369676e61747572);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0000000100000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0000000100000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (bytes4)
   Schema constant _keySchema = Schema.wrap(0x0004010043000000000000000000000000000000000000000000000000000000);

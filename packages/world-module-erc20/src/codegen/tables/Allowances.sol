@@ -17,9 +17,8 @@ import { EncodedLengths, EncodedLengthsLib } from "@latticexyz/store/src/Encoded
 import { ResourceId } from "@latticexyz/store/src/ResourceId.sol";
 
 library Allowances {
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0020010020000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (address, address)
   Schema constant _keySchema = Schema.wrap(0x0028020061610000000000000000000000000000000000000000000000000000);

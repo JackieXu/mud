@@ -23,9 +23,8 @@ library StoreHooks {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "store", name: "StoreHooks", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x746273746f726500000000000000000053746f7265486f6f6b73000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0000000100000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0000000100000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);

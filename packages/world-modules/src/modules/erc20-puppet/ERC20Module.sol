@@ -13,13 +13,7 @@ import { createPuppet } from "../puppet/createPuppet.sol";
 import { Balances } from "../tokens/tables/Balances.sol";
 
 import { MODULE_NAMESPACE, MODULE_NAMESPACE_ID, ERC20_REGISTRY_TABLE_ID } from "./constants.sol";
-import {
-  _allowancesTableId,
-  _balancesTableId,
-  _metadataTableId,
-  _totalSupplyTableId,
-  _erc20SystemId
-} from "./utils.sol";
+import { _allowancesTableId, _balancesTableId, _metadataTableId, _totalSupplyTableId, _erc20SystemId } from "./utils.sol";
 import { ERC20System } from "./ERC20System.sol";
 
 import { ERC20Registry } from "./tables/ERC20Registry.sol";

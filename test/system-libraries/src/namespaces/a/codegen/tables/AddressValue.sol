@@ -20,9 +20,8 @@ library AddressValue {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "a", name: "AddressValue", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x746261000000000000000000000000004164647265737356616c756500000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0014010014000000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0014010014000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of ()
   Schema constant _keySchema = Schema.wrap(0x0000000000000000000000000000000000000000000000000000000000000000);

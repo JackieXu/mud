@@ -109,8 +109,8 @@ importers:
         specifier: https://github.com/foundry-rs/forge-std.git#620536fa5277db4e3fd46772d5cbc1ea0696fb43
         version: https://codeload.github.com/foundry-rs/forge-std/tar.gz/620536fa5277db4e3fd46772d5cbc1ea0696fb43
       prettier:
-        specifier: 3.2.5
-        version: 3.2.5
+        specifier: 3.5.3
+        version: 3.5.3
 
   packages/sync-test:
     devDependencies:
@@ -1317,8 +1317,8 @@ packages:
   postgres@3.3.5:
     resolution: {integrity: sha512-+JD93VELV9gHkqpV5gdL5/70HdGtEw4/XE1S4BC8f1mcPmdib3K5XsKVbnR1XcAyC41zOnifJ+9YRKxdIsXiUw==}
 
-  prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2393,7 +2393,7 @@ snapshots:
 
   postgres@3.3.5: {}
 
-  prettier@3.2.5: {}
+  prettier@3.5.3: {}
 
   protobufjs@7.2.3:
     dependencies:

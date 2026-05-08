@@ -6,18 +6,7 @@ import { StoreMock } from "@latticexyz/store/test/StoreMock.sol";
 import { IStoreErrors } from "@latticexyz/store/src/IStoreErrors.sol";
 import { StoreSwitch } from "@latticexyz/store/src/StoreSwitch.sol";
 
-import {
-  Statics,
-  StaticsData,
-  Dynamics1,
-  Dynamics1Data,
-  Dynamics2,
-  Dynamics2Data,
-  Singleton,
-  Offchain,
-  UserTyped,
-  UserTypedData
-} from "../src/codegen/index.sol";
+import { Statics, StaticsData, Dynamics1, Dynamics1Data, Dynamics2, Dynamics2Data, Singleton, Offchain, UserTyped, UserTypedData } from "../src/codegen/index.sol";
 import { TestTypeAddress, TestTypeInt64, TestTypeLibrary } from "../src/types.sol";
 import { ResourceId } from "@latticexyz/store/src/ResourceId.sol";
 

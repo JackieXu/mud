@@ -25,9 +25,8 @@ library Multi {
   // Hex below is the result of `WorldResourceIdLib.encode({ namespace: "", name: "Multi", typeId: RESOURCE_TABLE });`
   ResourceId constant _tableId = ResourceId.wrap(0x746200000000000000000000000000004d756c74690000000000000000000000);
 
-  FieldLayout constant _fieldLayout = FieldLayout.wrap(
-    0x0021020020010000000000000000000000000000000000000000000000000000
-  );
+  FieldLayout constant _fieldLayout =
+    FieldLayout.wrap(0x0021020020010000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (uint32, bool, uint256, int120)
   Schema constant _keySchema = Schema.wrap(0x0034040003601f2e000000000000000000000000000000000000000000000000);
