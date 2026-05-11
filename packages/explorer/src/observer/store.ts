@@ -6,7 +6,7 @@ import { DecodedUserOperationCall } from "../app/(explorer)/[chainName]/worlds/[
 import { isPromiseFulfilled } from "../utils";
 import { relayChannelName } from "./common";
 import { debug } from "./debug";
-import { Message, MessageType, Messages } from "./messages";
+import { Message, Messages, MessageType } from "./messages";
 
 export type Write = {
   writeId: string;

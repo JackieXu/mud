@@ -1,5 +1,4 @@
-import { AbiItem } from "viem";
-import { keccak256, stringToHex } from "viem";
+import { AbiItem, keccak256, stringToHex } from "viem";
 
 export function getErrorSelector(errorAbi: AbiItem) {
   if (errorAbi.type !== "error") {

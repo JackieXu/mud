@@ -1,8 +1,8 @@
 "use client";
 
-import { WagmiProvider, createConfig, fallback, http, webSocket } from "wagmi";
+import { createConfig, fallback, http, WagmiProvider, webSocket } from "wagmi";
 import { ReactNode, useMemo } from "react";
-import { RainbowKitProvider, connectorsForWallets, darkTheme } from "@rainbow-me/rainbowkit";
+import { connectorsForWallets, darkTheme, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { coinbaseWallet, injectedWallet, metaMaskWallet, safeWallet } from "@rainbow-me/rainbowkit/wallets";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

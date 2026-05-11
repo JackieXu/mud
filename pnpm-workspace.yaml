@@ -9,7 +9,7 @@ packages:
 packageManagerStrict: false
 # pnpm 10 reset the default `publicHoistPattern` to `[]`. Restore the pnpm 9
 # default so the root `pnpm lint` can still resolve workspace-owned plugins
-# like @trivago/prettier-plugin-sort-imports (referenced from explorer's
+# like @ianvs/prettier-plugin-sort-imports (referenced from explorer's
 # .prettierrc.cjs) when prettier runs from the repo root.
 publicHoistPattern:
   - '*eslint*'

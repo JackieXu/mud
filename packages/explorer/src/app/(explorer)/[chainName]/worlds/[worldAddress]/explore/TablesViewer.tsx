@@ -13,15 +13,15 @@ import { Table as TableType } from "@latticexyz/config";
 import { getKeySchema, getValueSchema } from "@latticexyz/protocol-parser/internal";
 import {
   ColumnDef,
-  OnChangeFn,
-  PaginationState,
-  RowData,
-  SortingState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  OnChangeFn,
+  PaginationState,
+  RowData,
+  SortingState,
   useReactTable,
 } from "@tanstack/react-table";
 import { Button } from "../../../../../../components/ui/Button";
@@ -33,11 +33,11 @@ import { useChain } from "../../../../hooks/useChain";
 import { useIndexerForChainId } from "../../../../hooks/useIndexerForChainId";
 import { useReadOnly } from "../../../../hooks/useReadOnly";
 import { TData, TDataRow, useTableDataQuery } from "../../../../queries/useTableDataQuery";
-import { ExportButton } from "./ExportButton";
-import { defaultColumn } from "./TableColumn/defaultColumn";
 import { PAGE_SIZE_OPTIONS } from "./consts";
+import { ExportButton } from "./ExportButton";
 import { usePaginationState } from "./hooks/usePaginationState";
 import { useSQLQueryState } from "./hooks/useSQLQueryState";
+import { defaultColumn } from "./TableColumn/defaultColumn";
 import { getLimitOffset } from "./utils/getLimitOffset";
 import { typeSortingFn } from "./utils/typeSortingFn";
 

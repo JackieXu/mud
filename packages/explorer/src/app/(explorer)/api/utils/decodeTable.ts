@@ -1,4 +1,4 @@
-import { Hex, decodeAbiParameters, parseAbiParameters } from "viem";
+import { decodeAbiParameters, Hex, parseAbiParameters } from "viem";
 import { hexToResource } from "@latticexyz/common";
 import { Schema, Table } from "@latticexyz/config";
 import { getSchemaPrimitives, hexToSchema } from "@latticexyz/protocol-parser/internal";

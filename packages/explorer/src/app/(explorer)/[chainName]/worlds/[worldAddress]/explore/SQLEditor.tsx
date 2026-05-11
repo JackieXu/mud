@@ -1,7 +1,7 @@
 "use client";
 
 import { CommandIcon, CornerDownLeft, LoaderIcon, PauseIcon, PlayIcon } from "lucide-react";
-import { KeyCode, KeyMod, editor } from "monaco-editor/esm/vs/editor/editor.api";
+import { editor, KeyCode, KeyMod } from "monaco-editor/esm/vs/editor/editor.api";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Table } from "@latticexyz/config";
@@ -11,7 +11,7 @@ import { Button } from "../../../../../../components/ui/Button";
 import { Form, FormField } from "../../../../../../components/ui/Form";
 import { cn } from "../../../../../../utils";
 import { useTableDataQuery } from "../../../../queries/useTableDataQuery";
-import { PAGE_SIZE_OPTIONS, monacoOptions } from "./consts";
+import { monacoOptions, PAGE_SIZE_OPTIONS } from "./consts";
 import { usePaginationState } from "./hooks/usePaginationState";
 import { useSQLQueryState } from "./hooks/useSQLQueryState";
 import { useMonacoSuggestions } from "./useMonacoSuggestions";
