@@ -351,7 +351,6 @@
 - 9940fdb3e: New package to run your own faucet service. We'll use this soon for our testnet in place of `@latticexyz/services`.
 
   To run the faucet server:
-
   - Add the package with `pnpm add @latticexyz/faucet`
   - Add a `.env` file that has a `RPC_HTTP_URL` and `FAUCET_PRIVATE_KEY` (or pass the environment variables into the next command)
   - Run `pnpm faucet-server` to start the server
@@ -534,7 +533,6 @@
 - [#1517](https://github.com/latticexyz/mud/pull/1517) [`9940fdb3`](https://github.com/latticexyz/mud/commit/9940fdb3e036e03aa8ede1ca80cd44d86d3b85b7) Thanks [@holic](https://github.com/holic)! - New package to run your own faucet service. We'll use this soon for our testnet in place of `@latticexyz/services`.
 
   To run the faucet server:
-
   - Add the package with `pnpm add @latticexyz/faucet`
   - Add a `.env` file that has a `RPC_HTTP_URL` and `FAUCET_PRIVATE_KEY` (or pass the environment variables into the next command)
   - Run `pnpm faucet-server` to start the server

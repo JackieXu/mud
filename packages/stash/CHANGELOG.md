@@ -277,7 +277,6 @@
   You can find usage examples in the [`@latticexyz/stash` README.md](https://github.com/latticexyz/mud/blob/main/packages/stash/README.md).
 
   This package is experimental and will have breaking changes while we refine its APIs and implementation. All of its exports are temporarily under `@latticexyz/stash/internal` until we consider it stable.
-
   - @latticexyz/config@2.2.6
   - @latticexyz/protocol-parser@2.2.6
   - @latticexyz/schema-type@2.2.6

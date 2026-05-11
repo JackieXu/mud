@@ -46,7 +46,6 @@
 - 1e9047e: Fixed a bug that caused the stash storage adapter to crash when deleting a dynamic field and writing to it again in the same block.
 - 7902888: Pending deletions immediately followed by field updates are now handled correctly by the Stash storage adapter.
 - 26d2e3a: `getWorldAbi()` now returns an ABI that is a combination of:
-
   - base World ABI
   - system ABIs stored onchain with metadata module during deploy
   - world functions
@@ -959,12 +958,10 @@
 - 1faf7f697: `syncToZustand` now uses `tables` argument to populate the Zustand store's `tables` key, rather than the on-chain table registration events. This means we'll no longer store data into Zustand you haven't opted into receiving (e.g. other namespaces).
 - 433078c54: Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
 - afaf2f5ff: - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -992,7 +989,6 @@
 - 48c51b52a: RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -1211,7 +1207,6 @@
   ```
 
 - 4c1dcd81e: - Improved query performance by 10x by moving from drizzle ORM to handcrafted SQL.
-
   - Moved away from `trpc` for more granular control over the transport layer.
     Added an `/api/logs` endpoint using the new query and gzip compression for 40x less data transferred over the wire.
     Deprecated the `/trpc/getLogs` and `/trpc/findAll` endpoints.
@@ -1994,7 +1989,6 @@
   ```
 
 - 4c1dcd81: - Improved query performance by 10x by moving from drizzle ORM to handcrafted SQL.
-
   - Moved away from `trpc` for more granular control over the transport layer.
     Added an `/api/logs` endpoint using the new query and gzip compression for 40x less data transferred over the wire.
     Deprecated the `/trpc/getLogs` and `/trpc/findAll` endpoints.
@@ -2564,12 +2558,10 @@
 
 - [#1231](https://github.com/latticexyz/mud/pull/1231) [`433078c5`](https://github.com/latticexyz/mud/commit/433078c54c22fa1b4e32d7204fb41bd5f79ca1db) Thanks [@dk1a](https://github.com/dk1a)! - Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
 - [#1182](https://github.com/latticexyz/mud/pull/1182) [`afaf2f5f`](https://github.com/latticexyz/mud/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -2633,7 +2625,6 @@
 - [#1278](https://github.com/latticexyz/mud/pull/1278) [`48c51b52`](https://github.com/latticexyz/mud/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -2705,7 +2696,6 @@
 ### Minor Changes
 
 - [#1234](https://github.com/latticexyz/mud/pull/1234) [`131c63e5`](https://github.com/latticexyz/mud/commit/131c63e539a8e9947835dcc323c8b37562aed9ca) Thanks [@holic](https://github.com/holic)! - - Accept a plain viem `PublicClient` (instead of requiring a `Chain` to be set) in `store-sync` and `store-indexer` functions. These functions now fetch chain ID using `publicClient.getChainId()` when no `publicClient.chain.id` is present.
-
   - Allow configuring `store-indexer` with a set of RPC URLs (`RPC_HTTP_URL` and `RPC_WS_URL`) instead of `CHAIN_ID`.
 
 - [#1235](https://github.com/latticexyz/mud/pull/1235) [`582388ba`](https://github.com/latticexyz/mud/commit/582388ba5f95c3efde56779058220dbd7aedee0b) Thanks [@holic](https://github.com/holic)! - Export `singletonEntity` as const rather than within the `syncToRecs` result.
@@ -2772,7 +2762,6 @@
 - [#1075](https://github.com/latticexyz/mud/pull/1075) [`904fd7d4`](https://github.com/latticexyz/mud/commit/904fd7d4ee06a86e481e3e02fd5744224376d0c9) Thanks [@holic](https://github.com/holic)! - Add store sync package
 
 - [#1176](https://github.com/latticexyz/mud/pull/1176) [`eeb15cc0`](https://github.com/latticexyz/mud/commit/eeb15cc06fcbe80c37ba3926d9387f6bd5947234) Thanks [@holic](https://github.com/holic)! - - Replace `blockEventsToStorage` with `blockLogsToStorage` that exposes a `storeOperations` callback to perform database writes from store operations. This helps encapsulates database adapters into a single wrapper/instance of `blockLogsToStorage` and allows for wrapping a block of store operations in a database transaction.
-
   - Add `toBlock` option to `groupLogsByBlockNumber` and remove `blockHash` from results. This helps track the last block number for a given set of logs when used in the context of RxJS streams.
 
 - [#1185](https://github.com/latticexyz/mud/pull/1185) [`69a96f10`](https://github.com/latticexyz/mud/commit/69a96f109065ae2564a340208d5f9a0be3616747) Thanks [@holic](https://github.com/holic)! - `blockLogsToStorage(sqliteStorage(...))` converts block logs to SQLite operations. You can use it like:

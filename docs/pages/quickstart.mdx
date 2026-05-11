@@ -85,6 +85,7 @@ To run any of the TypeScript templates:
 
    <summary>Possible errors in this stage</summary>
 
+   {/* MDX comment shields the loose list from prettier issue #17746 */}
    - `ERROR  No package.json (or package.yaml, or package.json5) was found in "/home/qbzzt1"`
 
      `pnpm` version too old.
@@ -107,7 +108,6 @@ To run any of the TypeScript templates:
    </details>
 
 1. Select the template:
-
    - [Vanilla](./templates/typescript/vanilla)
    - [React-ECS](./templates/typescript/react-ecs)
    - React
@@ -131,6 +131,7 @@ To run any of the TypeScript templates:
 
    <summary>Possible errors in this stage</summary>
 
+   {/* MDX comment shields the loose list from prettier issue #17746 */}
    - `error binding to 127.0.0.1:8545: error creating server listener: Address already in use`
 
      [Foundry's `anvil`](https://book.getfoundry.sh/anvil/) is already running, possibly inside a different `pnpm dev`.
@@ -160,7 +161,6 @@ To run any of the TypeScript templates:
 
    If nothing else works, the problem may be with [`mprocs`](https://github.com/pvolok/mprocs).
    We can bypass `mprocs` by running two separate command line windows.
-
    1. In the first command line window run these commands to start the client:
 
       ```sh copy

@@ -374,7 +374,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
 
@@ -554,7 +553,6 @@
 - afdba793f: Update RECS components with v2 key/value schemas. This helps with encoding/decoding composite keys and strong types for keys/values.
 
   This may break if you were previously dependent on `component.id`, `component.metadata.componentId`, or `component.metadata.tableId`:
-
   - `component.id` is now the on-chain `bytes32` hex representation of the table ID
   - `component.metadata.componentName` is the table name (e.g. `Position`)
   - `component.metadata.tableName` is the namespaced table name (e.g. `myworld:Position`)
@@ -769,7 +767,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
 
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
@@ -950,7 +947,6 @@
 - [#1195](https://github.com/latticexyz/mud/pull/1195) [`afdba793`](https://github.com/latticexyz/mud/commit/afdba793fd84abf17eef5ef59dd56fabe353c8bd) Thanks [@holic](https://github.com/holic)! - Update RECS components with v2 key/value schemas. This helps with encoding/decoding composite keys and strong types for keys/values.
 
   This may break if you were previously dependent on `component.id`, `component.metadata.componentId`, or `component.metadata.tableId`:
-
   - `component.id` is now the on-chain `bytes32` hex representation of the table ID
   - `component.metadata.componentName` is the table name (e.g. `Position`)
   - `component.metadata.tableName` is the namespaced table name (e.g. `myworld:Position`)
