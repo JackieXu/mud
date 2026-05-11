@@ -62,16 +62,16 @@
     "@latticexyz/schema-type": "workspace:*",
     "abitype": "1.0.9",
     "arktype": "2.0.0-beta.6",
-    "debug": "^4.3.4"
+    "debug": "^4.4.3"
   },
   "devDependencies": {
     "@latticexyz/abi-ts": "workspace:*",
     "@latticexyz/gas-report": "workspace:*",
-    "@types/debug": "^4.1.7",
-    "@types/ejs": "^3.1.1",
+    "@types/debug": "^4.1.13",
+    "@types/ejs": "^3.1.5",
     "forge-std": "https://github.com/foundry-rs/forge-std.git#620536fa5277db4e3fd46772d5cbc1ea0696fb43",
     "solhint": "^3.3.7",
-    "viem": "2.48.7"
+    "viem": "2.48.11"
   },
   "peerDependencies": {
     "viem": "2.x"
