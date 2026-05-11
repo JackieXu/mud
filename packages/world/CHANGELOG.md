@@ -441,7 +441,6 @@
 
 - 6a66f57: Refactored `AccessControl` library exported from `@latticexyz/world` to be usable outside of the world package and updated module packages to use it.
 - 86a8104: Added `deploy` config options to systems in the MUD config:
-
   - `disabled` to toggle deploying the system (defaults to `false`)
   - `registerWorldFunctions` to toggle registering namespace-prefixed system functions on the world (defaults to `true`)
 
@@ -842,7 +841,6 @@
 ### Patch Changes
 
 - 4a6b4598: Minor fixes to config input validations:
-
   - `systems.openAccess` incorrectly expected `true` as the only valid input. It now allows `boolean`.
   - The config complained if parts of it were defined `as const` outside the config input. This is now possible.
   - Shorthand inputs are now enabled.
@@ -1026,7 +1024,6 @@
   If you've written your own sync logic or are interacting with Store calls directly, this is a breaking change. We have a few more breaking protocol changes upcoming, so you may hold off on upgrading until those land.
 
   If you are using MUD's built-in tooling (table codegen, indexer, store sync, etc.), you don't have to make any changes except upgrading to the latest versions and deploying a fresh World.
-
   - The `data` field in each `StoreSetRecord` and `StoreEphemeralRecord` has been replaced with three new fields: `staticData`, `encodedLengths`, and `dynamicData`. This better reflects the on-chain state and makes it easier to perform modifications to the raw bytes. We recommend storing each of these fields individually in your off-chain storage of choice (indexer, client, etc.).
 
     ```diff
@@ -1302,13 +1299,11 @@
 - de151fec0: - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -1324,7 +1319,6 @@
   This includes `setRecord`, `setField`, `pushToField`, `popFromField`, `updateInField`, `deleteRecord`, `call`, `grantAccess`, `revokeAccess`, `registerTable`,
   `registerStoreHook`, `registerSystemHook`, `registerFunctionSelector`, `registerSystem` and `registerRootFunctionSelector`.
   This change aligns the `World` function selectors with the `Store` function selectors, reduces clutter, reduces gas cost and reduces the `World`'s contract size.
-
   - The `World`'s `registerHook` function is removed. Use `registerStoreHook` or `registerSystemHook` instead.
   - The `deploy` script is updated to integrate the World interface changes
 
@@ -1407,7 +1401,6 @@
   ```
 
 - afaf2f5ff: - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -1634,7 +1627,6 @@
   ```
 
 - 57d8965df: - Split `CoreSystem` into `AccessManagementSystem`, `BalanceTransferSystem`, `BatchCallSystem`, `CoreRegistrationSystem`
-
   - Changed `CoreModule` to receive the addresses of these systems as arguments, instead of deploying them
   - Replaced `CORE_SYSTEM_ID` constant with `ACCESS_MANAGEMENT_SYSTEM_ID`, `BALANCE_TRANSFER_SYSTEM_ID`, `BATCH_CALL_SYSTEM_ID`, `CORE_REGISTRATION_SYSTEM_ID`, for each respective system
 
@@ -1782,7 +1774,6 @@
   ```
 
 - 7fa2ca183: Added TS helpers for calling systems dynamically via the World.
-
   - `encodeSystemCall` for `world.call`
 
     ```ts
@@ -1902,7 +1893,6 @@
   See `StandardDelegations.t.sol` for usage examples.
 
 - 672d05ca1: - Moves Store events into its own `IStoreEvents` interface
-
   - Moves Store interfaces to their own files
   - Adds a `StoreData` abstract contract to initialize a Store and expose the Store version
 
@@ -1930,7 +1920,6 @@
   ```
 
   Refactor `StoreSwitch` to use a storage slot instead of `function isStore()` to determine which contract is Store:
-
   - Previously `StoreSwitch` called `isStore()` on `msg.sender` to determine if `msg.sender` is a `Store` contract. If the call succeeded, the `Store` methods were called on `msg.sender`, otherwise the data was written to the own storage.
   - With this change `StoreSwitch` instead checks for an `address` in a known storage slot. If the address equals the own address, data is written to the own storage. If it is an external address, `Store` methods are called on this address. If it is unset (`address(0)`), store methods are called on `msg.sender`.
   - In practice this has the same effect as before: By default the `World` contracts sets its own address in `StoreSwitch`, while `System` contracts keep the Store address undefined, so `Systems` write to their caller (`World`) if they are executed via `call` or directly to the `World` storage if they are executed via `delegatecall`.
@@ -2088,7 +2077,6 @@
 - 37c228c63: Removed the unnecessary `extcodesize` check from the `Create2` library.
 - 433078c54: Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
@@ -2159,7 +2147,6 @@
 - 48c51b52a: RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -2656,7 +2643,6 @@
   ```
 
 - 57d8965d: - Split `CoreSystem` into `AccessManagementSystem`, `BalanceTransferSystem`, `BatchCallSystem`, `CoreRegistrationSystem`
-
   - Changed `CoreModule` to receive the addresses of these systems as arguments, instead of deploying them
   - Replaced `CORE_SYSTEM_ID` constant with `ACCESS_MANAGEMENT_SYSTEM_ID`, `BALANCE_TRANSFER_SYSTEM_ID`, `BATCH_CALL_SYSTEM_ID`, `CORE_REGISTRATION_SYSTEM_ID`, for each respective system
 
@@ -2768,7 +2754,6 @@
 ### Minor Changes
 
 - 7fa2ca18: Added TS helpers for calling systems dynamically via the World.
-
   - `encodeSystemCall` for `world.call`
 
     ```ts
@@ -2936,7 +2921,6 @@
   If you've written your own sync logic or are interacting with Store calls directly, this is a breaking change. We have a few more breaking protocol changes upcoming, so you may hold off on upgrading until those land.
 
   If you are using MUD's built-in tooling (table codegen, indexer, store sync, etc.), you don't have to make any changes except upgrading to the latest versions and deploying a fresh World.
-
   - The `data` field in each `StoreSetRecord` and `StoreEphemeralRecord` has been replaced with three new fields: `staticData`, `encodedLengths`, and `dynamicData`. This better reflects the on-chain state and makes it easier to perform modifications to the raw bytes. We recommend storing each of these fields individually in your off-chain storage of choice (indexer, client, etc.).
 
     ```diff
@@ -3091,13 +3075,11 @@
 - [#1336](https://github.com/latticexyz/mud/pull/1336) [`de151fec`](https://github.com/latticexyz/mud/commit/de151fec07b63a6022483c1ad133c556dd44992e) Thanks [@dk1a](https://github.com/dk1a)! - - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -3354,7 +3336,6 @@
   ```
 
 - [#1602](https://github.com/latticexyz/mud/pull/1602) [`672d05ca`](https://github.com/latticexyz/mud/commit/672d05ca130649bd90df337c2bf03204a5878840) Thanks [@holic](https://github.com/holic)! - - Moves Store events into its own `IStoreEvents` interface
-
   - Moves Store interfaces to their own files
   - Adds a `StoreData` abstract contract to initialize a Store and expose the Store version
 
@@ -3970,7 +3951,6 @@
   This includes `setRecord`, `setField`, `pushToField`, `popFromField`, `updateInField`, `deleteRecord`, `call`, `grantAccess`, `revokeAccess`, `registerTable`,
   `registerStoreHook`, `registerSystemHook`, `registerFunctionSelector`, `registerSystem` and `registerRootFunctionSelector`.
   This change aligns the `World` function selectors with the `Store` function selectors, reduces clutter, reduces gas cost and reduces the `World`'s contract size.
-
   - The `World`'s `registerHook` function is removed. Use `registerStoreHook` or `registerSystemHook` instead.
 
   - The `deploy` script is updated to integrate the World interface changes
@@ -3980,7 +3960,6 @@
   The `@latticexyz/network` package was deprecated and is now removed. All consumers should upgrade to the new sync stack from `@latticexyz/store-sync`.
 
 - [#1182](https://github.com/latticexyz/mud/pull/1182) [`afaf2f5f`](https://github.com/latticexyz/mud/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -4009,7 +3988,6 @@
 
 - [#1231](https://github.com/latticexyz/mud/pull/1231) [`433078c5`](https://github.com/latticexyz/mud/commit/433078c54c22fa1b4e32d7204fb41bd5f79ca1db) Thanks [@dk1a](https://github.com/dk1a)! - Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
@@ -4029,7 +4007,6 @@
 - [#1278](https://github.com/latticexyz/mud/pull/1278) [`48c51b52`](https://github.com/latticexyz/mud/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -4079,7 +4056,6 @@
   ```
 
   Refactor `StoreSwitch` to use a storage slot instead of `function isStore()` to determine which contract is Store:
-
   - Previously `StoreSwitch` called `isStore()` on `msg.sender` to determine if `msg.sender` is a `Store` contract. If the call succeeded, the `Store` methods were called on `msg.sender`, otherwise the data was written to the own storage.
   - With this change `StoreSwitch` instead checks for an `address` in a known storage slot. If the address equals the own address, data is written to the own storage. If it is an external address, `Store` methods are called on this address. If it is unset (`address(0)`), store methods are called on `msg.sender`.
   - In practice this has the same effect as before: By default the `World` contracts sets its own address in `StoreSwitch`, while `System` contracts keep the Store address undefined, so `Systems` write to their caller (`World`) if they are executed via `call` or directly to the `World` storage if they are executed via `delegatecall`.

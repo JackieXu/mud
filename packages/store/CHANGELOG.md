@@ -357,7 +357,6 @@
 - 24e285d: Disabled deploy of `Hooks` table, as this was meant to be a generic, codegen-only table.
 - 7129a16: Bumped `@arktype/util` and moved `evaluate`/`satisfy` usages to its `show`/`satisfy` helpers.
 - 69eb63b: Refactored tablegen in preparation for multiple namespaces and addressed a few edge cases:
-
   - User types configured with a relative `filePath` are now resolved relative to the project root (where the `mud.config.ts` lives) rather than the current working directory.
   - User types inside libraries now need to be referenced with their fully-qualified code path (e.g. `LibraryName.UserTypeName`).
 
@@ -577,7 +576,6 @@
 ### Patch Changes
 
 - 4a6b4598: Minor fixes to config input validations:
-
   - `systems.openAccess` incorrectly expected `true` as the only valid input. It now allows `boolean`.
   - The config complained if parts of it were defined `as const` outside the config input. This is now possible.
   - Shorthand inputs are now enabled.
@@ -744,7 +742,6 @@
   If you've written your own sync logic or are interacting with Store calls directly, this is a breaking change. We have a few more breaking protocol changes upcoming, so you may hold off on upgrading until those land.
 
   If you are using MUD's built-in tooling (table codegen, indexer, store sync, etc.), you don't have to make any changes except upgrading to the latest versions and deploying a fresh World.
-
   - The `data` field in each `StoreSetRecord` and `StoreEphemeralRecord` has been replaced with three new fields: `staticData`, `encodedLengths`, and `dynamicData`. This better reflects the on-chain state and makes it easier to perform modifications to the raw bytes. We recommend storing each of these fields individually in your off-chain storage of choice (indexer, client, etc.).
 
     ```diff
@@ -1061,13 +1058,11 @@
 - de151fec0: - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -1090,7 +1085,6 @@
 
 - 433078c54: Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
@@ -1109,7 +1103,6 @@
   ```
 
 - afaf2f5ff: - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -1135,7 +1128,6 @@
   - The `store-sync` and `cli` packages are updated to integrate the breaking protocol changes. Downstream projects only need to manually integrate these changes if they access low level `Store` or `World` functions. Otherwise, a fresh deploy with the latest MUD will get you these changes.
 
 - 44a5432ac: These breaking changes only affect store utilities, you aren't affected if you use `@latticexyz/cli` codegen scripts.
-
   - Add `remappings` argument to the `tablegen` codegen function, so that it can read user-provided files.
   - In `RenderTableOptions` change the type of `imports` from `RelativeImportDatum` to `ImportDatum`, to allow passing absolute imports to the table renderer.
   - Add `solidityUserTypes` argument to several functions that need to resolve user or abi types: `resolveAbiOrUserType`, `importForAbiOrUserType`, `getUserTypeInfo`.
@@ -1144,7 +1136,6 @@
 - 65c9546c4: - Always render field methods with a suffix in tablegen (they used to not be rendered if field methods without a suffix were rendered).
   - Add `withSuffixlessFieldMethods` to `RenderTableOptions`, which indicates that field methods without a suffix should be rendered.
 - 672d05ca1: - Moves Store events into its own `IStoreEvents` interface
-
   - Moves Store interfaces to their own files
   - Adds a `StoreData` abstract contract to initialize a Store and expose the Store version
 
@@ -1292,7 +1283,6 @@
 - 99ab9cd6f: Store events now use an `indexed` `tableId`. This adds ~100 gas per write, but means we our sync stack can filter events by table.
 - c049c23f4: - `StoreCore`'s `initialize` function is split into `initialize` (to set the `StoreSwitch`'s `storeAddress`) and `registerCoreTables` (to register the `Tables` and `StoreHooks` tables).
   The purpose of this is to give consumers more granular control over the setup flow.
-
   - The `StoreRead` contract no longer calls `StoreCore.initialize` in its constructor.
     `StoreCore` consumers are expected to call `StoreCore.initialize` and `StoreCore.registerCoreTable` in their own setup logic.
 
@@ -1444,7 +1434,6 @@
   ```
 
   Refactor `StoreSwitch` to use a storage slot instead of `function isStore()` to determine which contract is Store:
-
   - Previously `StoreSwitch` called `isStore()` on `msg.sender` to determine if `msg.sender` is a `Store` contract. If the call succeeded, the `Store` methods were called on `msg.sender`, otherwise the data was written to the own storage.
   - With this change `StoreSwitch` instead checks for an `address` in a known storage slot. If the address equals the own address, data is written to the own storage. If it is an external address, `Store` methods are called on this address. If it is unset (`address(0)`), store methods are called on `msg.sender`.
   - In practice this has the same effect as before: By default the `World` contracts sets its own address in `StoreSwitch`, while `System` contracts keep the Store address undefined, so `Systems` write to their caller (`World`) if they are executed via `call` or directly to the `World` storage if they are executed via `delegatecall`.
@@ -1703,7 +1692,6 @@
 - 48c51b52a: RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -2206,7 +2194,6 @@
   If you've written your own sync logic or are interacting with Store calls directly, this is a breaking change. We have a few more breaking protocol changes upcoming, so you may hold off on upgrading until those land.
 
   If you are using MUD's built-in tooling (table codegen, indexer, store sync, etc.), you don't have to make any changes except upgrading to the latest versions and deploying a fresh World.
-
   - The `data` field in each `StoreSetRecord` and `StoreEphemeralRecord` has been replaced with three new fields: `staticData`, `encodedLengths`, and `dynamicData`. This better reflects the on-chain state and makes it easier to perform modifications to the raw bytes. We recommend storing each of these fields individually in your off-chain storage of choice (indexer, client, etc.).
 
     ```diff
@@ -2402,13 +2389,11 @@
 - [#1336](https://github.com/latticexyz/mud/pull/1336) [`de151fec`](https://github.com/latticexyz/mud/commit/de151fec07b63a6022483c1ad133c556dd44992e) Thanks [@dk1a](https://github.com/dk1a)! - - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -2445,18 +2430,15 @@
   ```
 
 - [#1566](https://github.com/latticexyz/mud/pull/1566) [`44a5432a`](https://github.com/latticexyz/mud/commit/44a5432acb9c5af3dca1447c50219a00894c45a9) Thanks [@dk1a](https://github.com/dk1a)! - These breaking changes only affect store utilities, you aren't affected if you use `@latticexyz/cli` codegen scripts.
-
   - Add `remappings` argument to the `tablegen` codegen function, so that it can read user-provided files.
   - In `RenderTableOptions` change the type of `imports` from `RelativeImportDatum` to `ImportDatum`, to allow passing absolute imports to the table renderer.
   - Add `solidityUserTypes` argument to several functions that need to resolve user or abi types: `resolveAbiOrUserType`, `importForAbiOrUserType`, `getUserTypeInfo`.
   - Add `userTypes` config option to MUD config, which takes user types mapped to file paths from which to import them.
 
 - [#1550](https://github.com/latticexyz/mud/pull/1550) [`65c9546c`](https://github.com/latticexyz/mud/commit/65c9546c4ee8a410b21d032f02b0050442152e7e) Thanks [@dk1a](https://github.com/dk1a)! - - Always render field methods with a suffix in tablegen (they used to not be rendered if field methods without a suffix were rendered).
-
   - Add `withSuffixlessFieldMethods` to `RenderTableOptions`, which indicates that field methods without a suffix should be rendered.
 
 - [#1602](https://github.com/latticexyz/mud/pull/1602) [`672d05ca`](https://github.com/latticexyz/mud/commit/672d05ca130649bd90df337c2bf03204a5878840) Thanks [@holic](https://github.com/holic)! - - Moves Store events into its own `IStoreEvents` interface
-
   - Moves Store interfaces to their own files
   - Adds a `StoreData` abstract contract to initialize a Store and expose the Store version
 
@@ -2606,7 +2588,6 @@
 
 - [#1472](https://github.com/latticexyz/mud/pull/1472) [`c049c23f`](https://github.com/latticexyz/mud/commit/c049c23f48b93ac7881fb1a5a8417831611d5cbf) Thanks [@alvrs](https://github.com/alvrs)! - - `StoreCore`'s `initialize` function is split into `initialize` (to set the `StoreSwitch`'s `storeAddress`) and `registerCoreTables` (to register the `Tables` and `StoreHooks` tables).
   The purpose of this is to give consumers more granular control over the setup flow.
-
   - The `StoreRead` contract no longer calls `StoreCore.initialize` in its constructor.
     `StoreCore` consumers are expected to call `StoreCore.initialize` and `StoreCore.registerCoreTable` in their own setup logic.
 
@@ -3118,12 +3099,10 @@
 
 - [#1231](https://github.com/latticexyz/mud/pull/1231) [`433078c5`](https://github.com/latticexyz/mud/commit/433078c54c22fa1b4e32d7204fb41bd5f79ca1db) Thanks [@dk1a](https://github.com/dk1a)! - Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
 - [#1182](https://github.com/latticexyz/mud/pull/1182) [`afaf2f5f`](https://github.com/latticexyz/mud/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -3171,7 +3150,6 @@
 - [#1278](https://github.com/latticexyz/mud/pull/1278) [`48c51b52`](https://github.com/latticexyz/mud/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -3225,7 +3203,6 @@
   ```
 
   Refactor `StoreSwitch` to use a storage slot instead of `function isStore()` to determine which contract is Store:
-
   - Previously `StoreSwitch` called `isStore()` on `msg.sender` to determine if `msg.sender` is a `Store` contract. If the call succeeded, the `Store` methods were called on `msg.sender`, otherwise the data was written to the own storage.
   - With this change `StoreSwitch` instead checks for an `address` in a known storage slot. If the address equals the own address, data is written to the own storage. If it is an external address, `Store` methods are called on this address. If it is unset (`address(0)`), store methods are called on `msg.sender`.
   - In practice this has the same effect as before: By default the `World` contracts sets its own address in `StoreSwitch`, while `System` contracts keep the Store address undefined, so `Systems` write to their caller (`World`) if they are executed via `call` or directly to the `World` storage if they are executed via `delegatecall`.

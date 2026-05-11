@@ -761,7 +761,6 @@
 
 - 5df1f31bc: Added `getLogs` query support to sqlite indexer
 - 4c1dcd81e: - Improved query performance by 10x by moving from drizzle ORM to handcrafted SQL.
-
   - Moved away from `trpc` for more granular control over the transport layer.
     Added an `/api/logs` endpoint using the new query and gzip compression for 40x less data transferred over the wire.
     Deprecated the `/trpc/getLogs` and `/trpc/findAll` endpoints.
@@ -808,7 +807,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
 
@@ -1331,7 +1329,6 @@
 - e48fb3b0: When the Postgres indexer starts up, it will now attempt to detect if the database is outdated and, if so, cleans up all MUD-related schemas and tables before proceeding.
 - 5df1f31b: Added `getLogs` query support to sqlite indexer
 - 4c1dcd81: - Improved query performance by 10x by moving from drizzle ORM to handcrafted SQL.
-
   - Moved away from `trpc` for more granular control over the transport layer.
     Added an `/api/logs` endpoint using the new query and gzip compression for 40x less data transferred over the wire.
     Deprecated the `/trpc/getLogs` and `/trpc/findAll` endpoints.
@@ -1706,7 +1703,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
 
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.

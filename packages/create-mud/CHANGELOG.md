@@ -256,7 +256,6 @@
 - 48c51b52a: RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -309,7 +308,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
 
@@ -677,7 +675,6 @@
 - f99e88987: Bump viem to 1.14.0 and abitype to 0.9.8
 - 6963a9e85: Templates now correctly include their respective `.gitignore` files
 - afaf2f5ff: - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -873,7 +870,6 @@
     This is to avoid returning invalid data, as the data of a dynamic field is not deleted when the record is deleted, but only its length is set to zero.
 
 - 331f0d636: Deprecate `@latticexyz/std-client` and remove v1 network dependencies.
-
   - `getBurnerWallet` is replaced by `getBurnerPrivateKey` from `@latticexyz/common`. It now returns a `Hex` string instead of an `rxjs` `BehaviorSubject`.
 
     ```
@@ -1321,7 +1317,6 @@
   so downstream projects only need to regenerate their table libraries after updating MUD.
 
 - [#1182](https://github.com/latticexyz/mud/pull/1182) [`afaf2f5f`](https://github.com/latticexyz/mud/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -1354,7 +1349,6 @@
   ```
 
 - [#1311](https://github.com/latticexyz/mud/pull/1311) [`331f0d63`](https://github.com/latticexyz/mud/commit/331f0d636f6f327824307570a63fb301d9b897d1) Thanks [@alvrs](https://github.com/alvrs)! - Deprecate `@latticexyz/std-client` and remove v1 network dependencies.
-
   - `getBurnerWallet` is replaced by `getBurnerPrivateKey` from `@latticexyz/common`. It now returns a `Hex` string instead of an `rxjs` `BehaviorSubject`.
 
     ```
@@ -1383,7 +1377,6 @@
 - [#1278](https://github.com/latticexyz/mud/pull/1278) [`48c51b52`](https://github.com/latticexyz/mud/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -1444,7 +1437,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
 
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.

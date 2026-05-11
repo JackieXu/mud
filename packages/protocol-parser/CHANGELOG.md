@@ -452,7 +452,6 @@
 - b38c096d: Moved all existing exports to a `/internal` import path to indicate that these are now internal-only and deprecated. We'll be replacing these types and functions with new ones that are compatible with our new, strongly-typed config.
 - 433078c54: Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
@@ -462,13 +461,11 @@
 - de151fec0: - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -743,13 +740,11 @@
 - [#1336](https://github.com/latticexyz/mud/pull/1336) [`de151fec`](https://github.com/latticexyz/mud/commit/de151fec07b63a6022483c1ad133c556dd44992e) Thanks [@dk1a](https://github.com/dk1a)! - - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -822,7 +817,6 @@
 
 - [#1231](https://github.com/latticexyz/mud/pull/1231) [`433078c5`](https://github.com/latticexyz/mud/commit/433078c54c22fa1b4e32d7204fb41bd5f79ca1db) Thanks [@dk1a](https://github.com/dk1a)! - Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 

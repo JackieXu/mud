@@ -1121,13 +1121,11 @@
 - de151fec0: - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -1143,7 +1141,6 @@
   This includes `setRecord`, `setField`, `pushToField`, `popFromField`, `updateInField`, `deleteRecord`, `call`, `grantAccess`, `revokeAccess`, `registerTable`,
   `registerStoreHook`, `registerSystemHook`, `registerFunctionSelector`, `registerSystem` and `registerRootFunctionSelector`.
   This change aligns the `World` function selectors with the `Store` function selectors, reduces clutter, reduces gas cost and reduces the `World`'s contract size.
-
   - The `World`'s `registerHook` function is removed. Use `registerStoreHook` or `registerSystemHook` instead.
   - The `deploy` script is updated to integrate the World interface changes
 
@@ -1166,7 +1163,6 @@
   To revert to a previous MUD version, use `git diff` to find the version that you changed from and want to revert to and run `pnpm mud set-version <prior-version>` again.
 
 - afaf2f5ff: - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -1194,7 +1190,6 @@
 - 29c3f5087: `deploy`, `test`, `dev-contracts` were overhauled using a declarative deployment approach under the hood. Deploys are now idempotent and re-running them will introspect the world and figure out the minimal changes necessary to bring the world into alignment with its config: adding tables, adding/upgrading systems, changing access control, etc.
 
   The following CLI arguments are now removed from these commands:
-
   - `--debug` (you can now adjust CLI output with `DEBUG` environment variable, e.g. `DEBUG=mud:*`)
   - `--priorityFeeMultiplier` (now calculated automatically)
   - `--disableTxWait` (everything is now parallelized with smarter nonce management)
@@ -1205,7 +1200,6 @@
 - 48c51b52a: RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -1375,7 +1369,6 @@
   Instead of the overhead and complexity of system-to-system calls, this logic can now be moved into public libraries that will be deployed alongside your systems and automatically `delegatecall`ed.
 
 - c36ffd13c: - update the `set-version` cli command to work with the new release process by adding two new options:
-
   - `--tag`: install the latest version of the given tag. For snapshot releases tags correspond to the branch name, commits to `main` result in an automatic snapshot release, so `--tag main` is equivalent to what used to be `-v canary`
   - `--commit`: install a version based on a given commit hash. Since commits from `main` result in an automatic snapshot release it works for all commits on main, and it works for manual snapshot releases from branches other than main
   - `set-version` now updates all `package.json` nested below the current working directory (expect `node_modules`), so no need for running it each workspace of a monorepo separately.
@@ -1452,7 +1445,6 @@
 - 1feecf495: Added `--worldAddress` argument to `dev-contracts` CLI command so that you can develop against an existing world.
 - 433078c54: Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
@@ -1486,7 +1478,6 @@
 - 48909d151: bump forge-std and ds-test dependencies
 - 1d4039622: We fixed a bug in the deploy script that would cause the deployment to fail if a non-root namespace was used in the config.
 - 4fe079309: Fixed a few issues with deploys:
-
   - properly handle enums in MUD config
   - only deploy each unique module/system once
   - waits for transactions serially instead of in parallel, to avoid RPC errors
@@ -1552,7 +1543,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
 
@@ -1779,7 +1769,6 @@
 - afdba793f: Update RECS components with v2 key/value schemas. This helps with encoding/decoding composite keys and strong types for keys/values.
 
   This may break if you were previously dependent on `component.id`, `component.metadata.componentId`, or `component.metadata.tableId`:
-
   - `component.id` is now the on-chain `bytes32` hex representation of the table ID
   - `component.metadata.componentName` is the table name (e.g. `Position`)
   - `component.metadata.tableName` is the namespaced table name (e.g. `myworld:Position`)
@@ -2462,7 +2451,6 @@
 - 29c3f508: `deploy`, `test`, `dev-contracts` were overhauled using a declarative deployment approach under the hood. Deploys are now idempotent and re-running them will introspect the world and figure out the minimal changes necessary to bring the world into alignment with its config: adding tables, adding/upgrading systems, changing access control, etc.
 
   The following CLI arguments are now removed from these commands:
-
   - `--debug` (you can now adjust CLI output with `DEBUG` environment variable, e.g. `DEBUG=mud:*`)
   - `--priorityFeeMultiplier` (now calculated automatically)
   - `--disableTxWait` (everything is now parallelized with smarter nonce management)
@@ -2505,7 +2493,6 @@
 - 61c6ab70: Changed deploy order so that system/module contracts are fully deployed before registering/installing them on the world.
 - 69d55ce3: Deploy commands (`deploy`, `dev-contracts`, `test`) now correctly run `worldgen` to generate system interfaces before deploying.
 - 4fe07930: Fixed a few issues with deploys:
-
   - properly handle enums in MUD config
   - only deploy each unique module/system once
   - waits for transactions serially instead of in parallel, to avoid RPC errors
@@ -2616,13 +2603,11 @@
 - [#1336](https://github.com/latticexyz/mud/pull/1336) [`de151fec`](https://github.com/latticexyz/mud/commit/de151fec07b63a6022483c1ad133c556dd44992e) Thanks [@dk1a](https://github.com/dk1a)! - - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields
 
   But whereas `Schema` has `SchemaType` enum in each of the other 28 bytes, `FieldLayout` has static byte lengths in each of the other 28 bytes.
-
   - Replace `Schema valueSchema` with `FieldLayout fieldLayout` in Store and World contracts.
 
     `FieldLayout` is more gas-efficient because it already has lengths, and `Schema` has types which need to be converted to lengths.
@@ -3128,13 +3113,11 @@
   This includes `setRecord`, `setField`, `pushToField`, `popFromField`, `updateInField`, `deleteRecord`, `call`, `grantAccess`, `revokeAccess`, `registerTable`,
   `registerStoreHook`, `registerSystemHook`, `registerFunctionSelector`, `registerSystem` and `registerRootFunctionSelector`.
   This change aligns the `World` function selectors with the `Store` function selectors, reduces clutter, reduces gas cost and reduces the `World`'s contract size.
-
   - The `World`'s `registerHook` function is removed. Use `registerStoreHook` or `registerSystemHook` instead.
 
   - The `deploy` script is updated to integrate the World interface changes
 
 - [#1182](https://github.com/latticexyz/mud/pull/1182) [`afaf2f5f`](https://github.com/latticexyz/mud/commit/afaf2f5ffb36fe389a3aba8da2f6d8c84bdb26ab) Thanks [@alvrs](https://github.com/alvrs)! - - `Store`'s internal schema table is now a normal table instead of using special code paths. It is renamed to Tables, and the table ID changed from `mudstore:schema` to `mudstore:Tables`
-
   - `Store`'s `registerSchema` and `setMetadata` are combined into a single `registerTable` method. This means metadata (key names, field names) is immutable and indexers can create tables with this metadata when a new table is registered on-chain.
 
     ```diff
@@ -3163,7 +3146,6 @@
 
 - [#1231](https://github.com/latticexyz/mud/pull/1231) [`433078c5`](https://github.com/latticexyz/mud/commit/433078c54c22fa1b4e32d7204fb41bd5f79ca1db) Thanks [@dk1a](https://github.com/dk1a)! - Reverse PackedCounter encoding, to optimize gas for bitshifts.
   Ints are right-aligned, shifting using an index is straightforward if they are indexed right-to-left.
-
   - Previous encoding: (7 bytes | accumulator),(5 bytes | counter 1),...,(5 bytes | counter 5)
   - New encoding: (5 bytes | counter 5),...,(5 bytes | counter 1),(7 bytes | accumulator)
 
@@ -3187,7 +3169,6 @@
 - [#1278](https://github.com/latticexyz/mud/pull/1278) [`48c51b52`](https://github.com/latticexyz/mud/commit/48c51b52acab147a2ed97903c43bafa9b6769473) Thanks [@holic](https://github.com/holic)! - RECS components are now dynamically created and inferred from your MUD config when using `syncToRecs`.
 
   To migrate existing projects after upgrading to this MUD version:
-
   1. Remove `contractComponents.ts` from `client/src/mud`
   2. Remove `components` argument from `syncToRecs`
   3. Update `build:mud` and `dev` scripts in `contracts/package.json` to remove tsgen
@@ -3233,7 +3214,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
 
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
@@ -3416,7 +3396,6 @@
 - [#1195](https://github.com/latticexyz/mud/pull/1195) [`afdba793`](https://github.com/latticexyz/mud/commit/afdba793fd84abf17eef5ef59dd56fabe353c8bd) Thanks [@holic](https://github.com/holic)! - Update RECS components with v2 key/value schemas. This helps with encoding/decoding composite keys and strong types for keys/values.
 
   This may break if you were previously dependent on `component.id`, `component.metadata.componentId`, or `component.metadata.tableId`:
-
   - `component.id` is now the on-chain `bytes32` hex representation of the table ID
   - `component.metadata.componentName` is the table name (e.g. `Position`)
   - `component.metadata.tableName` is the namespaced table name (e.g. `myworld:Position`)
@@ -3442,7 +3421,6 @@
 - [#1147](https://github.com/latticexyz/mud/pull/1147) [`66cc35a8`](https://github.com/latticexyz/mud/commit/66cc35a8ccb21c50a1882d6c741dd045acd8bc11) Thanks [@dk1a](https://github.com/dk1a)! - Create gas-report package, move gas-report cli command and GasReporter contract to it
 
 - [#1157](https://github.com/latticexyz/mud/pull/1157) [`c36ffd13`](https://github.com/latticexyz/mud/commit/c36ffd13c3d859d9a4eadd0e07f6f73ad96b54aa) Thanks [@alvrs](https://github.com/alvrs)! - - update the `set-version` cli command to work with the new release process by adding two new options:
-
   - `--tag`: install the latest version of the given tag. For snapshot releases tags correspond to the branch name, commits to `main` result in an automatic snapshot release, so `--tag main` is equivalent to what used to be `-v canary`
   - `--commit`: install a version based on a given commit hash. Since commits from `main` result in an automatic snapshot release it works for all commits on main, and it works for manual snapshot releases from branches other than main
   - `set-version` now updates all `package.json` nested below the current working directory (expect `node_modules`), so no need for running it each workspace of a monorepo separately.

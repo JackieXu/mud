@@ -4529,7 +4529,6 @@ Moved the registration of store hooks and systems hooks to bitmaps with bitwise 
 - Add `FieldLayout`, which is a `bytes32` user-type similar to `Schema`.
 
   Both `FieldLayout` and `Schema` have the same kind of data in the first 4 bytes.
-
   - 2 bytes for total length of all static fields
   - 1 byte for number of static size fields
   - 1 byte for number of dynamic size fields

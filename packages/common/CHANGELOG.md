@@ -366,7 +366,6 @@
   `writeObserver` decorator now accepts any `Client`, not just a `WalletClient`.
 
   `createBurnerAccount` now returns a `PrivateKeyAccount`, the more specific `Account` type.
-
   - @latticexyz/schema-type@2.0.3
 
 ## 2.0.2
@@ -484,7 +483,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
 
@@ -663,7 +661,6 @@
 
 - 6c6733256: Add `tableIdToHex` and `hexToTableId` pure functions and move/deprecate `TableId`.
 - cd5abcc3b: Add utils for using viem with MUD
-
   - `createContract` is a wrapper around [viem's `getContract`](https://viem.sh/docs/contract/getContract.html) but with better nonce handling for faster executing of transactions. It has the same arguments and return type as `getContract`.
   - `createNonceManager` helps track local nonces, used by `createContract`.
 
@@ -677,7 +674,6 @@
   - Added an internal mempool queue to `sendTransaction` and `writeContract` for better nonce handling
   - Defaults block tag to `pending` for transaction simulation and transaction count (when initializing the nonce manager)
 - 3fb9ce283: Add utils for using viem with MUD
-
   - `mudFoundry` chain with a transaction request formatter that temporarily removes max fees to work better with anvil `--base-fee 0`
   - `createBurnerAccount` that also temporarily removes max fees during transaction signing to work better with anvil `--base-fee 0`
   - `mudTransportObserver` that will soon let MUD Dev Tools observe transactions
@@ -760,7 +756,6 @@
   - Add `extractUserTypes` solidity parser utility to extract user-defined types.
   - Add `loadAndExtractUserTypes` helper to load and parse a solidity file, extracting user-defined types.
 - d075f82f3: - Moves contract write logic out of `createContract` into its own `writeContract` method so that it can be used outside of the contract instance, and for consistency with viem.
-
   - Deprecates `createContract` in favor of `getContract` for consistency with viem.
   - Reworks `createNonceManager`'s `BroadcastChannel` setup and moves out the notion of a "nonce manager ID" to `getNonceManagerId` so we can create an internal cache with `getNonceManager` for use in `writeContract`.
 
@@ -782,7 +777,6 @@
 - 0c4f9fea9: `TableId.toHex()` now truncates name/namespace to 16 bytes each, to properly fit into a `bytes32` hex string.
 
   Also adds a few utils we'll need in the indexer:
-
   - `bigIntMin` is similar to `Math.min` but for `bigint`s
   - `bigIntMax` is similar to `Math.max` but for `bigint`s
   - `bigIntSort` for sorting an array of `bigint`s
@@ -824,7 +818,6 @@
 
 - b1d41727d: Added a `mapObject` helper to map the value of each property of an object to a new value.
 - 4c1dcd81e: - Added a `Result<Ok, Err>` type for more explicit and typesafe error handling ([inspired by Rust](https://doc.rust-lang.org/std/result/)).
-
   - Added a `includes` util as typesafe alternative to [`Array.prototype.includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
 
 - 6071163f7: - Moves zero gas fee override to `createContract` until https://github.com/wagmi-dev/viem/pull/963 or similar feature lands
@@ -961,7 +954,6 @@
     This is to avoid returning invalid data, as the data of a dynamic field is not deleted when the record is deleted, but only its length is set to zero.
 
 - 331f0d636: Deprecate `@latticexyz/std-client` and remove v1 network dependencies.
-
   - `getBurnerWallet` is replaced by `getBurnerPrivateKey` from `@latticexyz/common`. It now returns a `Hex` string instead of an `rxjs` `BehaviorSubject`.
 
     ```
@@ -1165,7 +1157,6 @@
   ```
 
 - 4c1dcd81: - Added a `Result<Ok, Err>` type for more explicit and typesafe error handling ([inspired by Rust](https://doc.rust-lang.org/std/result/)).
-
   - Added a `includes` util as typesafe alternative to [`Array.prototype.includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
 
 - 5df1f31b: Updated `chunk` types to use readonly arrays
@@ -1231,7 +1222,6 @@
 ### Minor Changes
 
 - d075f82f: - Moves contract write logic out of `createContract` into its own `writeContract` method so that it can be used outside of the contract instance, and for consistency with viem.
-
   - Deprecates `createContract` in favor of `getContract` for consistency with viem.
   - Reworks `createNonceManager`'s `BroadcastChannel` setup and moves out the notion of a "nonce manager ID" to `getNonceManagerId` so we can create an internal cache with `getNonceManager` for use in `writeContract`.
 
@@ -1262,7 +1252,6 @@
 ### Major Changes
 
 - [#1550](https://github.com/latticexyz/mud/pull/1550) [`65c9546c`](https://github.com/latticexyz/mud/commit/65c9546c4ee8a410b21d032f02b0050442152e7e) Thanks [@dk1a](https://github.com/dk1a)! - - Add `renderWithFieldSuffix` helper method to always render a field function with a suffix, and optionally render the same function without a suffix.
-
   - Remove `methodNameSuffix` from `RenderField` interface, because the suffix is now computed as part of `renderWithFieldSuffix`.
 
 - [#1558](https://github.com/latticexyz/mud/pull/1558) [`bfcb293d`](https://github.com/latticexyz/mud/commit/bfcb293d1931edde7f8a3e077f6f555a26fd1d2f) Thanks [@alvrs](https://github.com/alvrs)! - What used to be known as `ephemeral` table is now called `offchain` table.
@@ -1345,7 +1334,6 @@
 - [#1354](https://github.com/latticexyz/mud/pull/1354) [`331dbfdc`](https://github.com/latticexyz/mud/commit/331dbfdcbbda404de4b0fd4d439d636ae2033853) Thanks [@dk1a](https://github.com/dk1a)! - `readHex` was moved from `@latticexyz/protocol-parser` to `@latticexyz/common`
 
 - [#1566](https://github.com/latticexyz/mud/pull/1566) [`44a5432a`](https://github.com/latticexyz/mud/commit/44a5432acb9c5af3dca1447c50219a00894c45a9) Thanks [@dk1a](https://github.com/dk1a)! - - Add `getRemappings` to get foundry remappings as an array of `[to, from]` tuples.
-
   - Add `extractUserTypes` solidity parser utility to extract user-defined types.
   - Add `loadAndExtractUserTypes` helper to load and parse a solidity file, extracting user-defined types.
 
@@ -1543,7 +1531,6 @@
 ### Minor Changes
 
 - [#1311](https://github.com/latticexyz/mud/pull/1311) [`331f0d63`](https://github.com/latticexyz/mud/commit/331f0d636f6f327824307570a63fb301d9b897d1) Thanks [@alvrs](https://github.com/alvrs)! - Deprecate `@latticexyz/std-client` and remove v1 network dependencies.
-
   - `getBurnerWallet` is replaced by `getBurnerPrivateKey` from `@latticexyz/common`. It now returns a `Hex` string instead of an `rxjs` `BehaviorSubject`.
 
     ```
@@ -1629,7 +1616,6 @@
   **Migrate existing RECS apps to new sync packages**
 
   As you migrate, you may find some features replaced, removed, or not included by default. Please [open an issue](https://github.com/latticexyz/mud/issues/new) and let us know if we missed anything.
-
   1. Add `@latticexyz/store-sync` package to your app's `client` package and make sure `viem` is pinned to version `1.3.1` (otherwise you may get type errors)
 
   2. In your `supportedChains.ts`, replace `foundry` chain with our new `mudFoundry` chain.
@@ -1810,7 +1796,6 @@
 - [#1258](https://github.com/latticexyz/mud/pull/1258) [`6c673325`](https://github.com/latticexyz/mud/commit/6c6733256f91cddb0e913217cbd8e02e6bc484c7) Thanks [@holic](https://github.com/holic)! - Add `tableIdToHex` and `hexToTableId` pure functions and move/deprecate `TableId`.
 
 - [#1261](https://github.com/latticexyz/mud/pull/1261) [`cd5abcc3`](https://github.com/latticexyz/mud/commit/cd5abcc3b4744fab9a45c322bc76ff013355ffcb) Thanks [@holic](https://github.com/holic)! - Add utils for using viem with MUD
-
   - `createContract` is a wrapper around [viem's `getContract`](https://viem.sh/docs/contract/getContract.html) but with better nonce handling for faster executing of transactions. It has the same arguments and return type as `getContract`.
   - `createNonceManager` helps track local nonces, used by `createContract`.
 
@@ -1819,7 +1804,6 @@
 ### Minor Changes
 
 - [#1245](https://github.com/latticexyz/mud/pull/1245) [`3fb9ce28`](https://github.com/latticexyz/mud/commit/3fb9ce2839271a0dcfe97f86394195f7a6f70f50) Thanks [@holic](https://github.com/holic)! - Add utils for using viem with MUD
-
   - `mudFoundry` chain with a transaction request formatter that temporarily removes max fees to work better with anvil `--base-fee 0`
   - `createBurnerAccount` that also temporarily removes max fees during transaction signing to work better with anvil `--base-fee 0`
   - `mudTransportObserver` that will soon let MUD Dev Tools observe transactions
@@ -1858,7 +1842,6 @@
 - [#1173](https://github.com/latticexyz/mud/pull/1173) [`0c4f9fea`](https://github.com/latticexyz/mud/commit/0c4f9fea9e38ba122316cdd52c3d158c62f8cfee) Thanks [@holic](https://github.com/holic)! - `TableId.toHex()` now truncates name/namespace to 16 bytes each, to properly fit into a `bytes32` hex string.
 
   Also adds a few utils we'll need in the indexer:
-
   - `bigIntMin` is similar to `Math.min` but for `bigint`s
   - `bigIntMax` is similar to `Math.max` but for `bigint`s
   - `bigIntSort` for sorting an array of `bigint`s
