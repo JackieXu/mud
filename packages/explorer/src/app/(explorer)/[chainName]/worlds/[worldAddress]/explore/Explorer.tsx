@@ -9,11 +9,11 @@ import { useIndexerForChainId } from "../../../../hooks/useIndexerForChainId";
 import { usePrevious } from "../../../../hooks/usePrevious";
 import { useTablesQuery } from "../../../../queries/useTablesQuery";
 import { constructTableName } from "../../../../utils/constructTableName";
+import { usePaginationState } from "./hooks/usePaginationState";
+import { useSQLQueryState } from "./hooks/useSQLQueryState";
 import { SQLEditor } from "./SQLEditor";
 import { TableSelector } from "./TableSelector";
 import { TablesViewer } from "./TablesViewer";
-import { usePaginationState } from "./hooks/usePaginationState";
-import { useSQLQueryState } from "./hooks/useSQLQueryState";
 
 export function Explorer() {
   const { worldAddress } = useParams();

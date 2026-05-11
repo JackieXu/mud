@@ -1,6 +1,6 @@
 import { useParams } from "next/navigation";
 import { Abi, Hex } from "viem";
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { supportedChains, validateChainName } from "../../../common";
 
 type AbiQueryResult = {

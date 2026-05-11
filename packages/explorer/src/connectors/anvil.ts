@@ -1,4 +1,4 @@
-import { EIP1193RequestFn, Transport, WalletRpcSchema, http } from "viem";
+import { EIP1193RequestFn, http, Transport, WalletRpcSchema } from "viem";
 import { Account, privateKeyToAccount } from "viem/accounts";
 import { anvil as anvilChain } from "viem/chains";
 import { Connector, createConnector } from "wagmi";

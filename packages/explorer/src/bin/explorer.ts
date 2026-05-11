@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import { config } from "dotenv";
+import { ChildProcess, spawn } from "child_process";
 import { rm } from "fs/promises";
 import path from "path";
 import process from "process";
 import { fileURLToPath } from "url";
+import { config } from "dotenv";
 import { anvil } from "viem/chains";
 import yargs from "yargs";
-import { ChildProcess, spawn } from "child_process";
 import { validateChainId } from "../common";
 
 const __filename = fileURLToPath(import.meta.url);

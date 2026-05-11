@@ -4,9 +4,9 @@ import { parseAsString, useQueryState } from "nuqs";
 import {
   AbiFunction,
   AbiItem,
-  Hex,
   decodeErrorResult,
   decodeFunctionData,
+  Hex,
   parseAbiItem,
   toFunctionSelector,
 } from "viem";
@@ -17,7 +17,7 @@ import "react18-json-view/src/dark.css";
 import "react18-json-view/src/style.css";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Resource, hexToResource, resourceToLabel } from "@latticexyz/common";
+import { hexToResource, Resource, resourceToLabel } from "@latticexyz/common";
 import { CopyButton } from "../../../../../../components/CopyButton";
 import { Button } from "../../../../../../components/ui/Button";
 import {

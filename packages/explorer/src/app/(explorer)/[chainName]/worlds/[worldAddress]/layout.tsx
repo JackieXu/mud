@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { Address } from "viem";
 import { isValidChainName } from "../../../../../common";
 import { Navigation } from "../../../../../components/Navigation";
-import { Providers } from "./Providers";
 import { TransactionsWatcher } from "./observe/TransactionsWatcher";
+import { Providers } from "./Providers";
 
 type Props = {
   params: {

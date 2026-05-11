@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Table } from "@latticexyz/config";
 import { useMonaco } from "@monaco-editor/react";
-import { SuggestedSQLKeyword, monacoSuggestionsMap, suggestedSQLKeywords } from "./consts";
+import { monacoSuggestionsMap, SuggestedSQLKeyword, suggestedSQLKeywords } from "./consts";
 import { useQueryAutocomplete } from "./useQueryAutocomplete";
 
 const isSuggestedSQLKeyword = (keyword: string): keyword is SuggestedSQLKeyword => {

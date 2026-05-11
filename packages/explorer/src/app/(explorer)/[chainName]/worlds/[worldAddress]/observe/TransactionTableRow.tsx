@@ -1,6 +1,6 @@
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { formatEther, stringify } from "viem";
-import { Row, flexRender } from "@tanstack/react-table";
+import { flexRender, Row } from "@tanstack/react-table";
 import { CopyButton } from "../../../../../../components/CopyButton";
 import { Separator } from "../../../../../../components/ui/Separator";
 import { Skeleton } from "../../../../../../components/ui/Skeleton";
