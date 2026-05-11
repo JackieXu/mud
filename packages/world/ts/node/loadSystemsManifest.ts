@@ -26,7 +26,7 @@ export async function loadSystemsManifest(opts: {
   const manifest = parseManifest(json);
   if (manifest instanceof type.errors) {
     throw new Error(
-      `Invalid systems manifest at "${systemsManifestFilename}". Run \`mud build\` before trying again.\n${indent(manifest.message)}`,
+      `Invalid systems manifest at "${systemsManifestFilename}". Run \`mud build\` before trying again.\n${indent(manifest.summary)}`,
     );
   }
 

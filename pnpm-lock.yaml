@@ -108,8 +108,8 @@ importers:
         specifier: ^5.83.0
         version: 5.83.0(react@19.1.0)
       arktype:
-        specifier: 2.0.0-beta.6
-        version: 2.0.0-beta.6
+        specifier: 2.2.0
+        version: 2.2.0
       ox:
         specifier: ^0.8.3
         version: 0.8.4(typescript@5.9.3)(zod@3.23.8)
@@ -204,8 +204,8 @@ importers:
   packages/cli:
     dependencies:
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@aws-sdk/client-kms':
         specifier: ^3.556.0
         version: 3.556.0
@@ -377,8 +377,8 @@ importers:
   packages/config:
     dependencies:
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@latticexyz/common':
         specifier: workspace:*
         version: link:../common
@@ -485,8 +485,8 @@ importers:
         specifier: ^0.7.0
         version: 0.7.0
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@latticexyz/common':
         specifier: workspace:*
         version: link:../common
@@ -1033,8 +1033,8 @@ importers:
   packages/stash:
     dependencies:
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@latticexyz/common':
         specifier: workspace:*
         version: link:../common
@@ -1082,8 +1082,8 @@ importers:
   packages/store:
     dependencies:
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@latticexyz/common':
         specifier: workspace:*
         version: link:../common
@@ -1100,8 +1100,8 @@ importers:
         specifier: 1.0.9
         version: 1.0.9(typescript@5.9.3)(zod@3.23.8)
       arktype:
-        specifier: 2.0.0-beta.6
-        version: 2.0.0-beta.6
+        specifier: 2.2.0
+        version: 2.2.0
       debug:
         specifier: ^4.4.3
         version: 4.4.3(supports-color@5.5.0)
@@ -1246,8 +1246,8 @@ importers:
   packages/store-sync:
     dependencies:
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@latticexyz/block-logs-stream':
         specifier: workspace:*
         version: link:../block-logs-stream
@@ -1395,8 +1395,8 @@ importers:
   packages/world:
     dependencies:
       '@ark/util':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.56.0
+        version: 0.56.0
       '@latticexyz/block-logs-stream':
         specifier: workspace:*
         version: link:../block-logs-stream
@@ -1419,8 +1419,8 @@ importers:
         specifier: 1.0.9
         version: 1.0.9(typescript@5.9.3)(zod@3.23.8)
       arktype:
-        specifier: 2.0.0-beta.6
-        version: 2.0.0-beta.6
+        specifier: 2.2.0
+        version: 2.2.0
       debug:
         specifier: ^4.4.3
         version: 4.4.3(supports-color@5.5.0)
@@ -1743,14 +1743,8 @@ packages:
   '@ark/fs@0.56.0':
     resolution: {integrity: sha512-zY/wDDhcvmt6/upQwZM766PAnvIzdEMcgydUGd9pqY9FMGNo9I9uE4RYAfms9AeUUtbZJu2h2Ua0tvFsO5XF4Q==}
 
-  '@ark/schema@0.3.3':
-    resolution: {integrity: sha512-SA4QggzaKHxkNB+faWmhSJbCPMHmGBCpb6dNG3VIt5VOMZhZJJSD76/tOUzQvvJNzztHkTakrTZea+iKsEDcRQ==}
-
   '@ark/schema@0.56.0':
     resolution: {integrity: sha512-ECg3hox/6Z/nLajxXqNhgPtNdHWC9zNsDyskwO28WinoFEnWow4IsERNz9AnXRhTZJnYIlAJ4uGn3nlLk65vZA==}
-
-  '@ark/util@0.2.2':
-    resolution: {integrity: sha512-ryZ4+f3SlReQRH9nTFLK5EeU1Pan5ZfS+ACPSk0ir5uujJouFmvOdnkVfeAJAgeOb3kKmUM9kjelv1cwH2ScZg==}
 
   '@ark/util@0.56.0':
     resolution: {integrity: sha512-BghfRC8b9pNs3vBoDJhcta0/c1J1rsoS1+HgVUreMFPdhz/CRAKReAu57YEllNaSy98rWAdY1gE+gFup7OXpgA==}
@@ -6559,11 +6553,14 @@ packages:
   arkregex@0.0.4:
     resolution: {integrity: sha512-biS/FkvSwQq59TZ453piUp8bxMui11pgOMV9WHAnli1F8o0ayNCZzUwQadL/bGIUic5TkS/QlPcyMuI8ZIwedQ==}
 
-  arktype@2.0.0-beta.6:
-    resolution: {integrity: sha512-tbH5/h0z371sgrJIAhZhH2BcrErWv8uQIPVcLmknJ8ffov5/ZbMNufrQ3hG9avGKTcVnVmdQoPhl1WuKuagqXA==}
+  arkregex@0.0.5:
+    resolution: {integrity: sha512-ncYjBdLlh5/QnVsAA8De16Tc9EqmYM7y/WU9j+236KcyYNUXogpz3sC4ATIZYzzLxwI+0sEOaQLEmLmRleaEXw==}
 
   arktype@2.1.28:
     resolution: {integrity: sha512-LVZqXl2zWRpNFnbITrtFmqeqNkPPo+KemuzbGSY6jvJwCb4v8NsDzrWOLHnQgWl26TkJeWWcUNUeBpq2Mst1/Q==}
+
+  arktype@2.2.0:
+    resolution: {integrity: sha512-t54MZ7ti5BhOEvzEkgKnWvqj+UbDfWig+DHr5I34xatymPusKLS0lQpNJd8M6DzmIto2QGszHfNKoFIT8tMCZQ==}
 
   array-buffer-byte-length@1.0.1:
     resolution: {integrity: sha512-ahC5W1xgou+KTXix4sAO8Ki12Q+jf4i0+tmk3sC+zgcynshkHxzpXdImBehiUYKKKDwvfFiJl1tZt6ewscS1Mg==}
@@ -12627,15 +12624,9 @@ snapshots:
 
   '@ark/fs@0.56.0': {}
 
-  '@ark/schema@0.3.3':
-    dependencies:
-      '@ark/util': 0.2.2
-
   '@ark/schema@0.56.0':
     dependencies:
       '@ark/util': 0.56.0
-
-  '@ark/util@0.2.2': {}
 
   '@ark/util@0.56.0': {}
 
@@ -19406,16 +19397,21 @@ snapshots:
     dependencies:
       '@ark/util': 0.56.0
 
-  arktype@2.0.0-beta.6:
+  arkregex@0.0.5:
     dependencies:
-      '@ark/schema': 0.3.3
-      '@ark/util': 0.2.2
+      '@ark/util': 0.56.0
 
   arktype@2.1.28:
     dependencies:
       '@ark/schema': 0.56.0
       '@ark/util': 0.56.0
       arkregex: 0.0.4
+
+  arktype@2.2.0:
+    dependencies:
+      '@ark/schema': 0.56.0
+      '@ark/util': 0.56.0
+      arkregex: 0.0.5
 
   array-buffer-byte-length@1.0.1:
     dependencies:

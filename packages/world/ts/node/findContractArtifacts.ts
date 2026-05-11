@@ -42,7 +42,7 @@ export async function findContractArtifacts({ forgeOutDir }: Input): Promise<Out
     .map(({ filename, json }) => {
       const artifact = parseArtifact(json);
       if (artifact instanceof type.errors) {
-        debug(`Skipping invalid artifact at "${filename}":\n${indent(artifact.message)}`);
+        debug(`Skipping invalid artifact at "${filename}":\n${indent(artifact.summary)}`);
         return;
       }
       return artifact;

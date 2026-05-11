@@ -55,7 +55,7 @@
     "test:ci": "pnpm run test"
   },
   "dependencies": {
-    "@ark/util": "0.2.2",
+    "@ark/util": "0.56.0",
     "@latticexyz/block-logs-stream": "workspace:*",
     "@latticexyz/common": "workspace:*",
     "@latticexyz/config": "workspace:*",
@@ -63,7 +63,7 @@
     "@latticexyz/schema-type": "workspace:*",
     "@latticexyz/store": "workspace:*",
     "abitype": "1.0.9",
-    "arktype": "2.0.0-beta.6",
+    "arktype": "2.2.0",
     "debug": "^4.4.3"
   },
   "devDependencies": {

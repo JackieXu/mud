@@ -255,7 +255,7 @@ describe("resolveTable", () => {
         // @ts-expect-error Key `keySchema` does not exist in TableInput
         keySchema: { id: "address" },
       }),
-    ).type.errors("Key `keySchema` does not exist in TableInput ");
+    ).type.errors("Key `keySchema` does not exist in TableInput");
   });
 });
 
